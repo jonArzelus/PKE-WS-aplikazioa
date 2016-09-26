@@ -54,18 +54,16 @@
 	function aukeratuBesteak() {
 		if(document.getElementById("esp").value=="besterik") { //ikusi ea aukera bestelakoa den
 			
-				var p1 = document.createElement("p");
+				
+				var p1 = document.createElement("P");
 				var hitzak = document.createTextNode("(*) adierazi zein espezialitate egiten ari zaren: ");
 				var input1 = document.createElement("input");
-				var s11 = document.getElementById("s1");
+				input1.setAttribute("name","espezializazioa");
+				input1.setAttribute("id","espezializazioa");
 			
 				p1.appendChild(hitzak);
-				input1.setAttribute("required");
-			
-				var sartuhemen s11.getElementById("parrafoa");
-			
-				s11.insertBefore(input1,sartuhemen);
-				s11.insertBefore(p1,input1);
+				document.getElementById("div1").appendChild(p1);
+				document.getElementById("div1").appendChild(input1);
 			
 			//document.getElementById("besteEsp").style.visibility = "visible";
 			//document.getElementById("besteEsp1").style.visibility = "visible";
@@ -106,8 +104,9 @@
   				<option value="konputazioa">Konputazioa</option>
   				<option value="besterik">Besterik</option>
 			</select><br>
-			
+			<div id="div1">
 				
+			</div>	
 			<!--<b id="besteEsp1" style="visibility:hidden;">(*) adierazi zein espezialitate egiten zauden</b>
  			<input id="besteEsp" type="text" style="visibility:hidden;" name="beste-espezialitatea"><br><br>-->
 			 
