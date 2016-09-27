@@ -30,3 +30,10 @@ nav span a {
 	text-decoration: none;
 	color:black;
 }
+footer img {
+	opacity:0.5;
+	width:3%;
+}
+footer img:hover {
+	 opacity: 1.0;
+}

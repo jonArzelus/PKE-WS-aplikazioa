@@ -13,7 +13,7 @@
 		   media='only screen and (max-width: 480px)'
 		   href='stylesPWS/smartphone.css' />
 	<script type="text/javascript">
-		function ikusBalioak() { //TODO getElementById erabili for-eko i ordez
+	/*	function ikusBalioak() {
 			var sAux="";
 			var er_pasahitza = new RegExp("^[A-Za-z0-9]{6,}$");
 			var er_eposta = new RegExp("^[a-zA-Z]+[0-9]{3}@ikasle.ehu.(eus|es)$");
@@ -48,39 +48,31 @@
 			}
 			alert(sAux);
 			return true;
-		}
+		}*/
 	</script>
 	<script type="text/javascript">
 	function aukeratuBesteak() {
 		if(document.getElementById("esp").value=="besterik") { //ikusi ea aukera bestelakoa den
 			
-				var p1 = document.createElement("p");
+				
+				var p1 = document.createElement("P");
 				var hitzak = document.createTextNode("(*) adierazi zein espezialitate egiten ari zaren: ");
 				var input1 = document.createElement("input");
-				var s11 = document.getElementById("s1");
+				input1.setAttribute("name","espezializazioa");
+				input1.setAttribute("id","espezializazioa");
 			
 				p1.appendChild(hitzak);
-				
+				document.getElementById("div1").appendChild(p1);
+				document.getElementById("div1").appendChild(input1);
 			
-				var sartuhemen s11.getElementById("parrafoa");
-			
-				s11.insertBefore(input1,sartuhemen);
-				s11.insertBefore(p1,input1);
-			
-			//document.getElementById("besteEsp").style.visibility = "visible";
-			//document.getElementById("besteEsp1").style.visibility = "visible";
-		//} else {
-			//document.getElementById("besteEsp").style.visibility = "hidden";
-			//document.getElementById("besteEsp1").style.visibility = "hidden";
 		}
 	}
 	</script>
-	
   </head>
   <body>
   <div id='page-wrap'>
 	<header class='main' id='h1'>
-      <span class="right"><a href="LogIn.html">LogIn</a> / <a href="singUp.html">SignUp4</a> / <a href="singUp2.html">SignUp5</a> </span>
+      <span class="right"><a href="LogIn.html">LogIn</a> / <a href="signUp.html">SignUp</a>  / <a href="signUp5.html"> SignUp5 </a></span>
       <span class="right" style="display:none;"><a href="/logout">LogOut</a> </span>
 	<h2>Quiz: crazy questions</h2>
     </header>
@@ -93,24 +85,28 @@
 		
 		 <form id="erregistro" name="erregistro" method="GET" onSubmit="return ikusBalioak()" >
   			(*) Izen-Abizenak:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  			<input type="text" name="izen-abizenak"><br>
+  			<input type="text" name="izen-abizenak" required title="Sartu zure izen abizenak" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Posta Elektronikoa:&nbsp; 
- 			<input type="text" name="eposta-helbidea"><br>
+ 			<input type="email" name="eposta-helbidea" required pattern="^[a-zA-Z]+[0-9]{3}@ikasle.ehu.(eus|es)$" title="emailak unibertsitatekoa izan behar du." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Pasahitza:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
- 			<input type="password" name="pasahitza"><br>
+ 			<input type="password" name="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Telefono zenbakia:&nbsp;&nbsp;&nbsp;
- 			<input type="text" name="telefono-zenbakia"><br>
+ 			<input type="text" name="telefono-zenbakia" required pattern="[0-9]{9}" title="9 zenbakiko telefono zenbakia idatzi mesedez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Espezialitatea:&nbsp;&nbsp;
- 			<select id="esp" name="espezialitatea" onClick="aukeratuBesteak()">
+ 			<select id="esp" name="espezialitatea" onClick="aukeratuBesteak()" required>
   				<option value="software">Software Ingeniaritza</option>
   				<option value="hardware">Konputagailuen Ingeniaritza</option>
   				<option value="konputazioa">Konputazioa</option>
   				<option value="besterik">Besterik</option>
 			</select><br>
-			<b id="besteEsp1" style="visibility:hidden;">(*) adierazi zein espezialitate egiten zauden</b>
- 			<input id="besteEsp" type="text" style="visibility:hidden;" name="beste-espezialitatea"><br><br>
-			Interesa duzun teknologiak eta erremintak:<br>
- 			<textarea name="interesak" rows="3" cols="30"></textarea> <br><br>
+			<div id="div1">
+				
+			</div>	
+			<!--<b id="besteEsp1" style="visibility:hidden;">(*) adierazi zein espezialitate egiten zauden</b>
+ 			<input id="besteEsp" type="text" style="visibility:hidden;" name="beste-espezialitatea"><br><br>-->
+			 
+			<p id="parrafoa">Interesa duzun teknologiak eta erremintak:</p><br>
+ 			<textarea name="interesak" id="interesa" rows="3" cols="30"></textarea> <br><br>
 			Sartu argazki bat:<br>
 			<input type="file" name="argazki-fitxategia" value="Bidali"> <br><br>
 			<input type="submit" name="button" value="Bidali"> <br><br>
