@@ -54,6 +54,7 @@
 	function aukeratuBesteak() {
 		if(document.getElementById("esp").value=="besterik") { //ikusi ea aukera bestelakoa den
 			
+			if(document.getElementById("espezializazioa")==null){
 				var p1 = document.createElement("P");
 				var hitzak = document.createTextNode("(*) adierazi zein espezialitate egiten ari zaren: ");
 				var input1 = document.createElement("input");
@@ -63,7 +64,26 @@
 				p1.appendChild(hitzak);
 				document.getElementById("div1").appendChild(p1);
 				document.getElementById("div1").appendChild(input1);
-			
+		 }
+		}
+	}
+	</script>
+	<script type="text/javascript">
+	function argazkiaKargatu() {
+		var preview = document.getElementById("argazkia");
+		var file = document.getElementById("argazki-fitxategia").files[0];
+		//alert(file);
+		var reader = new FileReader();
+		
+		reader.onload = function (event){
+			var dataUri = event.target.result;
+			preview.src = dataUri; 
+		}
+		
+		if (file){
+			reader.readAsDataURL(file);
+		}else{
+			preview.src="";
 		}
 	}
 	</script>
@@ -104,7 +124,8 @@
 			<p id="parrafoa">Interesa duzun teknologiak eta erremintak:</p><br>
  			<textarea name="interesak" id="interesa" rows="3" cols="30"></textarea> <br><br>
 			Sartu argazki bat:<br>
-			<input type="file" name="argazki-fitxategia" value="Bidali"> <br><br>
+			<input id="argazki-fitxategia" type="file" name="argazki-fitxategia" accepts="image/*" onchange="argazkiaKargatu()" value="Bidali"> <br><br>
+			 <img id="argazkia" stye="width:150px; height: 100px;" />
 			<input type="submit" name="button" value="Bidali"> <br><br>
 		</form> 
 		
