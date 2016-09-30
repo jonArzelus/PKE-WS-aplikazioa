@@ -18,6 +18,12 @@ nav span {
 	display: inline-block;
 	font-size:22px;
 }
+.kredituak {
+	header			{background: #e2f; text-align: center;}
+	nav				{background: #aaa; text-align: center;}
+	section 		{background: #fff; text-align: center;}
+	footer					{background: #ef3; text-align: center;}
+}
 
 #ErrorMsgs          		 { color: #f61; font-size: smaler}
 

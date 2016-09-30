@@ -1,0 +1,1 @@
+<?php echo '$HTTP_POST_VARS[0]'; ?>
