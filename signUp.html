@@ -19,6 +19,7 @@
 				var input1 = document.createElement("input");
 				input1.setAttribute("name","espezializazioa");
 				input1.setAttribute("id","espezializazioa");
+				input1.setAttribute("required","true");
 			
 				p1.appendChild(hitzak);
 				document.getElementById("div1").appendChild(p1);
@@ -74,16 +75,16 @@
 	</nav>
     <section class="main" id="s1">
 		
-		 <form id="erregistro" name="erregistro" method="POST" onSubmit="return ikusBalioak()" action = "Enroll.php">
-  			(*) Izen-Abizenak:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  			<input type="text" name="izen-abizenak" required pattern="^[a-zA-Z]$" title="Sartu zure izen abizenak" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
-			(*) Posta Elektronikoa:&nbsp; 
+		 <form id="erregistro" name="erregistro" method="POST" onsubmit="return ikusBalioak()" action="Enroll.php">
+  			(*) Izen-Abizenak:
+  			<input type="text" name="izen-abizenak" required pattern="([A-Z]{1}[a-z ]{1,})*" title="Izen-abizenak letra larriz hasita" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
+			(*) Posta Elektronikoa:
  			<input type="email" name="eposta-helbidea" required pattern="^[a-zA-Z]+[0-9]{3}@ikasle.ehu.(eus|es)$" title="emailak unibertsitatekoa izan behar du." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
-			(*) Pasahitza:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			(*) Pasahitza:
  			<input type="password" name="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
-			(*) Telefono zenbakia:&nbsp;&nbsp;&nbsp;
+			(*) Telefono zenbakia:
  			<input type="text" name="telefono-zenbakia" required pattern="[0-9]{9}" title="9 zenbakiko telefono zenbakia idatzi mesedez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
-			(*) Espezialitatea:&nbsp;&nbsp;
+			(*) Espezialitatea:
  			<select id="esp" name="espezialitatea" onClick="aukeratuBesteak()" required>
   				<option value="software">Software Ingeniaritza</option>
   				<option value="hardware">Konputagailuen Ingeniaritza</option>
@@ -91,14 +92,15 @@
   				<option value="besterik">Besterik</option>
 			</select><br>
 			<div id="div1">
-				
+				<!-- argazkia kargatzeko -->
 			</div>	
 			 
 			<p id="parrafoa">Interesa duzun teknologiak eta erremintak:</p><br>
  			<textarea name="interesak" id="interesa" rows="3" cols="30"></textarea> <br><br>
 			Sartu argazki bat:<br>
-			<input id="argazki-fitxategia" type="file" name="argazki-fitxategia" accepts="image/*" onchange="argazkiaKargatu()" value="Bidali"> <br><br>
-			 <img id="argazkia" stye="width:150px; height: 100px;" />
+			<input id="argazki-fitxategia" type="file" name="argazki-fitxategia" accepts="image/*" onchange="return argazkiaKargatu()" value="Bidali">
+			 <img id="argazkia" style="width:150px; height: 100px;" /> <br>
+			 <input type="submit" name="button" value="Bidali">
 			<input type="reset" name="button" value="Ezeztatu"> <br><br>
 		</form> 
 		
