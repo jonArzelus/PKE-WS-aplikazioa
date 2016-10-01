@@ -1,0 +1,19 @@
+<?php 
+
+//datu basearekin konexioa sortu
+//$esteka = mysqli_connect("mysql.hostinger.es", "u880556081_weba", "pertsona1", "u880556081_perts"); //hostinger esteka
+$esteka = mysqli_connect("localhost", "root", "", "erabiltzaileak"); //localhost esteka
+
+$erabiltzaileak = "SELECT * FROM erabiltzaileak";
+$emaitza = $esteka->query($erabiltzaileak); 
+echo '<table border=2><tr><th> IZEN-ABIZENAK </th><th> POSTA </th><th> TELEFONOA </th><th> ESPEZIALITATEA </th><th> IRUDIA </th>';
+
+while ($lerroa = $emaitza->fetch_array(MYSQLI_BOTH)){
+echo '<tr><td>'.$lerroa['IzenAbizena'].'</td><td>'.$lerroa['PostaElektronikoa'].'</td><td>'.$lerroa['TelefonoZenbakia'].'</td><td>'.$lerroa['Espezialitatea'].'</td><td>'.
+	'<img alt="Erabiltzaile honek ez du argazkirik." src="data/jpeg;base64,'.base64_encode($lerroa['Argazkia']).'" width="80" height="80">'.'</td></tr>';
+}
+echo '</table>';
+
+$esteka -> close();
+
+?>

@@ -12,6 +12,9 @@
 		echo "errno depurazio katsa: ".mysqli_connect_errno()."</br>";
 		echo "error depurazio akatsa: ".mysqli_connect_error()."</br>";
 	}
+		
+	$irudia=null;
+
 	if($_SERVER['REQUEST_METHOD'] == 'GET')  { //get eskaera landu
 		null;
 	} else { //post eskaera landu
@@ -26,20 +29,27 @@
 		}
 		$interesak= $_POST['interesak'];
 		$argazkia= $_POST['argazki-fitxategia'];
-		
-		
 		echo "Kaixo $izena, $eposta da zure helbidea. Aukeratu duzun espezilaitatea $esp da.</br></br>";
+		echo "Argazki-fitxategia: ";
 		if($argazkia==null){
 			echo "Ez duzu argazki fitxategirik bidali.</br></br>";
 		}else{
-			echo "Jasotako fitxategia: ".($_FILES['argazki-fitxategia']['name'])."</br></br>";
+			//echo "Jasotako fitxategia: ".($_FILES['argazki-fitxategia']['name'])."</br></br>";
+			if($_FILES[$argazkia]['size'] !=0){
+				if(!empty(getimagesize($_FILES[$argazkia]['tmp_name']))){
+					$irudia = $esteka->real_scape_string(file_get_contents($_FILES [$argazkia]['tmp_name']));
+					echo "$argazkia fitxategia igo duzu";
+				}else{
+					echo "Igo nahi duzun fitxategia ez da argazki bat.</br></br>";
+				}
+			}
 		}
-		//echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='http://berriogit.hol.es/ShowUsers.php'> Ikus erabiltzaileak </a></br>"; //hostingerrekoa ikusteko
-		echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='ShowUsers.php'> Ikus erabiltzaileak </a></br></br>"; //localhosten ikusteko
+		//echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='http://berriogit.hol.es/ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br>"; //hostingerrekoa ikusteko
+		echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br></br>"; //localhosten ikusteko
 
 		//tauletan datuak gordetzea
-		mysqli_query($esteka,"INSERT INTO erabiltzaileak (IzenAbizena, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$argazkia')");
-		echo "Hauek dira POST metodoko datuak:</br></br>";
+		mysqli_query($esteka,"INSERT INTO erabiltzaileak (IzenAbizena, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$irudia')");
+		echo "Hauek dira POST metodoko datuak:</br>";
 		echo"<pre>";
 		print_r($_SERVER);
 		echo "</pre>";
