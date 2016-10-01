@@ -76,7 +76,7 @@
 	</nav>
     <section class="main" id="s1">
 		
-		 <form id="erregistro" name="erregistro" method="POST" onsubmit="return ikusBalioak()" action="EnrollWithImage.php">
+		 <form id="erregistro" name="erregistro" method="POST" onsubmit="return ikusBalioak()" action="EnrollWithImage.php" enctype="multipart/form-data">
   			(*) Izen-Abizenak:
   			<input type="text" name="izen-abizenak" required pattern="([A-Z]{1}[a-z ]{1,})*" title="Izen-abizenak letra larriz hasita" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Posta Elektronikoa:

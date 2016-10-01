@@ -10,7 +10,7 @@ echo '<table border=2><tr><th> IZEN-ABIZENAK </th><th> POSTA </th><th> TELEFONOA
 
 while ($lerroa = $emaitza->fetch_array(MYSQLI_BOTH)){
 echo '<tr><td>'.$lerroa['IzenAbizena'].'</td><td>'.$lerroa['PostaElektronikoa'].'</td><td>'.$lerroa['TelefonoZenbakia'].'</td><td>'.$lerroa['Espezialitatea'].'</td><td>'.
-	'<img alt="Erabiltzaile honek ez du argazkirik." src="data/jpeg;base64,'.base64_encode($lerroa['Argazkia']).'" width="80" height="80">'.'</td></tr>';
+	'<img alt="Erabiltzaile honek ez du argazkirik." src="'.$lerroa['Argazkia'].'" width="100" height="80">'.'</td></tr>';
 }
 echo '</table>';
 

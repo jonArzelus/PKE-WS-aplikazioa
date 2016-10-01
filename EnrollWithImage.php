@@ -24,14 +24,24 @@
 		$tel= $_POST['telefono-zenbakia'];
 		$esp= $_POST['espezialitatea'];
 		if($esp=="besterik") {
-			//$esp= $esp . " " . $_POST['espezializazioa'];
 			$esp= $_POST['espezializazioa'];
 		}
 		$interesak= $_POST['interesak'];
-		$argazkia= $_POST['argazki-fitxategia'];
+		//$argazkia= $_POST['argazki-fitxategia'];
+		
+		//argazkia /irudiak karpetan gordetzen
+		$argazkia_izena = $_FILES["argazki-fitxategia"]["name"];
+		$argazkia_ruta = $_FILES["argazki-fitxategia"]["tmp_name"];
+		$argazkia_helbidea = "irudiak/".$argazkia_izena;
+		copy($argazkia_ruta,$argazkia_helbidea);
+		
+		
+		
 		echo "Kaixo $izena, $eposta da zure helbidea. Aukeratu duzun espezilaitatea $esp da.</br></br>";
-		echo "Argazki-fitxategia: ";
-		if($argazkia==null){
+		echo "Argazki-fitxategia: $argazkia_izena da. Eta $argazkia_helbidea -n gordeko da. </br></br>";
+		
+		//argazkia mysql-n sartzen
+		/*if($argazkia==null){
 			echo "Ez duzu argazki fitxategirik bidali.</br></br>";
 		}else{
 			//echo "Jasotako fitxategia: ".($_FILES['argazki-fitxategia']['name'])."</br></br>";
@@ -43,12 +53,14 @@
 					echo "Igo nahi duzun fitxategia ez da argazki bat.</br></br>";
 				}
 			}
-		}
+		}*/
+		
+		
 		//echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='http://berriogit.hol.es/ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br>"; //hostingerrekoa ikusteko
 		echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br></br>"; //localhosten ikusteko
 
 		//tauletan datuak gordetzea
-		mysqli_query($esteka,"INSERT INTO erabiltzaileak (IzenAbizena, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$irudia')");
+		mysqli_query($esteka,"INSERT INTO erabiltzaileak (IzenAbizena, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$argazkia_helbidea')");
 		echo "Hauek dira POST metodoko datuak:</br>";
 		echo"<pre>";
 		print_r($_SERVER);
