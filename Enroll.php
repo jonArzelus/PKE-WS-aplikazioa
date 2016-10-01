@@ -5,7 +5,8 @@
 	echo "</pre>";
 
 	//konexioa sortu datubasearekin
-	$esteka = mysqli_connect("mysql.hostinger.es", "u880556081_weba", "pertsona1", "u880556081_perts");
+	//$esteka = mysqli_connect("mysql.hostinger.es", "u880556081_weba", "pertsona1", "u880556081_perts"); //hostinger esteka
+	$esteka = mysqli_connect("localhost", "root", "", "erabiltzaileak"); //localhost esteka
 
 	//konexioko erroreak ikusi
 	if (!$esteka) {
@@ -28,6 +29,8 @@
 		$argazkia= $_POST['argazki-fitxategia'];
 		echo "Kaixo $izena, $eposta da zure helbidea. $esp"."</br>";
 		echo "Jasotako fitxategia: ".($_FILES['argazki-fitxategia']['name'])."</br>";
+		//echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='http://berriogit.hol.es/ShowUsers.php'> Ikus erabiltzaileak </a></br>"; //hostingerrekoa ikusteko
+		echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='ShowUsers.php'> Ikus erabiltzaileak </a></br>"; //localhosten ikusteko
 
 		//tauletan datuak gordetzea
 		mysqli_query($esteka,"INSERT INTO erabiltzaileak (IzenAbizena, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$argazkia')");

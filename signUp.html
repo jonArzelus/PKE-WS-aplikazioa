@@ -20,11 +20,12 @@
 				input1.setAttribute("name","espezializazioa");
 				input1.setAttribute("id","espezializazioa");
 				input1.setAttribute("required","true");
+				p1.setAttribute("id","esptext");
 			
 				p1.appendChild(hitzak);
 				document.getElementById("div1").appendChild(p1);
 				document.getElementById("div1").appendChild(input1);
-		 }
+			}
 		}
 	}
 	</script>
@@ -85,7 +86,7 @@
 			(*) Telefono zenbakia:
  			<input type="text" name="telefono-zenbakia" required pattern="[0-9]{9}" title="9 zenbakiko telefono zenbakia idatzi mesedez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Espezialitatea:
- 			<select id="esp" name="espezialitatea" onClick="aukeratuBesteak()" required>
+ 			<select id="esp" name="espezialitatea" onchange="aukeratuBesteak()" required>
   				<option value="software">Software Ingeniaritza</option>
   				<option value="hardware">Konputagailuen Ingeniaritza</option>
   				<option value="konputazioa">Konputazioa</option>
