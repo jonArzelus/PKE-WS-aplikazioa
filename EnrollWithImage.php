@@ -3,8 +3,8 @@
 	
 
 	//konexioa sortu datubasearekin
-	//$esteka = mysqli_connect("mysql.hostinger.es", "u880556081_weba", "pertsona1", "u880556081_perts"); //hostinger esteka
-	$esteka = mysqli_connect("localhost", "root", "", "erabiltzaileak"); //localhost esteka
+	$esteka = mysqli_connect("mysql.hostinger.es", "u880556081_weba", "pertsona1", "u880556081_perts"); //hostinger esteka
+	//$esteka = mysqli_connect("localhost", "root", "", "erabiltzaileak"); //localhost esteka
 
 	//konexioko erroreak ikusi
 	if (!$esteka) {
@@ -27,40 +27,29 @@
 			$esp= $_POST['espezializazioa'];
 		}
 		$interesak= $_POST['interesak'];
-		//$argazkia= $_POST['argazki-fitxategia'];
-		
-		//argazkia /irudiak karpetan gordetzen
+
+		//prestaketak argazkia gordetzeko
 		$argazkia_izena = $_FILES["argazki-fitxategia"]["name"];
-		$argazkia_ruta = $_FILES["argazki-fitxategia"]["tmp_name"];
-		$argazkia_helbidea = "irudiak/".$argazkia_izena;
-		copy($argazkia_ruta,$argazkia_helbidea);
-		
-		
+		$tmpName = $_FILES["argazki-fitxategia"]["tmp_name"];
+		$fp = fopen($tmpName, 'r');
+		$content = fread($fp, filesize($tmpName));
+		$content = addslashes($content);
+		fclose($fp);
+
+		if(!get_magic_quotes_gpc()) {
+    		$fileName = addslashes($fileName);
+		}
 		
 		echo "Kaixo $izena, $eposta da zure helbidea. Aukeratu duzun espezilaitatea $esp da.</br></br>";
-		echo "Argazki-fitxategia: $argazkia_izena da. Eta $argazkia_helbidea -n gordeko da. </br></br>";
+		echo "Argazki-fitxategia: $argazkia_izena da.</br></br>";
 		
-		//argazkia mysql-n sartzen
-		/*if($argazkia==null){
-			echo "Ez duzu argazki fitxategirik bidali.</br></br>";
-		}else{
-			//echo "Jasotako fitxategia: ".($_FILES['argazki-fitxategia']['name'])."</br></br>";
-			if($_FILES[$argazkia]['size'] !=0){
-				if(!empty(getimagesize($_FILES[$argazkia]['tmp_name']))){
-					$irudia = $esteka->real_scape_string(file_get_contents($_FILES [$argazkia]['tmp_name']));
-					echo "$argazkia fitxategia igo duzu";
-				}else{
-					echo "Igo nahi duzun fitxategia ez da argazki bat.</br></br>";
-				}
-			}
-		}*/
+		//$content aldagaiean gorde da irudia
 		
-		
-		//echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='http://berriogit.hol.es/ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br>"; //hostingerrekoa ikusteko
-		echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br></br>"; //localhosten ikusteko
+		echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='http://berriogit.hol.es/ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br>"; //hostingerrekoa ikusteko
+		//echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br></br>"; //localhosten ikusteko
 
 		//tauletan datuak gordetzea
-		mysqli_query($esteka,"INSERT INTO erabiltzaileak (IzenAbizena, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$argazkia_helbidea')");
+		mysqli_query($esteka,"INSERT INTO erabiltzaileak (IzenAbizena, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$content')");
 		echo "Hauek dira POST metodoko datuak:</br>";
 		echo"<pre>";
 		print_r($_SERVER);
