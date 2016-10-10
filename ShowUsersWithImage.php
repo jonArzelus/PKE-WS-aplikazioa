@@ -1,8 +1,8 @@
 <?php 
 
 //datu basearekin konexioa sortu
-$esteka = mysqli_connect("mysql.hostinger.es", "u880556081_weba", "pertsona1", "u880556081_perts"); //hostinger esteka
-//$esteka = mysqli_connect("localhost", "root", "", "erabiltzaileak"); //localhost esteka
+//$esteka = mysqli_connect("mysql.hostinger.es", "u880556081_weba", "pertsona1", "u880556081_perts"); //hostinger esteka
+$esteka = mysqli_connect("localhost", "root", "", "erabiltzaileak"); //localhost esteka
 
 $erabiltzaileak = "SELECT * FROM erabiltzaileak";
 $emaitza = $esteka->query($erabiltzaileak); 

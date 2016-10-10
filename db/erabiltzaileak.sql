@@ -1,24 +1,23 @@
-
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 10-10-2016 a las 10:47:27
--- Versión del servidor: 10.0.20-MariaDB
--- Versión de PHP: 5.2.17
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-10-2016 a las 20:28:46
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 5.6.24
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `u880556081_perts`
+-- Base de datos: `erabiltzaileak`
 --
 
 -- --------------------------------------------------------
@@ -27,23 +26,26 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `erabiltzaileak`
 --
 
-CREATE TABLE IF NOT EXISTS `erabiltzaileak` (
+CREATE TABLE `erabiltzaileak` (
   `IzenAbizena` varchar(255) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
+  `erabiltzaileMota` set('GUEST','USER','ADMIN') NOT NULL,
   `PostaElektronikoa` varchar(255) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `Pasahitza` varchar(255) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `TelefonoZenbakia` int(9) NOT NULL,
   `Espezialitatea` varchar(255) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `Interesak` text CHARACTER SET latin1 COLLATE latin1_spanish_ci,
-  `Argazkia` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`PostaElektronikoa`)
+  `Argazkia` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `erabiltzaileak`
+-- Índices para tablas volcadas
 --
 
-INSERT INTO `erabiltzaileak` (`IzenAbizena`, `PostaElektronikoa`, `Pasahitza`, `TelefonoZenbakia`, `Espezialitatea`, `Interesak`, `Argazkia`) VALUES
-('Jon Arzelus', 'jarzelus001@ikasle.ehu.eus', 'asdfasdf', 666666666, 'software', 'asdf', 'irudiak/CAT.png');
+--
+-- Indices de la tabla `erabiltzaileak`
+--
+ALTER TABLE `erabiltzaileak`
+  ADD PRIMARY KEY (`PostaElektronikoa`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
