@@ -1,13 +1,13 @@
 <?php 
 	//echo '$HTTP_POST_VARS[0]';
 	
-
+	include 'dbkonexioak/dbOpen.php';
 	//konexioa sortu datubasearekin
 	//$esteka = mysqli_connect("mysql.hostinger.es", "u880556081_weba", "pertsona1", "u880556081_perts"); //hostinger esteka
-	$esteka = mysqli_connect("localhost", "root", "", "erabiltzaileak"); //localhost esteka
+	//$esteka = mysqli_connect("localhost", "root", "", "erabiltzaileak"); //localhost esteka
 
 	//konexioko erroreak ikusi
-	if (!$esteka) {
+	if (!$db) {
 		echo "Hutxegitea MySQLra konektatzerakoan. "."</br>";
 		echo "errno depurazio katsa: ".mysqli_connect_errno()."</br>";
 		echo "error depurazio akatsa: ".mysqli_connect_error()."</br>";
@@ -32,7 +32,7 @@
 		else
 			$interesak= "INTERESIK_GABE";
 
-		$emaitza = mysqli_query($esteka,"SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'"); //ikusi ea erabiltzailea existitzen den
+		$emaitza = mysqli_query($db,"SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'"); //ikusi ea erabiltzailea existitzen den
 		if (mysqli_num_rows($emaitza) > 0) {
 			echo "Dagoeneko existitzen da $eposta duen erabiltzaile bat. Mesedez, atzera eman eta sartu ezazu beste posta-elektroniko helbide bat... </br></br>";
 		} else { //ez da erabiltzailerik aurkitu email horrekin
@@ -77,10 +77,11 @@
 					echo "Ez duzu argazkirik igo, ez zaizu argazkirik gordeko datubasean... </br>";
 				
 				//echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='http://berriogit.hol.es/ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br>"; //hostingerrekoa ikusteko
-				echo "</br> Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br></br>"; //localhosten ikusteko
-
+				//echo "</br> Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br></br>"; //localhosten ikusteko
+				echo "</br> Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='".ESTEKA."'> Ikus erabiltzaileak </a></br></br>";
+				
 				//tauletan datuak gordetzea
-				mysqli_query($esteka,"INSERT INTO erabiltzaileak (IzenAbizena, erabiltzaileMota, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$mota', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$argazkia_helbidea')");
+				mysqli_query($db,"INSERT INTO erabiltzaileak (IzenAbizena, erabiltzaileMota, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$mota', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$argazkia_helbidea')");
 			} else {
 				echo "Datuak jasotzean errorea(k):</br>";
 				if($esp_izena==false)
@@ -102,5 +103,6 @@
 		echo "</pre>";
 	}
 	//konexioa itxi
-	mysqli_close($esteka);
+	//mysqli_close($esteka);
+	include 'dbkonexioak/dbClose.php';
 ?>
