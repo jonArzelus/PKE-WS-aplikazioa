@@ -30,7 +30,7 @@
 		if(!$_POST['interesak']=="")
 			$interesak= $_POST['interesak'];
 		else
-			$interesak= "INTERESIK_GABE";
+			$interesak= null;
 
 		$emaitza = mysqli_query($db,"SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'"); //ikusi ea erabiltzailea existitzen den
 		if (mysqli_num_rows($emaitza) > 0) {
@@ -66,13 +66,13 @@
 				Pasahitza: $pass </br>
 				Telefono-zenbakia: $tel </br>
 				Espezialitatea: $esp </br>";
-				if(!$interesak == "INTERESIK_GABE")
+				if(!$interesak == null)
 					echo "Interesak: $interesak </br>";
 				else
 					echo "Ez duzu interesik adierazi, ez zaizu interesik gordeko datubasean... </br>";
 
-				if(!$argazkia_izena === null)
-					echo "Argazkia: $argazki_izena </br>";
+				if(!$argazkia_izena == null)
+					echo "Argazkia: $argazkia_izena </br>";
 				else
 					echo "Ez duzu argazkirik igo, ez zaizu argazkirik gordeko datubasean... </br>";
 				

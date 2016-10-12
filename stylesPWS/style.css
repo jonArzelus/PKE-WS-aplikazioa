@@ -8,6 +8,18 @@ b						{font: 16px Georgia, serif;}
 						 margin-bottom: 1px; color: black;
 						overflow-y: auto;}
 
+/*inakik gehitutakoa*/
+#gorputza {
+	position: relative;
+}
+.argazkia {
+	position:absolute;
+	top:10;
+	right:10;
+}
+
+/*inakik gehitutakoa*/
+
 section > div				{padding: 20px;}
 header			{background: #E7E7E7; text-align: center;}
 nav				{background: #E7E7E7; text-align: center;}

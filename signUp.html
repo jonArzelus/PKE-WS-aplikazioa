@@ -76,6 +76,7 @@
 	</nav>
     <section class="main" id="s1">
 		
+		<div id="gorputza">
 		 <form id="erregistro" name="erregistro" method="POST" action="EnrollWithImage.php" enctype="multipart/form-data">
   			(*) Izen-Abizenak:
   			<input type="text" name="izen-abizenak" required pattern="([A-Z]{1}[a-z ]{1,})*" title="Izen-abizenak letra larriz hasita" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
@@ -100,13 +101,13 @@
  			<textarea name="interesak" id="interesa" rows="3" cols="30"></textarea> <br><br>
 			Sartu argazki bat:<br>
 			<input id="argazki-fitxategia" type="file" name="argazki-fitxategia" accepts="image/*" onchange="return argazkiaKargatu()" value="Bidali">
-			 <img id="argazkia" style="width:150px; height: 100px;" /> <br>
+			 <img id="argazkia" style="width:150px; height: 100px;" class="argazkia"/> <br>
 			 <input type="submit" name="button" value="Bidali">
 			<input type="reset" name="button" value="Ezeztatu"> <br><br>
 		</form> 
 		
 		<p>(*) duten atalak bete beharrekoak dira, derrigor.</p>
-		
+		</div>
     </section>
 	<footer class='main' id='f1'>
 		<p><a href="http://en.wikipedia.org/wiki/Quiz" target="_blank">What is a Quiz?</a></p>
