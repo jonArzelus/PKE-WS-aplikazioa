@@ -10,14 +10,5 @@ html orrialdeetan dom erabiliz "galderak gehitu" botoi berri bat agertuko litzat
 datu basean taula berri bat sortuko da "quiz" izenekoa, eta bertan fk erabiltzaile taulako emaila liteke.
 
 
-4.ATAZA
-
-Eskatutako erabilpen kasuak bete daitezen, erabiltzaile mota berri bat sortu beharko da, "irakaslea" hain zuzen. Oraingoz ditugun bi erabiltzaile motak bereizteko egingo duguna erabiltzaileak taulan atributu bat gehitzea izango da, "mota" adierazteko erabiliko duguna. Motaren arabera, erabiltzaileak erabilpen kasu batzuk edo beste batzuk izango ditu eskuragarri.
-
-Irakasle bezala logeatuz gero, galdera guztiak bistaratzeko aukera izango du, eta bertan, galdera hauetan aldaketak egiteko aukera izango du (zailtasun maila, galderak ezabatu, erabiltzaile baten guztiak ezabatu...). Guzti hau datu baseari eskakizun konkretu batzuk egiten lortuko da, aurrerago definituz joango garenak.
-
-Oso garrantzitsua da irakasleak soilik izatea hau egiteko aukera, horregatik beti erreferentzia bat gorde beharko da erabiltzaile motaren inguruan, eta behar den uneetan soilik eman aukera hauek burutzeko. 
-
-
 
 

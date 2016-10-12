@@ -18,6 +18,8 @@ echo '<tr><td>'.$lerroa['IzenAbizena'].'</td><td>'.$lerroa['PostaElektronikoa'].
 }
 echo '</table>';
 
+echo "</br></br> Hasierara bueltatu nahi baduzu, klikatu hurrengo estekan: <a href='layout.html'> Hasiera </a></br></br>";
+
 //$esteka -> close();
 
 include 'dbkonexioak/dbClose.php';
