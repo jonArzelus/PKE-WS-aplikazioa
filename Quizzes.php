@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
@@ -29,7 +29,7 @@
 		
 	
 	<div>
-	Quizzes and credits will be displayed in this spot in future laboratories ...
+		Hemen joango dira datu basean dauden galderak taula batean.
 	</div>
 		
     </section>

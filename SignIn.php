@@ -48,6 +48,7 @@
 
 if (isset($_POST['eposta'])){
 include 'dbkonexioak/dbOpen.php';
+session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'GET')  { //get eskaera landu
 		null;
@@ -55,11 +56,14 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')  { //get eskaera landu
 		$eposta= $_POST['eposta'];
 		$pass= $_POST['pasahitza'];
 }
-		
+$_SESSION['eposta']= $eposta;
+
 $erabiltzaileak = "SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta' AND Pasahitza='$pass'";
 $emaitza = $db->query($erabiltzaileak); 
 $user = $emaitza->fetch_array(MYSQLI_BOTH);
 
+	
+	
 if(empty($user)){
 	echo("Eragiketa ez da ongi burutu, saiatu zaitez berriro.");
 }else{
