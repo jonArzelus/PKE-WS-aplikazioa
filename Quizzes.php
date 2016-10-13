@@ -29,7 +29,22 @@
 		
 	
 	<div>
-		Hemen joango dira datu basean dauden galderak taula batean.
+		<?php
+			include 'dbkonexioak/dbOpen.php';
+		
+			$sql="SELECT galderaTestua, zailtasuna FROM quiz";
+			$emaitza=$db->query($sql);
+			if($emaitza){
+				echo '<table border=2><tr><th> GALDERA </th><th> ZAILTASUNA </th>';
+				while ($lerroa = $emaitza->fetch_array(MYSQLI_BOTH)){
+					echo '<tr><td>'.$lerroa['galderaTestua'].'</td><td>'.$lerroa['zailtasuna'].'</td></tr>';
+				}
+				echo '</table>';
+			}else{
+				echo("Errore bat egon da galdera gehitzean: ".$db->error);
+			}
+			include 'dbkonexioak/dbClose.php';
+		?>
 	</div>
 		
     </section>
