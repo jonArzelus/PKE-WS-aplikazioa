@@ -2,53 +2,46 @@
 <html>
   <head>
     <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
-	<title>Sign In</title>
-    <!--<link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
-	<link rel='stylesheet' 
-		   type='text/css' 
-		   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
-		   href='stylesPWS/wide.css' />
-	<link rel='stylesheet' 
-		   type='text/css' 
-		   media='only screen and (max-width: 480px)'
-		   href='stylesPWS/smartphone.css' />-->
+	<title>Sartu galdera</title>
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel='stylesheet' type='text/css' href='stylesPWS/signIn.css' />
   </head>
   <body>
-  <div id='page-wrap'>
-	<header class='main' id='h1'>
-      <span class="right"><a href="layout.html">Home</a> </span>
-      
-	<h2>Quiz: crazy questions</h2>
-    </header>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+ 
+	<div class='login'>
+		<div class="login-header2">
+			<h1>Sartu Galdera</h1>
+		</div>
 	
-    <section class="main" id="s1">
-		
-	
-	<div>
+
 		<form id="galdera_sartu" name="galdera_sartu" method="POST" action="InsertQuestion.php" enctype="multipart/form-data">
-  			Galdera: 
-  			<input type="text" name="galdera" title="Sartu zure galdera."><br>
-			Erantzuna:
- 			<input type="text" name="erantzuna" title="Sartu galderaren erantzuna."><br>
-			Zailtasuna:
- 			<select id="zail" name="zailtasuna" >
-  				<option value="1">1</option>
-  				<option value="2">2</option>
-  				<option value="3">3</option>
-  				<option value="4">4</option>
-				<option value="5">5</option>
-			</select><br>
-			<input type="submit" name="button" value="Bidali">	
+			<div class="login-form">
+				<h3>Galdera:</h3> 
+  				<input type="text" name="galdera" title="Sartu zure galdera." placeholder="Sartu zure galdera"><br>
+				<h3>Erantzuna:</h3>
+ 				<input type="text" name="erantzuna" title="Sartu galderaren erantzuna." placeholder="Sartu galderaren erantzuna"><br>
+				<h3>Zailtasuna:</h3>
+ 				<select id="zail" name="zailtasuna" >
+  					<option value="1">1 - Oso erraza</option>
+  					<option value="2">2 - Erraza</option>
+  					<option value="3">3 - Erdibidekoa</option>
+  					<option value="4">4 - Zaila</option>
+					<option value="5">5 - Oso zaila</option>
+				</select><br>
+				<input type="submit" name="button" value="Bidali">
+				<a class="no-access" href="layout.html">Hasiera</a>
+			</div>
 		</form> 
 	</div>
-		
-    </section>
-	<footer class='main' id='f1'>
+	
+	
+	<footer class='footer' id='f1'>
 		<p><a href="http://en.wikipedia.org/wiki/Quiz" target="_blank">What is a Quiz?</a></p>
 		<a href='https://github.com/berrio86/wsGit16'><img style="width:3%" src="irudiak/github-icon.png"></a>
 	</footer>
-</div>
-</body>
+
+	</body>
 </html>
 
 <?php 
@@ -67,7 +60,7 @@ if(isset($_POST['galdera']) && isset($_POST['erantzuna'])){
 	
 	
 	if(($galdera=="")||($erantzuna=="")){
-		echo("Mesedez bete galderak modu egokian.</br>");
+		echo("<div class='message'>Mesedez bete galderak modu egokian.</div></br>");
 	}else{
 		$sartu = "INSERT INTO quiz (egilePosta, galderaTestua, erantzunTestua, zailtasuna) VALUES ('{$eposta}', '{$galdera}', '{$erantzuna}', '{$zailtasuna}')";
 		$emaitza=$db->query($sartu);
