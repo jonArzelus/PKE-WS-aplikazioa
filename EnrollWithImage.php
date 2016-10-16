@@ -40,7 +40,7 @@
 			//ikusi ea REGEXP pasatzen duen
 			$esp_izena= filter_var($izena, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/([A-Z]{1}[a-z ]{1,})*/")));
 			$esp_mota = filter_var($mota, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^(GUEST|USER|ADMIN)$/")));
-			$esp_eposta= filter_var($eposta, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z]+[0-9]{3}@ikasle.ehu.(eus|es)$/")));
+			$esp_eposta= filter_var($eposta, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-z]{1,}+[0-9]{3}@ikasle.ehu.(eus|es)$/"))); //aurrekoa [a-zA-Z]
 			$esp_pass= filter_var($pass, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/.{6,}$/")));
 			$esp_tel= filter_var($tel, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[0-9]{9}/")));
 		

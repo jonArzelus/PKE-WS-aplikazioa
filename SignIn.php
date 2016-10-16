@@ -68,6 +68,16 @@ if(empty($user)){
 	echo("<div class='message'> Eragiketa ez da ongi burutu, saiatu zaitez berriro.</div>");
 	
 }else{
+	//konexio zuzena datubasean gorde
+	date_default_timezone_set('Europe/Madrid');
+	$data = date(DATE_RSS, time());
+	$konexiolog = "INSERT INTO konexioak (postaElektronikoa, konexioData) VALUES('$eposta', '$data')"; //date(DATE_RSS, time()
+	//$db->query($erabiltzaileak); 
+	if ($db->query($konexiolog) === TRUE) {
+    echo "New record created successfully";
+	} else {
+    echo "Error: " . $konexiolog . "<br>" . $db->error;
+	}
 	header("Location:InsertQuestion.php");
     exit;
 	
