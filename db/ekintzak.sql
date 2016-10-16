@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2016 a las 19:08:40
+-- Tiempo de generación: 16-10-2016 a las 22:18:16
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -36,6 +36,13 @@ CREATE TABLE `ekintzak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Volcado de datos para la tabla `ekintzak`
+--
+
+INSERT INTO `ekintzak` (`ID`, `konexioa`, `postaElektronikoa`, `ekintzaMota`, `ekintzaData`, `IP`) VALUES
+(24, 20, 'a000@ikasle.ehu.eus', 'galdera txertatu', 'Sun, 16 Oct 2016 22:16:37 +0200', '::1');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -54,7 +61,7 @@ ALTER TABLE `ekintzak`
 -- AUTO_INCREMENT de la tabla `ekintzak`
 --
 ALTER TABLE `ekintzak`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

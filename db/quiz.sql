@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2016 a las 19:08:17
+-- Tiempo de generación: 16-10-2016 a las 22:18:29
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -39,7 +39,8 @@ CREATE TABLE `quiz` (
 --
 
 INSERT INTO `quiz` (`galderaZenbakia`, `egilePosta`, `galderaTestua`, `erantzunTestua`, `zailtasuna`) VALUES
-(1, 'a000@ikasle.ehu.eus', 'Zer da hau', 'Galdera bat', '1');
+(1, 'a000@ikasle.ehu.eus', 'Zer da hau', 'Galdera bat', '1'),
+(2, 'a000@ikasle.ehu.eus', 'Zer hostias habil lanean ordu hauetan', 'ez dakit', '5');
 
 --
 -- Índices para tablas volcadas
@@ -60,7 +61,7 @@ ALTER TABLE `quiz`
 -- AUTO_INCREMENT de la tabla `quiz`
 --
 ALTER TABLE `quiz`
-  MODIFY `galderaZenbakia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `galderaZenbakia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

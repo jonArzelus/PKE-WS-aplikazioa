@@ -74,6 +74,25 @@ if(isset($_POST['galdera']) && isset($_POST['erantzuna'])){
 		$sartu = "INSERT INTO quiz (egilePosta, galderaTestua, erantzunTestua, zailtasuna) VALUES ('{$eposta}', '{$galdera}', '{$erantzuna}', '{$zailtasuna}')";
 		$emaitza=$db->query($sartu);
 		if($emaitza){
+			echo("<div class='message'>");
+					echo $eposta;
+					$konexioid = $_SESSION['konexioid'];
+					//honekl ip-a bilatuko du toki egokienean nonbaiten ez badago
+					if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+		    			$ip = $_SERVER['HTTP_CLIENT_IP'];
+					} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+					} else {
+		    			$ip = $_SERVER['REMOTE_ADDR'];
+					}
+					$ekintza = "galdera txertatu";
+					date_default_timezone_set('Europe/Madrid');
+					$data = date(DATE_RSS, time());
+					$sqlekintza="INSERT INTO ekintzak(konexioa, postaElektronikoa, ekintzaMota, ekintzaData, IP) VALUES ('$konexioid', '$eposta', '$ekintza', '$data', '$ip')";
+					$emaitza=$db->query($sqlekintza);
+					if(!$emaitza) {
+						echo("Errore bat egon da ekintza gehitzean: ".$db->error);
+					}
 			echo("<div class='message'>
 					Zure eposta: ".$eposta."</br>
 					Zure galdera: ".$galdera."</br>

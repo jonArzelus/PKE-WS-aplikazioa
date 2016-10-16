@@ -27,25 +27,11 @@
 			</div>
 		</form>
 	</div>
-	  
-	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-	<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-		
-   	<div class="footer">
-		<footer class='main' id='f1'>
-			<p><a href="http://en.wikipedia.org/wiki/Quiz" target="_blank">What is a Quiz?</a></p>
-			<a href='https://github.com/berrio86/wsGit16'><img style="width:3%" src="irudiak/github-icon.png"></a>
-		</footer>
-	</div>
-
-</body>
-</html>
-<?php 
+	<?php 
 
 if (isset($_POST['eposta'])){
 	include 'dbkonexioak/dbOpen.php';
 	session_start();
-
 	if($_SERVER['REQUEST_METHOD'] == 'GET')  { //get eskaera landu
 			null;
 		} else { //post eskaera landu	
@@ -53,15 +39,17 @@ if (isset($_POST['eposta'])){
 			$pass= $_POST['pasahitza'];
 	}
 	//guest izeneko erabiltzailea jarri
-	$_SESSION['eposta']= "guest001@ikasle.ehu.eus";
+	$_SESSION['eposta']= $eposta;
 	$erabiltzaileak = "SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta' AND Pasahitza='$pass'";
 	$emaitza = $db->query($erabiltzaileak); 
 	$user = $emaitza->fetch_array(MYSQLI_BOTH);
-
 if(empty($user)){
+
 	$_SESSION['eposta']= "guest";
 	$_SESSION['konexioid'] = -1;
-	echo("<div class='error-page'>
+	echo("<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+		<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+		<div class='error-page'>
 				<div class='try-again'>
 					Eragiketa ez da ongi burutu, saiatu zaitez berriro.</br>
 					Errorea: Saiatu berriro?
@@ -77,31 +65,36 @@ if(empty($user)){
 	if ($db->query($konexiolog) === TRUE) {
     echo "New record created successfully";
 	} else {
-		//konexio zuzena datubasean gorde
-		date_default_timezone_set('Europe/Madrid');
-		$data = date(DATE_RSS, time());
-		$konexiolog = "INSERT INTO konexioak (postaElektronikoa, konexioData) VALUES('$eposta', '$data')"; //date(DATE_RSS, time()
-		//datubasean gorde dana
-		if ($db->query($konexiolog) === TRUE) {
-	    	echo "New record created successfully </br>";
-		} else {
-	    	echo "Error: " . $konexiolog . "<br>" . $db->error;
-		}
-		//konexioaren emaila ezarri
-		$_SESSION['eposta']= $eposta;
-		$konexiosql = "SELECT ID FROM konexioak WHERE PostaElektronikoa='$eposta' AND konexioData='$data'";
-		$konarray = $db->query($konexiosql);
-		if (!$konarray) {
-	    	echo 'Could not run query: ' . $db->error;
-	    	exit;
-		} else {
-			$row = $konarray->fetch_array(MYSQL_NUM);
-			$_SESSION['konexioid'] = $row[0];
-			header("Location:InsertQuestion.php");
-	    	exit;
-		}	
+	    echo "Error: " . $konexiolog . "<br>" . $db->error;
 	}
-
-	include 'dbkonexioak/dbClose.php';
+	//konexioaren emaila ezarri
+	$_SESSION['eposta']= $eposta;
+	$konexiosql = "SELECT ID FROM konexioak WHERE PostaElektronikoa='$eposta' AND konexioData='$data'";
+	$konarray = $db->query($konexiosql);
+	if (!$konarray) {
+    	echo 'Could not run query: ' . $db->error;
+    	exit;
+	} else {
+		$row = $konarray->fetch_array(MYSQL_NUM);
+		$_SESSION['konexioid'] = $row[0];
+		echo "Konexioa ondo gordeta!";
+		header("Location:InsertQuestion.php");
+    	exit;
+	}	
 }
-?>
+include 'dbkonexioak/dbClose.php';
+}
+
+?>  
+	
+		
+   	<div class="footer">
+		<footer class='main' id='f1'>
+			<p><a href="http://en.wikipedia.org/wiki/Quiz" target="_blank">What is a Quiz?</a></p>
+			<a href='https://github.com/berrio86/wsGit16'><img style="width:3%" src="irudiak/github-icon.png"></a>
+		</footer>
+	</div>
+
+</body>
+</html>
+
