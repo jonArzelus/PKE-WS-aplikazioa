@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2016 a las 20:28:46
+-- Tiempo de generación: 16-10-2016 a las 17:28:59
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -36,6 +36,13 @@ CREATE TABLE `erabiltzaileak` (
   `Interesak` text CHARACTER SET latin1 COLLATE latin1_spanish_ci,
   `Argazkia` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `erabiltzaileak`
+--
+
+INSERT INTO `erabiltzaileak` (`IzenAbizena`, `erabiltzaileMota`, `PostaElektronikoa`, `Pasahitza`, `TelefonoZenbakia`, `Espezialitatea`, `Interesak`, `Argazkia`) VALUES
+('Peñi Elaska', 'USER', 'a000@ikasle.ehu.eus', 'asdfasdfasdf', 666666666, 'software', 'INTERESIK_GABE', 'ARGAZKI_GABE');
 
 --
 -- Índices para tablas volcadas
