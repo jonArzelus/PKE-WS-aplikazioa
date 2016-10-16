@@ -5,6 +5,7 @@
 	<title>Sign In</title>
 	<link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
     <link rel='stylesheet' type='text/css' href='stylesPWS/signIn.css' />
+	   
   </head>
   <body>
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
@@ -26,13 +27,9 @@
 			</div>
 		</form>
 	</div>
-	<!--<div class="error-page">
-  		<div class="try-again">Error: Try again?</div>
-	</div>-->
 	  
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-    <!--<script src="js/signIn.js"></script>-->
 		
    	<div class="footer">
 		<footer class='main' id='f1'>
@@ -64,9 +61,13 @@ $user = $emaitza->fetch_array(MYSQLI_BOTH);
 	
 	
 if(empty($user)){
-	
-	echo("<div class='message'> Eragiketa ez da ongi burutu, saiatu zaitez berriro.</div>");
-	
+	echo("<div class='error-page'>
+				<div class='try-again'>
+					Eragiketa ez da ongi burutu, saiatu zaitez berriro.</br>
+					Errorea: Saiatu berriro?
+				</div>
+		</div>
+		<script src='js/signIn.js'></script>");
 }else{
 	//konexio zuzena datubasean gorde
 	date_default_timezone_set('Europe/Madrid');

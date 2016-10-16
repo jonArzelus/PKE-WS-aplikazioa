@@ -79,7 +79,7 @@
 				//echo "Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='http://berriogit.hol.es/ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br>"; //hostingerrekoa ikusteko
 				//echo "</br> Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='ShowUsersWithImage.php'> Ikus erabiltzaileak </a></br></br>"; //localhosten ikusteko
 				echo "</br> Datu basean dauden erabitzaileak ikusi nahi badituzu, klikatu hurrengo estekan: <a href='".ESTEKA."'> Ikus erabiltzaileak </a></br>";
-				echo "</br> Hasierara bueltatu nahi baduzu, klikatu hurrengo estekan: <a href='layout.html'> Hasiera </a></br></br>";
+				echo "</br> Hasierara bueltatu nahi baduzu, klikatu hurrengo estekan: <a href='".HASIERA."'> Hasiera </a></br></br>";
 				
 				//tauletan datuak gordetzea
 				mysqli_query($db,"INSERT INTO erabiltzaileak (IzenAbizena, erabiltzaileMota, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$mota', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$argazkia_helbidea')");

@@ -1,21 +1,26 @@
 <?php
 
-//localhost-en atzitzeko
+$host=$_SERVER['SERVER_NAME'];
 
-define("HOST","localhost");
-define("USER", "root");
-define("PASS", "");
-define("DATABASE", "erabiltzaileak");
-define("ESTEKA","ShowUsersWithImage.php")
+if ($host=="localhost"){
+	//localhost-en atzitzeko
+	define("HOST","localhost");
+	define("USER", "root");
+	define("PASS", "");
+	define("DATABASE", "erabiltzaileak");
+	define("ESTEKA","ShowUsersWithImage.php");
+	define("HASIERA","layout.html");
+	define("SIGNUP","signUp.html");
 
-
-//hostingerren atzitzeko
-/*
-define("HOST","mysql.hostinger.es");
-define("USER", "u880556081_weba");
-define("PASS", "pertsona1");
-define("DATABASE", "u880556081_perts");
-define("ESTEKA","http://berriogit.hol.es/ShowUsersWithImage.php")
-*/
+}else{
+	//hostingerren atzitzeko
+	define("HOST","mysql.hostinger.es");
+	define("USER", "u880556081_weba");
+	define("PASS", "pertsona1");
+	define("DATABASE", "u880556081_perts");
+	define("ESTEKA","http://berriogit.hol.es/ShowUsersWithImage.php");
+	define("HASIERA","http://berriogit.hol.es/layout.html");
+	define("SIGNUP","http://berriogit.hol.es/signUp.html");
+}
 
 ?>

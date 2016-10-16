@@ -34,6 +34,9 @@
 			</div>
 		</form> 
 	</div>
+	  
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 	
 	
 	<footer class='footer' id='f1'>
@@ -60,18 +63,32 @@ if(isset($_POST['galdera']) && isset($_POST['erantzuna'])){
 	
 	
 	if(($galdera=="")||($erantzuna=="")){
-		echo("<div class='message'>Mesedez bete galderak modu egokian.</div></br>");
+		echo("<div class='error-page'>
+				<div class='try-again'>
+					Mesedez bete galderak modu egokian.</br>
+					Errorea: Saiatu berriro?
+				</div>
+		</div>
+		<script src='js/signIn.js'></script>");
 	}else{
 		$sartu = "INSERT INTO quiz (egilePosta, galderaTestua, erantzunTestua, zailtasuna) VALUES ('{$eposta}', '{$galdera}', '{$erantzuna}', '{$zailtasuna}')";
 		$emaitza=$db->query($sartu);
 		if($emaitza){
-			echo("Zure eposta: ".$eposta."</br>");
-			echo("Zure galdera: ".$galdera."</br>");
-			echo("Zure erantzuna: ".$erantzuna."</br>");
-			echo("Zailtasun maila: ".$zailtasuna."</br>");
-			echo("Zure galdera egoki sartu da. Sartu beste bat nahi izanez gero. </br>");
+			echo("<div class='message'>
+					Zure eposta: ".$eposta."</br>
+					Zure galdera: ".$galdera."</br>
+					Zure erantzuna: ".$erantzuna."</br>
+					Zailtasun maila: ".$zailtasuna."</br>
+					Zure galdera egoki sartu da. Sartu beste bat nahi izanez gero. </br>
+				</div>");
 		}else{
-			echo("Errore bat egon da galdera gehitzean: ".$db->error);
+			echo("<div class='error-page'>
+				<div class='try-again'>
+					Errore bat egon da galdera gehitzean: ".$db->error."</br>
+					Errorea: Saiatu berriro?
+				</div>
+				</div>
+				<script src='js/signIn.js'></script>");
 		}	
 	}
 	
