@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2016 a las 19:08:25
+-- Tiempo de generación: 16-10-2016 a las 19:08:40
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -23,13 +23,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `konexioak`
+-- Estructura de tabla para la tabla `ekintzak`
 --
 
-CREATE TABLE `konexioak` (
+CREATE TABLE `ekintzak` (
   `ID` int(11) NOT NULL,
+  `konexioa` int(11) NOT NULL,
   `postaElektronikoa` varchar(255) NOT NULL,
-  `konexioData` varchar(255) NOT NULL
+  `ekintzaMota` set('galdera txertatu','galderak ikusi') NOT NULL,
+  `ekintzaData` varchar(255) NOT NULL,
+  `IP` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -37,20 +40,21 @@ CREATE TABLE `konexioak` (
 --
 
 --
--- Indices de la tabla `konexioak`
+-- Indices de la tabla `ekintzak`
 --
-ALTER TABLE `konexioak`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `ekintzak`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `konexioa` (`konexioa`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `konexioak`
+-- AUTO_INCREMENT de la tabla `ekintzak`
 --
-ALTER TABLE `konexioak`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE `ekintzak`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2016 a las 20:28:20
+-- Tiempo de generación: 16-10-2016 a las 19:08:17
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -35,6 +35,13 @@ CREATE TABLE `quiz` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- Volcado de datos para la tabla `quiz`
+--
+
+INSERT INTO `quiz` (`galderaZenbakia`, `egilePosta`, `galderaTestua`, `erantzunTestua`, `zailtasuna`) VALUES
+(1, 'a000@ikasle.ehu.eus', 'Zer da hau', 'Galdera bat', '1');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -42,7 +49,8 @@ CREATE TABLE `quiz` (
 -- Indices de la tabla `quiz`
 --
 ALTER TABLE `quiz`
-  ADD PRIMARY KEY (`galderaZenbakia`);
+  ADD PRIMARY KEY (`galderaZenbakia`),
+  ADD KEY `egilePosta` (`egilePosta`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -52,7 +60,7 @@ ALTER TABLE `quiz`
 -- AUTO_INCREMENT de la tabla `quiz`
 --
 ALTER TABLE `quiz`
-  MODIFY `galderaZenbakia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `galderaZenbakia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

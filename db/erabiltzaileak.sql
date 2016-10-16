@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2016 a las 17:28:59
+-- Tiempo de generación: 16-10-2016 a las 19:08:33
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -42,7 +42,8 @@ CREATE TABLE `erabiltzaileak` (
 --
 
 INSERT INTO `erabiltzaileak` (`IzenAbizena`, `erabiltzaileMota`, `PostaElektronikoa`, `Pasahitza`, `TelefonoZenbakia`, `Espezialitatea`, `Interesak`, `Argazkia`) VALUES
-('Peñi Elaska', 'USER', 'a000@ikasle.ehu.eus', 'asdfasdfasdf', 666666666, 'software', 'INTERESIK_GABE', 'ARGAZKI_GABE');
+('Peñi Elaska', 'USER', 'a000@ikasle.ehu.eus', 'asdfasdfasdf', 666666666, 'software', 'INTERESIK_GABE', 'ARGAZKI_GABE'),
+('Guest Guest', 'GUEST', 'guest001@ikasle.ehu.eus', 'guestguest', 666666666, 'Software', 'INTERESIK_GABE', 'ARGAZKI_GABE');
 
 --
 -- Índices para tablas volcadas
