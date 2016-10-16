@@ -46,43 +46,53 @@
 <?php 
 
 if (isset($_POST['eposta'])){
-include 'dbkonexioak/dbOpen.php';
-session_start();
+	include 'dbkonexioak/dbOpen.php';
+	session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'GET')  { //get eskaera landu
-		null;
-	} else { //post eskaera landu	
-		$eposta= $_POST['eposta'];
-		$pass= $_POST['pasahitza'];
-}
-$_SESSION['eposta']= $eposta;
-
-$erabiltzaileak = "SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta' AND Pasahitza='$pass'";
-$emaitza = $db->query($erabiltzaileak); 
-$user = $emaitza->fetch_array(MYSQLI_BOTH);
-
-	
-	
-if(empty($user)){
-	
-	echo("<div class='message'> Eragiketa ez da ongi burutu, saiatu zaitez berriro.</div>");
-	
-}else{
-	//konexio zuzena datubasean gorde
-	date_default_timezone_set('Europe/Madrid');
-	$data = date(DATE_RSS, time());
-	$konexiolog = "INSERT INTO konexioak (postaElektronikoa, konexioData) VALUES('$eposta', '$data')"; //date(DATE_RSS, time()
-	//$db->query($erabiltzaileak); 
-	if ($db->query($konexiolog) === TRUE) {
-    echo "New record created successfully";
-	} else {
-    echo "Error: " . $konexiolog . "<br>" . $db->error;
+	if($_SERVER['REQUEST_METHOD'] == 'GET')  { //get eskaera landu
+			null;
+		} else { //post eskaera landu	
+			$eposta= $_POST['eposta'];
+			$pass= $_POST['pasahitza'];
 	}
-	header("Location:InsertQuestion.php");
-    exit;
-	
-}
+	//guest izeneko erabiltzailea jarri
+	$_SESSION['eposta']= "guest001@ikasle.ehu.eus";
+	$erabiltzaileak = "SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta' AND Pasahitza='$pass'";
+	$emaitza = $db->query($erabiltzaileak); 
+	$user = $emaitza->fetch_array(MYSQLI_BOTH);
 
-include 'dbkonexioak/dbClose.php';
+		
+		
+	if(empty($user)) {
+		$_SESSION['eposta']= "guest";
+		$_SESSION['konexioid'] = -1;
+		echo("<div class='message'> Eragiketa ez da ongi burutu, saiatu zaitez berriro.</div>");
+	} else {
+		//konexio zuzena datubasean gorde
+		date_default_timezone_set('Europe/Madrid');
+		$data = date(DATE_RSS, time());
+		$konexiolog = "INSERT INTO konexioak (postaElektronikoa, konexioData) VALUES('$eposta', '$data')"; //date(DATE_RSS, time()
+		//datubasean gorde dana
+		if ($db->query($konexiolog) === TRUE) {
+	    	echo "New record created successfully </br>";
+		} else {
+	    	echo "Error: " . $konexiolog . "<br>" . $db->error;
+		}
+		//konexioaren emaila ezarri
+		$_SESSION['eposta']= $eposta;
+		$konexiosql = "SELECT ID FROM konexioak WHERE PostaElektronikoa='$eposta' AND konexioData='$data'";
+		$konarray = $db->query($konexiosql);
+		if (!$konarray) {
+	    	echo 'Could not run query: ' . $db->error;
+	    	exit;
+		} else {
+			$row = $konarray->fetch_array(MYSQL_NUM);
+			$_SESSION['konexioid'] = $row[0];
+			header("Location:InsertQuestion.php");
+	    	exit;
+		}	
+	}
+
+	include 'dbkonexioak/dbClose.php';
 }
 ?>
