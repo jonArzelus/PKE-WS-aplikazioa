@@ -30,7 +30,7 @@
 					<option value="5">5 - Oso zaila</option>
 				</select><br>
 				<input type="submit" name="button" value="Bidali">
-				<a class="no-access" href="layout.html">Hasiera</a>
+				<a class="no-access" href="layout.php">Hasiera</a>
 			</div>
 		</form> 
 	</div>

@@ -23,7 +23,7 @@
  				<input type="password" name="pasahitza" title="Sartu zure pasahitza." placeholder="Password"><br>
 				<input type="submit" class="login-button" name="button" value="Bidali">
 				<a class="sign-up" href="signUp.html">Erregistratu</a><br>
-				<a class="no-access" href="layout.html">Hasiera</a>
+				<a class="no-access" href="layout.php">Hasiera</a>
 			</div>
 		</form>
 	</div>
