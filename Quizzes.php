@@ -1,3 +1,15 @@
+<?php
+
+	session_start();
+	//ikus ea sesio bat hasi den eta ez bada hala guest ezarri
+	if(isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) {
+   		null;
+	} else {
+		$_SESSION['eposta'] = "guest";
+		$_SESSION['konexioid'] = -1;
+	}
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,14 +28,21 @@
   <body>
   <div id='page-wrap'>
 	<header class='main' id='h1'>
-      <span class="right"><a href="SignIn.php">Sign In</a> / <a href="signUp.html">Sign Up</a></span>
-      <span class="right" style="display:none;"><a href="/logout">Log Out</a> </span>
+	<?php
+	echo "Erabiltzailea: " . $_SESSION['eposta'] . "   ";
+	if($_SESSION['eposta']=="guest") {
+      	echo'<span class="right"><a href="SignIn.php">Sign In</a> / <a href="signUp.html">Sign Up</a></span>';
+	} else {
+		echo '<span class="right"><a href="LogOut.php">Log Out</a> </span>';
+	}
+    ?>
+      
 	<h2>Quiz: crazy questions</h2>
     </header>
 	<nav class='main' id='n1' role='navigation'>
-		<span><a href='layout.html'>Home</a></span>
+		<span><a href='layout.php'>Home</a></span>
 		<span><a href='Quizzes.php'>Quizzes</a></span>
-		<span><a href='credits.html'>Credits</a></span>
+		<span><a href='credits.php'>Credits</a></span>
 	</nav>
     <section class="main" id="s1">
 		
@@ -33,9 +52,8 @@
 			include 'dbkonexioak/dbOpen.php';
 
 			//sesio informazioa gorde ekintzetan
-			session_start();
+			//session_start();
 			$eposta=$_SESSION['eposta'];
-			echo $eposta;
 			$konexioid = $_SESSION['konexioid'];
 			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     			$ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -63,10 +81,9 @@
 			}else{
 				echo("Errore bat egon da galdera gehitzean: ".$db->error);
 			}
-			foreach($_SESSION as $key => $value) 
-{ 
-    echo $key . " = " . $value . "<br>"; 
-}
+			/*foreach($_SESSION as $key => $value) { 
+    			echo $key . " = " . $value . "<br>"; 
+			}*/
 			include 'dbkonexioak/dbClose.php';
 		?>
 	</div>

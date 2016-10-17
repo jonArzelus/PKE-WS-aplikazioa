@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 	session_start();
 	//ikus ea sesio bat hasi den eta ez bada hala guest ezarri
@@ -14,7 +14,7 @@
 <html>
   <head>
     <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
-	<title>Quizzes</title>
+	<title>Credits</title>
     <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
 	<link rel='stylesheet' 
 		   type='text/css' 
@@ -26,7 +26,7 @@
 		   href='stylesPWS/smartphone.css' />
   </head>
   <body>
-  <div id='page-wrap'>
+  <div id='page-wrap' class="kredituak">
 	<header class='main' id='h1'>
 	<?php
 	echo "Erabiltzailea: " . $_SESSION['eposta'] . "   ";
@@ -45,12 +45,12 @@
 		<span><a href='credits.php'>Credits</a></span>
 	</nav>
     <section class="main" id="s1">
-		
-	
 	<div>
-	Quizzes and credits will be displayed in this spot in future laboratories ...
+		<h2><a style="text-decoration: none" href="https://www.linkedin.com/in/jon-arzelus-rodriguez-63306b128">Jon Arzelus</a> eta <a style="text-decoration: none" href='inaki.html'>Iñaki Berriotxoa</a></h2><br>
+		<h3>Software Ingeniaritza espezialitatea</h3><br>
+		<img src="irudiak/index.jpeg" alt="computer_software"><br>
+		Web Sistemak ikasgaieko lehen laborategiko lana da hau, pixkanaka osatzen joango gara
 	</div>
-		
     </section>
 	<footer class='main' id='f1'>
 		<p><a href="http://en.wikipedia.org/wiki/Quiz" target="_blank">What is a Quiz?</a></p>
