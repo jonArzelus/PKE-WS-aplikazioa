@@ -40,9 +40,13 @@
 	<h2>Quiz: crazy questions</h2>
     </header>
 	<nav class='main' id='n1' role='navigation'>
-		<span><a href='layout.php'>Home</a></span>
-		<span><a href='Quizzes.php'>Quizzes</a></span>
-		<span><a href='credits.php'>Credits</a></span>
+		<span><a href='layout.php'>Hasiera</a></span>
+		<span><a href='Quizzes.php'>Galderak</a></span>
+	<?php
+	if($_SESSION['eposta'] != "guest")
+		echo'<span><a href="InsertQuestion.php">Galdera Sortu</a></span>';
+	?>
+		<span><a href='credits.php'>Kredituak</a></span>
 	</nav>
     <section class="main" id="s1">
 	<div>

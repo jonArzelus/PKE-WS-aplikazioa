@@ -78,7 +78,7 @@ if(empty($user)){
 		$row = $konarray->fetch_array(MYSQL_NUM);
 		$_SESSION['konexioid'] = $row[0];
 		echo "Konexioa ondo gordeta!";
-		header("Location:InsertQuestion.php");
+		header("Location:layout.php");
     	exit;
 	}	
 }
