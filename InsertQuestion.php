@@ -21,6 +21,8 @@
   				<input type="text" name="galdera" title="Sartu zure galdera." placeholder="Sartu zure galdera"><br>
 				<h3>Erantzuna:</h3>
  				<input type="text" name="erantzuna" title="Sartu galderaren erantzuna." placeholder="Sartu galderaren erantzuna"><br>
+ 				<h3>Arloa:</h3>
+ 				<input type="text" name="arloa" title="Sartu galderaren arloa." placeholder="Sartu galderaren arloa"><br>
 				<h3>Zailtasuna:</h3>
  				<select id="zail" name="zailtasuna" >
   					<option value="1">1 - Oso erraza</option>
