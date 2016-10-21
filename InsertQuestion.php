@@ -18,9 +18,9 @@
 		<form id="galdera_sartu" name="galdera_sartu" method="POST" action="InsertQuestion.php" enctype="multipart/form-data">
 			<div class="login-form">
 				<h3>Galdera:</h3> 
-  				<input type="text" name="galdera" title="Sartu zure galdera." placeholder="Sartu zure galdera"><br>
+  				<input type="text" name="galdera" title="Sartu zure galdera." placeholder="Sartu zure galdera" required><br>
 				<h3>Erantzuna:</h3>
- 				<input type="text" name="erantzuna" title="Sartu galderaren erantzuna." placeholder="Sartu galderaren erantzuna"><br>
+ 				<input type="text" name="erantzuna" title="Sartu galderaren erantzuna." placeholder="Sartu galderaren erantzuna" required><br>
  				<h3>Arloa:</h3>
  				<input type="text" name="arloa" title="Sartu galderaren arloa." placeholder="Sartu galderaren arloa"><br>
 				<h3>Zailtasuna:</h3>
@@ -60,11 +60,12 @@ if(isset($_POST['galdera']) && isset($_POST['erantzuna'])){
 	} else { //post eskaera landu	
 		$galdera= $_POST['galdera'];
 		$erantzuna= $_POST['erantzuna'];
+		$arloa= $_POST['arloa'];
 		$zailtasuna= $_POST['zailtasuna'];
 	}
 	
 	
-	if(($galdera=="")||($erantzuna=="")){
+	if(($galdera=="")||($erantzuna=="")||($arloa=="")){
 		echo("<div class='error-page'>
 				<div class='try-again'>
 					Mesedez bete galderak modu egokian.</br>
@@ -73,32 +74,54 @@ if(isset($_POST['galdera']) && isset($_POST['erantzuna'])){
 		</div>
 		<script src='js/signIn.js'></script>");
 	}else{
-		$sartu = "INSERT INTO quiz (egilePosta, galderaTestua, erantzunTestua, zailtasuna) VALUES ('{$eposta}', '{$galdera}', '{$erantzuna}', '{$zailtasuna}')";
+		$sartu = "INSERT INTO quiz (egilePosta, galderaTestua, erantzunTestua, zailtasuna, galderaArloa) VALUES ('{$eposta}', '{$galdera}', '{$erantzuna}', '{$zailtasuna}', '{$arloa}')";
 		$emaitza=$db->query($sartu);
 		if($emaitza){
 			echo("<div class='message'>");
-					echo $eposta;
-					$konexioid = $_SESSION['konexioid'];
-					//honekl ip-a bilatuko du toki egokienean nonbaiten ez badago
-					if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-		    			$ip = $_SERVER['HTTP_CLIENT_IP'];
-					} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-		    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-					} else {
-		    			$ip = $_SERVER['REMOTE_ADDR'];
-					}
-					$ekintza = "galdera txertatu";
-					date_default_timezone_set('Europe/Madrid');
-					$data = date(DATE_RSS, time());
-					$sqlekintza="INSERT INTO ekintzak(konexioa, postaElektronikoa, ekintzaMota, ekintzaData, IP) VALUES ('$konexioid', '$eposta', '$ekintza', '$data', '$ip')";
-					$emaitza=$db->query($sqlekintza);
-					if(!$emaitza) {
-						echo("Errore bat egon da ekintza gehitzean: ".$db->error);
-					}
+			echo $eposta;
+			$konexioid = $_SESSION['konexioid'];
+			//honekl ip-a bilatuko du toki egokienean nonbaiten ez badago
+			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    			$ip = $_SERVER['HTTP_CLIENT_IP'];
+			} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+			} else {
+    			$ip = $_SERVER['REMOTE_ADDR'];
+			}
+			$ekintza = "galdera txertatu";
+			date_default_timezone_set('Europe/Madrid');
+			$data = date(DATE_RSS, time());
+			$sqlekintza="INSERT INTO ekintzak(konexioa, postaElektronikoa, ekintzaMota, ekintzaData, IP) VALUES ('$konexioid', '$eposta', '$ekintza', '$data', '$ip')";
+			$emaitza=$db->query($sqlekintza);
+			if(!$emaitza) {
+				echo("Errore bat egon da ekintza gehitzean: ".$db->error);
+			}
+
+			//sartu baita ere erantzuna xml fitxategian
+			$xml = new DOMDocument();
+			$xml->load('xml/galderak.xml') or die("Ezin izan da xml-a kargatu");
+			$root = $xml->getElementsByTagName("assessmentItems");
+			$newElement = $xml->createElement('assessmentItem');
+
+			$atrZailtasuna = $xml->createAttribute("complexity");
+			$newElement->addAttribute($atrZailtasuna);
+			$newElement->setAttribute("complexity", $zailtasuna);
+
+			$atrArloa = $xml->createAttribute("subject");
+			$newElement->addAttribute($atrArloa);
+			$newElement->setAttribute("subject", $arloa);
+
+			$newElement->appendChild($xml->createElement("itemBody", $galdera));
+			$newElement->appendChild($xml->createElement("correctResponse", $erantzuna));
+
+			$root->appendChild($newElement);
+			echo $xml->saveXML();
+
 			echo("<div class='message'>
 					Zure eposta: ".$eposta."</br>
 					Zure galdera: ".$galdera."</br>
 					Zure erantzuna: ".$erantzuna."</br>
+					Galdera arloa: ".$arloa."</br>
 					Zailtasun maila: ".$zailtasuna."</br>
 					Zure galdera egoki sartu da. Sartu beste bat nahi izanez gero. </br>
 				</div>");
