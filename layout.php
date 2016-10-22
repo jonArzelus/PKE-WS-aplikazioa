@@ -28,22 +28,20 @@
   <body>
   <div id='page-wrap'>
 	<header class='main' id='h1'>
-	<div class="botoia-left">
+
 	<?php
-	echo "Erabiltzailea: " . $_SESSION['eposta'] . "   ";
+	echo '<div class="botoia-left"> Erabiltzailea: ' . $_SESSION['eposta'] . '</div>';
 	?>
-	</div>
 	
 	<?php
 	if($_SESSION['eposta']=="guest") {
       	//echo'<span class="right"><a href="SignIn.php">Sign In</a> / <a href="signUp.html">Sign Up</a></span>';
-      	echo'<div class="botoia-right"> <a href="SignIn.php">Sign In</a> </div> <div class="botoia-right"> <a href="signUp.html">Sign Up</a> </div>';
+      	echo'<a href="SignIn.php"><div class="botoia-right">Sign In</div></a><a href="signUp.html"><div class="botoia-right">Sign Up</div></a>';
 	} else {
 		//echo '<span class="right"><a href="LogOut.php">Log Out</a> </span>';
-		echo '<div class="botoia-right"> <a href="LogOut.php">Log Out</a> </div>';
+		echo '<a href="LogOut.php"><div class="botoia-right">Log Out</div></a>';
 	}
     ?>
-    
       
 	<h2>Quiz: crazy questions</h2>
     </header>
