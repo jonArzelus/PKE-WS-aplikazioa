@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
+<!DOCTYPE assessmentItems SYSTEM "galderak.dtd">
+<?xml-stylesheet href="seeQuestions.xsl" type="text/xsl"?>
 <assessmentItems>
 	<assessmentItem complexity="3" subject="mikologia">
 		<itemBody> 
@@ -16,12 +18,74 @@
 			<value>Phalloides</value>
 		</correctResponse>
 	</assessmentItem>
-<assessmentItem complexity="4" subject="mikologia">
-	<itemBody>
-		<p>Amanita cesarea jangarria da. Bai ala Ez?</p>
-	</itemBody>
+	<assessmentItem complexity="4" subject="mikologia">
+		<itemBody>
+			<p>Amanita cesarea jangarria da. Bai ala Ez?</p>
+		</itemBody>
 		<correctResponse>
 			<value>Bai</value>
+		</correctResponse>
+	</assessmentItem>
+	<assessmentItem complexity="1" subject="dgfj">
+		<itemBody>
+			sdf
+		</itemBody>
+		<correctResponse>
+			gsdfgh
+		</correctResponse>
+	</assessmentItem>
+	<assessmentItem complexity="1" subject="gsdfg">
+		<itemBody>
+			<p>dsghs</p>
+		</itemBody>
+		<correctResponse>
+			<value>hkfghj</value>
+		</correctResponse>
+	</assessmentItem>
+	<assessmentItem complexity="1" subject="adfg">
+		<itemBody>
+			<p>sadf</p>
+		</itemBody>
+		<correctResponse>
+			<value>adfg</value>
+		</correctResponse>
+	</assessmentItem>
+	<assessmentItem complexity="1" subject="afg">
+		<itemBody><p>sgfh</p></itemBody>
+		<correctResponse>
+			<value>asdg</value>
+		</correctResponse>
+	</assessmentItem>
+	<assessmentItem complexity="1" subject="afg">
+		<itemBody>
+			<p>sgfh</p>
+		</itemBody>
+		<correctResponse>
+			<value>asdg</value>
+		</correctResponse>
+	</assessmentItem>
+	<assessmentItem complexity="1" subject="asdf">
+		<itemBody>
+			<p>gfhr</p>
+		</itemBody>
+		<correctResponse>
+			<value>asdf</value>
+		</correctResponse>
+	</assessmentItem>
+	<assessmentItem complexity="1" subject="asdf">
+		<itemBody>
+			<p>gfhr</p>
+		</itemBody>
+		<correctResponse>
+			<value>asdf</value>
+		</correctResponse>
+	</assessmentItem>
+	<assessmentItem complexity="1" subject="asf">
+		<itemBody>
+			<p>asdg</p>
+		</itemBody>
+		<correctResponse>
+			<value>asd</value>
 		</correctResponse>
 	</assessmentItem>
 </assessmentItems>
