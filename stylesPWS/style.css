@@ -179,3 +179,30 @@ td.text-right {
 }
 
 /*** END OF Table Styles **/
+
+/* Jonek gehitutakoa */
+
+.botoia-left {
+  text-align: left;  
+  float:left; 
+  max-width: 45%; 
+  border-style: none; 
+  padding: 5px;
+}
+
+.botoia-right {
+  text-align: right; 
+  float:right; 
+  max-width: 45%; 
+  border-style: solid;
+  border-width: 1px;
+  padding: 7px;
+}
+
+.botoia-right > a {
+  text-decoration: none;
+}
+
+.botoia-right:hover {
+  background-color: white; 
+}
