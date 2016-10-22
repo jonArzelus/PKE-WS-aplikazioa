@@ -40,28 +40,6 @@ nav span {
 
 #ErrorMsgs          		 { color: #f61; font-size: smaler}
 
-nav span:hover {
-    color: black;
-    background-color: white;
-}
-
-.act-sel {
-  background-color: white;
-}
-
-nav span {
-	text-decoration: none;
-	color:black;
-  border: 1px solid black;
-}
-footer img {
-	opacity:0.5;
-	width:3%;
-}
-footer img:hover {
-	 opacity: 1.0;
-}
-
 /*** Table Styles **/
 
 .table-fill {
@@ -182,6 +160,35 @@ td.text-right {
 
 /* Jonek gehitutakoa */
 
+nav span:hover {
+    color: black;
+    background-color: white;
+}
+
+.act-sel {
+  background-color: white;
+  border:solid;
+  border-width: 1px;
+}
+
+nav span {
+  text-decoration: none;
+  color:black;
+  border: none;
+  border-width: 1px;
+  background: #CCCCCC;
+  padding:3px;
+}
+
+footer img {
+  opacity:0.5;
+  width:3%;
+}
+
+footer img:hover {
+   opacity: 1.0;
+}
+
 .botoia-left {
   text-align: left;  
   float:left; 
@@ -194,9 +201,12 @@ td.text-right {
   text-align: right; 
   float:right; 
   max-width: 45%; 
-  border-style: solid;
+  border-style: none;
   border-width: 1px;
   padding: 7px;
+  color: black;
+  background: #CCCCCC;
+  margin-right:3px;
 }
 
 .botoia-right > a {
