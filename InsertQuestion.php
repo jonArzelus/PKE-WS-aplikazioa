@@ -99,7 +99,7 @@ if(isset($_POST['galdera']) && isset($_POST['erantzuna'])){
 
 			//sartu baita ere erantzuna xml fitxategian
 			$xml = new DOMDocument('1.0',"UTF-8");
-			$xml->load('xml/galderak.xml') or die("Ezin izan da xml-a kargatu");
+			$xml->load('xml/galderak.xml') or die("<div class='error-page'> <div class='try-again'> Ezin izan da xml-a kargatu </div> </div> <script src='js/signIn.js'></script>");
 			$root = $xml->documentElement;
 			$assessmentItem = $xml->createElement('assessmentItem');
 
@@ -126,16 +126,19 @@ if(isset($_POST['galdera']) && isset($_POST['erantzuna'])){
 			$root->appendChild($assessmentItem);
 			$xml->appendChild($root);
 		
-			echo("<div class='message'>
+			echo("<div class='error-page'>
 					Zure eposta: ".$eposta."</br>
 					Zure galdera: ".$galdera."</br>
 					Zure erantzuna: ".$erantzuna."</br>
 					Galdera arloa: ".$arloa."</br>
 					Zailtasun maila: ".$zailtasuna."</br>
 					Zure galdera egoki sartu da. Sartu beste bat nahi izanez gero. </br>"); 
-				echo("XML fitxategian gorde da: ".$xml->save('xml/galderak.xml')."</br>"); 
-				echo("XML fitxategia bistaratu nahi baduzu sakatu hurrengo esteka: <a href='seeXMLQuestions.php'> XML galderak ikusi </a>");	 
-				echo("</div>");
+			echo("XML fitxategian gorde da: ".$xml->save('xml/galderak.xml')."</br>"); 
+			echo("XML fitxategia bistaratu nahi baduzu sakatu hurrengo esteka: <a href='seeXMLQuestions.php'> XML galderak ikusi </a></br>");	
+			echo("<div class='try-again'> Beste galdera bat sartu </div>");
+			echo("</div>");
+			echo("<script src='js/signIn.js'></script>");
+				
 		}else{
 			echo("<div class='error-page'>
 				<div class='try-again'>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 23, 2016 at 06:15 
+-- Generation Time: Oct 23, 2016 at 06:50 
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -50,7 +50,12 @@ INSERT INTO `ekintzak` (`ID`, `konexioa`, `postaElektronikoa`, `ekintzaMota`, `e
 (101, 26, 'rosa123@ikasle.ehu.eus', 'galderak ikusi', 'Sun, 23 Oct 2016 18:12:54 +0200', '127.0.0.1'),
 (102, -1, 'guest', 'galderak ikusi', 'Sun, 23 Oct 2016 18:12:59 +0200', '127.0.0.1'),
 (103, -1, 'guest', 'galderak ikusi', 'Sun, 23 Oct 2016 18:13:07 +0200', '127.0.0.1'),
-(104, -1, 'guest', 'xml galderak ikusi', 'Sun, 23 Oct 2016 18:13:40 +0200', '127.0.0.1');
+(104, -1, 'guest', 'xml galderak ikusi', 'Sun, 23 Oct 2016 18:13:40 +0200', '127.0.0.1'),
+(105, 27, 'inaki123@ikasle.ehu.es', 'galdera txertatu', 'Sun, 23 Oct 2016 18:40:16 +0200', '127.0.0.1'),
+(106, 27, 'inaki123@ikasle.ehu.es', 'galdera txertatu', 'Sun, 23 Oct 2016 18:41:13 +0200', '127.0.0.1'),
+(107, 27, 'inaki123@ikasle.ehu.es', 'xml galderak ikusi', 'Sun, 23 Oct 2016 18:42:36 +0200', '127.0.0.1'),
+(108, 27, 'inaki123@ikasle.ehu.es', 'galdera txertatu', 'Sun, 23 Oct 2016 18:42:46 +0200', '127.0.0.1'),
+(109, 27, 'inaki123@ikasle.ehu.es', 'galdera txertatu', 'Sun, 23 Oct 2016 18:45:00 +0200', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -98,7 +103,8 @@ CREATE TABLE `konexioak` (
 
 INSERT INTO `konexioak` (`ID`, `postaElektronikoa`, `konexioData`) VALUES
 (25, 'inaki123@ikasle.ehu.es', 'Sun, 23 Oct 2016 18:03:59 +0200'),
-(26, 'rosa123@ikasle.ehu.eus', 'Sun, 23 Oct 2016 18:09:20 +0200');
+(26, 'rosa123@ikasle.ehu.eus', 'Sun, 23 Oct 2016 18:09:20 +0200'),
+(27, 'inaki123@ikasle.ehu.es', 'Sun, 23 Oct 2016 18:39:59 +0200');
 
 -- --------------------------------------------------------
 
@@ -125,7 +131,8 @@ INSERT INTO `quiz` (`galderaZenbakia`, `egilePosta`, `galderaTestua`, `erantzunT
 (3, 'a000@ikasle.ehu.eus', 'Zein egun da gaur?', 'Mozkortzeko eguna', '1', 'Edariak'),
 (4, 'a000@ikasle.ehu.eus', 'Zein da munduko hiriburua?', 'Urretxu', '1', 'Geografia'),
 (5, 'a000@ikasle.ehu.eus', 'Donostia nun dago?', 'Gipuzkoan', '1', 'Geografia'),
-(27, 'inaki123@ikasle.ehu.es', 'Non dago Wally?', 'San mamesen', '3', 'Humorea');
+(27, 'inaki123@ikasle.ehu.es', 'Non dago Wally?', 'San mamesen', '3', 'Humorea'),
+(28, 'inaki123@ikasle.ehu.es', 'Zergatik bai?', 'Zergatik ez?', '1', 'filosofia');
 
 --
 -- Indexes for dumped tables
@@ -165,17 +172,17 @@ ALTER TABLE `quiz`
 -- AUTO_INCREMENT for table `ekintzak`
 --
 ALTER TABLE `ekintzak`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 --
 -- AUTO_INCREMENT for table `konexioak`
 --
 ALTER TABLE `konexioak`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `quiz`
 --
 ALTER TABLE `quiz`
-  MODIFY `galderaZenbakia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `galderaZenbakia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

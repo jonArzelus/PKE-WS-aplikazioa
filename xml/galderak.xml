@@ -34,4 +34,12 @@
 			<value>San mamesen</value>
 		</correctResponse>
 	</assessmentItem>
+<assessmentItem complexity="1" subject="filosofia">
+	<itemBody>
+		<p>Zergatik bai?</p>
+	</itemBody>
+	<correctResponse>
+		<value>Zergatik ez?</value>
+	</correctResponse>
+	</assessmentItem>
 </assessmentItems>
