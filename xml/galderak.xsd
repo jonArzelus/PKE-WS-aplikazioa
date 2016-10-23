@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--<!ELEMENT assessmentItems(assessmentItem+)>
+<!ATTLIST assessmentItem complexity CDATA #REQUIRE subject CDATA #REQUIRE>
+<!ELEMENT assessmentItem(itemBody,correctResponse)>
+<!ELEMENT itemBody(p)>
+<!ELEMENT correctResponse>
+<!ELEMENT p (#PCDATA)>
+<!ELEMENT value (#PCDATA)>-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema>
+	
+	<xs:element name='assessmentItems'>
+		<type>
+			<element name='assessmentItem'>
+			<xs:attribute name='complexity' type='xs:string'/>	
+			<xs:attribute name='subject' type='xs:string'/>	
+			<type>
+				<element name='itemBody' />
+					<type>
+						<element name='p' type='string'/>
+					</type>	
+				<element name='correctResponse'/>
+					<type>
+						<element name='value' type='string'/>
+					</type>	
+			</type>
+			</element>	
+		</type>
+	</element>
+</xs:schema>

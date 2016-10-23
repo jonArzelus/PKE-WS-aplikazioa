@@ -1,6 +1,6 @@
-<?xml version="1.0"?>
-<!DOCTYPE assessmentItems SYSTEM "galderak.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="seeQuestions.xsl" type="text/xsl"?>
+<!DOCTYPE assessmentItems SYSTEM "galderak.xsd">
 <assessmentItems>
 	<assessmentItem complexity="3" subject="mikologia">
 		<itemBody> 
@@ -88,4 +88,4 @@
 			<value>asd</value>
 		</correctResponse>
 	</assessmentItem>
-</assessmentItems>
+<assessmentItem complexity="1" subject="jtyj"><itemBody><p>zdfb</p></itemBody><correctResponse><value>asdf</value></correctResponse></assessmentItem></assessmentItems>

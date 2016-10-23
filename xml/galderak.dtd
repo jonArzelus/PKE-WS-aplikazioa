@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<!ELEMENT assessmentItems(assessmentItem+)>
-<!ATTLIST assessmentItem complexity CDATA #REQUIRE subject CDATA #REQUIRE>
-<!ELEMENT assessmentItem(itemBody,correctResponse)>
-<!ELEMENT itemBody(p)>
-<!ELEMENT correctResponse>
-<!ELEMENT p (#PCDATA)>
-<!ELEMENT value (#PCDATA)>

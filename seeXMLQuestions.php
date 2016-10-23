@@ -52,7 +52,9 @@
 		
 	
 	<div>
-		<h1>XML fitxategiko galderak</h1>
+		
+		
+		
 		<?php
 			include 'dbkonexioak/dbOpen.php';
 
@@ -75,14 +77,39 @@
 			if(!$emaitza) {
 				echo("Errore bat egon da ekintza gehitzean: ".$db->error);
 			}
-			
+		
+			echo("<h1>XML fitxategiko galderak PHP erabiliz</h1></br></br>");
 			$xml = new DOMDocument();
-			$xml->load("xml/galderak.xml");
+			$xml = simplexml_load_file('xml/galderak.xml') or die('Errore bat egon da xml fitxategia kargatzean.');
+			//$root = $xml->documentElement;
+			echo ('<table border="1">
+					<tr>
+						<th style="text-align:center"> Galdera </th>
+						<th style="text-align:center"> Zailtasuna </th>
+						<th style="text-align:center"> Arloa </th>
+					</tr> ');
+		
+			foreach($xml->assessmentItem as $assessmentItem){
+					echo ("<tr>");	
+						echo ("<td>".$assessmentItem->itemBody->p."</td>");
+						echo ("<td>".$assessmentItem['complexity']."</td>");
+						echo ("<td>".$assessmentItem['subject']."</td>");
+					echo("</tr>");
+			}
+		
+			echo("</table></br></br>");
+			
+			
+		
+			echo("<h1>XML fitxategiko galderak XSL erabiliz</h1></br></br>");
+			
+			$xml2 = new DOMDocument();
+			$xml2->load("xml/galderak.xml") or die('Errore bat egon da xml2 fitxategia kargatzean');
 			$xsl = new DOMDocument();
-			$xsl->load("xml/seeQuestions.xsl");
+			$xsl->load("xml/seeQuestions.xsl") or die('Errore bat egon da xsl fitxategia kargatzean');
 			$proc = new XSLTProcessor();
 			$proc-> importStyleSheet($xsl);
-			echo ($proc->transformToXML($xml));
+			echo ($proc->transformToXML($xml2));
 			
 			include 'dbkonexioak/dbClose.php';
 		?>
