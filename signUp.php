@@ -1,3 +1,15 @@
+<?php
+
+	session_start();
+	//ikus ea sesio bat hasi den eta ez bada hala guest ezarri
+	if(isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) {
+   		null;
+	} else {
+		$_SESSION['eposta'] = "guest";
+		$_SESSION['konexioid'] = -1;
+	}
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -65,14 +77,28 @@
   <body>
   <div id='page-wrap'>
 	<header class='main' id='h1'>
+	<?php
+		echo "Erabiltzailea: " . $_SESSION['eposta'] . "   ";
+		if($_SESSION['eposta']=="guest") {
+      		echo'<span class="right"><a href="SignIn.php">Sign In</a> / <a href="signUp.php">Sign Up</a></span>';
+		}else{
+			echo '<span class="right"><a href="LogOut.php">Log Out</a> </span>';
+		}
+    ?>
       <!--<span class="right"><a href="SignIn.php">Sign In</a> / <a href="signUp.html">Sign Up</a></span>
       <span class="right" style="display:none;"><a href="/logout">Log Out</a> </span>-->
 	<h2>Quiz: crazy questions</h2>
     </header>
 	<nav class='main' id='n1' role='navigation'>
-		<span><a href='layout.php'>Home</a></span>
-		<span><a href='Quizzes.php'>Quizzes</a></span>
-		<span><a href='credits.php'>Credits</a></span>
+		<span><a href='layout.php'>Hasiera</a></span>
+		<span><a href='Quizzes.php'>Galderak</a></span>
+		<?php
+	if($_SESSION['eposta'] != "guest")
+		echo'<a href="InsertQuestion.php"><span>Galdera Sortu</span></a>';
+	if($_SESSION['eposta'] == "rosa123@ikasle.ehu.eus")
+		echo'<a href="getUserInform.php"><span>Ikaslea begiratu</span></a>';
+	?>
+		<span><a href='credits.php'>Kredituak</a></span>
 	</nav>
     <section class="main" id="s1">
 		

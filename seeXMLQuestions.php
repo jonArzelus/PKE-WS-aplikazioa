@@ -31,7 +31,7 @@
 	<?php
 	echo "Erabiltzailea: " . $_SESSION['eposta'] . "   ";
 	if($_SESSION['eposta']=="guest") {
-      	echo'<span class="right"><a href="SignIn.php">Sign In</a> / <a href="signUp.html">Sign Up</a></span>';
+      	echo'<span class="right"><a href="SignIn.php">Sign In</a> / <a href="signUp.php">Sign Up</a></span>';
 	} else {
 		echo '<span class="right"><a href="LogOut.php">Log Out</a> </span>';
 	}
@@ -45,6 +45,8 @@
 	<?php
 	if($_SESSION['eposta'] != "guest")
 		echo'<a href="InsertQuestion.php"><span>Galdera Sortu</span></a>';
+	if($_SESSION['eposta'] == "rosa123@ikasle.ehu.eus")
+		echo'<a href="getUserInform.php"><span>Ikaslea begiratu</span></a>';
 	?>
 		<a href='credits.php'><span>Kredituak</span></a>
 	</nav>

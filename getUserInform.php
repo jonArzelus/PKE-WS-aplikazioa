@@ -28,6 +28,7 @@
   <body>
   <div id='page-wrap'>
 	<header class='main' id='h1'>
+
 	<?php
 	echo '<div class="botoia-left"> Erabiltzailea: ' . $_SESSION['eposta'] . '</div>';
 	?>
@@ -45,8 +46,8 @@
 	<h2>Quiz: crazy questions</h2>
     </header>
 	<nav class='main' id='n1' role='navigation'>
-		<a href='layout.php'><span>Hasiera</span></a>
-		<a href='Quizzes.php'><span class="act-sel">Galderak</span></a>
+		<a href='layout.php'><span class="act-sel">Hasiera</span></a>
+		<a href='Quizzes.php'><span>Galderak</span></a>
 	<?php
 	if($_SESSION['eposta'] != "guest")
 		echo'<a href="InsertQuestion.php"><span>Galdera Sortu</span></a>';
@@ -57,47 +58,27 @@
 	</nav>
     <section class="main" id="s1">
 		
-	
+	<h1>Sartu ikaslearen e-maila</h1> <br/>
 	<div>
-		<?php
-			include 'dbkonexioak/dbOpen.php';
-
-			//sesio informazioa gorde ekintzetan
-			//session_start();
-			$eposta=$_SESSION['eposta'];
-			$konexioid = $_SESSION['konexioid'];
-			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    			$ip = $_SERVER['HTTP_CLIENT_IP'];
-			} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-			} else {
-    			$ip = $_SERVER['REMOTE_ADDR'];
-			}
-			$ekintza = "galderak ikusi";
-			date_default_timezone_set('Europe/Madrid');
-			$data = date(DATE_RSS, time());
-			$sqlekintza="INSERT INTO ekintzak(konexioa, postaElektronikoa, ekintzaMota, ekintzaData, IP) VALUES ('$konexioid', '$eposta', '$ekintza', '$data', '$ip')";
-			$emaitza=$db->query($sqlekintza);
-			if(!$emaitza) {
-				echo("Errore bat egon da ekintza gehitzean: ".$db->error);
-			}
-			$sql="SELECT galderaTestua, zailtasuna FROM quiz";
-			$emaitza=$db->query($sql);
-			if($emaitza){
-				echo '<table border=2><tr><th> GALDERA </th><th> ZAILTASUNA </th>';
-				while ($lerroa = $emaitza->fetch_array(MYSQLI_BOTH)){
-					echo '<tr><td>'.$lerroa['galderaTestua'].'</td><td>'.$lerroa['zailtasuna'].'</td></tr>';
-				}
-				echo '</table>';
-			}else{
-				echo("Errore bat egon da galdera gehitzean: ".$db->error);
-			}
-			/*foreach($_SESSION as $key => $value) { 
-    			echo $key . " = " . $value . "<br>"; 
-			}*/
-			include 'dbkonexioak/dbClose.php';
-		?>
+		<form id="ikasle_emaila" name="ikasle_emaila" method="POST" action="getUserInform.php" enctype="multipart/form-data">
+			<div class="begiratu_ikaslea">
+  				<h3>Posta-elektronikoa:</h3> 
+  				<input type="text" name="eposta" title="Sartu zure emaila." placeholder="E-mail"><br><br>
+				<h3>Ikaslearen izena:</h3>
+ 				<input type="text" name="ikasle_izena" title="Hau da ikaslearen izena." placeholder="Ikasle izena"><br><br>
+				<h3>Telefono zenbakia:</h3>
+ 				<input type="text" name="telefono_zenbakia" title="Hau da ikaslearen telefono zenbakia." placeholder="Telfono zenbakia"><br><br>
+				<br><br>
+				<input type="submit" class="ikasle-botoia" name="button" value="Begiratu">
+				
+			</div>
+		</form>
 	</div>
+		<?php 
+		
+		
+		
+		?>
 		
     </section>
 	<footer class='main' id='f1'>

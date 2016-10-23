@@ -35,7 +35,7 @@
 	<?php
 	if($_SESSION['eposta']=="guest") {
       	//echo'<span class="right"><a href="SignIn.php">Sign In</a> / <a href="signUp.html">Sign Up</a></span>';
-      	echo'<a href="SignIn.php"><div class="botoia-right">Sign In</div></a><a href="signUp.html"><div class="botoia-right">Sign Up</div></a>';
+      	echo'<a href="SignIn.php"><div class="botoia-right">Sign In</div></a><a href="signUp.php"><div class="botoia-right">Sign Up</div></a>';
 	} else {
 		//echo '<span class="right"><a href="LogOut.php">Log Out</a> </span>';
 		echo '<a href="LogOut.php"><div class="botoia-right">Log Out</div></a>';
@@ -50,6 +50,8 @@
 	<?php
 	if($_SESSION['eposta'] != "guest")
 		echo'<a href="InsertQuestion.php"><span>Galdera Sortu</span></a>';
+	if($_SESSION['eposta'] == "rosa123@ikasle.ehu.eus")
+		echo'<a href="getUserInform.php"><span>Ikaslea begiratu</span></a>';
 	?>
 		<a href='credits.php'><span class="act-sel">Kredituak</span></a>
 	</nav>
