@@ -42,6 +42,7 @@
 				if (kor==epostenZer[i].childNodes[0].nodeValue){
 					document.getElementById('tfonoa').value=tfnoZer[i].childNodes[0].nodeValue;
 					document.getElementById('izena').value=izenZer[i].childNodes[0].nodeValue +"  " + AbizenZer[i].childNodes[0].nodeValue + "  " + Abizen2Zer[i].childNodes[0].nodeValue ;
+					alert(izenZer[i].childNodes[0].nodeValue +" "+ AbizenZer[i].childNodes[0].nodeValue +" "+ Abizen2Zer[i].childNodes[0].nodeValue);
 					dago=true;
 					break;
 				}
@@ -98,7 +99,7 @@
 				<h3>Telefono zenbakia:</h3>
  				<input type="text" id="tfonoa" name="telefono_zenbakia" title="Hau da ikaslearen telefono zenbakia." placeholder="Telfono zenbakia"><br><br>
 				<br><br>
-				<input type="submit" class="ikasle-botoia" name="button" value="Begiratu" onClick="begiratu()">
+				<input type="button" class="ikasle-botoia" name="button" value="Begiratu" onClick="begiratu()">
 			
 		</form>
 	</div>
