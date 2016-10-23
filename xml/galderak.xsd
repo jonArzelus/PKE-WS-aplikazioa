@@ -8,24 +8,24 @@
 <!ELEMENT value (#PCDATA)>-->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<xs:schema>
-	
-	<xs:element name='assessmentItems'>
-		<type>
-			<element name='assessmentItem'>
-			<xs:attribute name='complexity' type='xs:string'/>	
-			<xs:attribute name='subject' type='xs:string'/>	
-			<type>
-				<element name='itemBody' />
-					<type>
-						<element name='p' type='string'/>
-					</type>	
-				<element name='correctResponse'/>
-					<type>
-						<element name='value' type='string'/>
-					</type>	
-			</type>
-			</element>	
-		</type>
-	</element>
+	<xs:element name="assessmentItems">
+			<xs:element name="assessmentItem">
+				<xs:complexType>
+					<xs:attribute name="complexity"/>
+					<xs:attribute name="subject"/>
+				
+					<xs:element name="itemBody">
+						<xs:complexType>
+							<xs:element name='p' type='xs:string'/>
+						</xs:complexType>
+					</xs:element>
+				
+					<xs:element name="correctResponse">
+						<xs:complexType>
+							<xs:element name='value' type='xs:positiveInteger'/>
+						</xs:complexType>
+					</xs:element>
+				</xs:complexType>
+			</xs:element>
+	</xs:element>
 </xs:schema>
