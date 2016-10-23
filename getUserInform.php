@@ -42,7 +42,6 @@
 				if (kor==epostenZer[i].childNodes[0].nodeValue){
 					document.getElementById('tfonoa').value=tfnoZer[i].childNodes[0].nodeValue;
 					document.getElementById('izena').value=izenZer[i].childNodes[0].nodeValue +"  " + AbizenZer[i].childNodes[0].nodeValue + "  " + Abizen2Zer[i].childNodes[0].nodeValue ;
-					alert(izenZer[i].childNodes[0].nodeValue +" "+ AbizenZer[i].childNodes[0].nodeValue +" "+ Abizen2Zer[i].childNodes[0].nodeValue);
 					dago=true;
 					break;
 				}

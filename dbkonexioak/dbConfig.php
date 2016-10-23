@@ -12,8 +12,8 @@ if ($host=="localhost"){
 	define("PASS", "");
 	define("DATABASE", "erabiltzaileak");
 	define("ESTEKA","ShowUsersWithImage.php");
-	define("HASIERA","layout.html");
-	define("SIGNUP","signUp.html");
+	define("HASIERA","layout.php");
+	define("SIGNUP","signUp.php");
 
 }else{
 	//hostingerren atzitzeko
@@ -22,8 +22,8 @@ if ($host=="localhost"){
 	define("PASS", "pertsona1");
 	define("DATABASE", "u880556081_perts");
 	define("ESTEKA","http://berriogit.hol.es/ShowUsersWithImage.php");
-	define("HASIERA","http://berriogit.hol.es/layout.html");
-	define("SIGNUP","http://berriogit.hol.es/signUp.html");
+	define("HASIERA","http://berriogit.hol.es/layout.php");
+	define("SIGNUP","http://berriogit.hol.es/signUp.php");
 }
 
 ?>

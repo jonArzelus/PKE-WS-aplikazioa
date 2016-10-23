@@ -26,66 +26,12 @@
 			<value>Bai</value>
 		</correctResponse>
 	</assessmentItem>
-	<assessmentItem complexity="1" subject="dgfj">
+	<assessmentItem complexity="3" subject="Humorea">
 		<itemBody>
-			sdf
+			<p>Non dago Wally?</p>
 		</itemBody>
 		<correctResponse>
-			gsdfgh
-		</correctResponse>
-	</assessmentItem>
-	<assessmentItem complexity="1" subject="gsdfg">
-		<itemBody>
-			<p>dsghs</p>
-		</itemBody>
-		<correctResponse>
-			<value>hkfghj</value>
-		</correctResponse>
-	</assessmentItem>
-	<assessmentItem complexity="1" subject="adfg">
-		<itemBody>
-			<p>sadf</p>
-		</itemBody>
-		<correctResponse>
-			<value>adfg</value>
-		</correctResponse>
-	</assessmentItem>
-	<assessmentItem complexity="1" subject="afg">
-		<itemBody><p>sgfh</p></itemBody>
-		<correctResponse>
-			<value>asdg</value>
-		</correctResponse>
-	</assessmentItem>
-	<assessmentItem complexity="1" subject="afg">
-		<itemBody>
-			<p>sgfh</p>
-		</itemBody>
-		<correctResponse>
-			<value>asdg</value>
-		</correctResponse>
-	</assessmentItem>
-	<assessmentItem complexity="1" subject="asdf">
-		<itemBody>
-			<p>gfhr</p>
-		</itemBody>
-		<correctResponse>
-			<value>asdf</value>
-		</correctResponse>
-	</assessmentItem>
-	<assessmentItem complexity="1" subject="asdf">
-		<itemBody>
-			<p>gfhr</p>
-		</itemBody>
-		<correctResponse>
-			<value>asdf</value>
-		</correctResponse>
-	</assessmentItem>
-	<assessmentItem complexity="1" subject="asf">
-		<itemBody>
-			<p>asdg</p>
-		</itemBody>
-		<correctResponse>
-			<value>asd</value>
+			<value>San mamesen</value>
 		</correctResponse>
 	</assessmentItem>
 </assessmentItems>

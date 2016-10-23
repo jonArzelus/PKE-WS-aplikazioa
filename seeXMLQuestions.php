@@ -29,11 +29,11 @@
   <div id='page-wrap'>
 	<header class='main' id='h1'>
 	<?php
-	echo "Erabiltzailea: " . $_SESSION['eposta'] . "   ";
+	echo '<div class="botoia-left"> Erabiltzailea: ' . $_SESSION['eposta'] . '</div>';
 	if($_SESSION['eposta']=="guest") {
-      	echo'<span class="right"><a href="SignIn.php">Sign In</a> / <a href="signUp.php">Sign Up</a></span>';
+      	echo'<a href="SignIn.php"><div class="botoia-right">Sign In</div></a><a href="signUp.php"><div class="botoia-right">Sign Up</div></a>';
 	} else {
-		echo '<span class="right"><a href="LogOut.php">Log Out</a> </span>';
+		echo '<a href="LogOut.php"><div class="botoia-right">Log Out</div></a>';
 	}
     ?>
       
@@ -54,9 +54,6 @@
 		
 	
 	<div>
-		
-		
-		
 		<?php
 			include 'dbkonexioak/dbOpen.php';
 
