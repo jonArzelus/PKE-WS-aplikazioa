@@ -1,8 +1,6 @@
 <?php
 
 	session_start();
-	$_SESSION['eposta'] = "guest";
-	$_SESSION['konexioid'] = -1;
-	$_SESSION['erabiltzaileMota'] = "GUEST";
+	session_destroy();
 	header("Location:layout.php");
 ?>

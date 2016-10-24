@@ -10,7 +10,6 @@
 			include 'dbkonexioak/dbOpen.php';
 
 			//sesio informazioa gorde ekintzetan
-			//session_start();
 			$eposta=$_SESSION['eposta'];
 			$konexioid = $_SESSION['konexioid'];
 			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {

@@ -5,7 +5,7 @@
 	if((isset($_SESSION['eposta']) && !empty($_SESSION['eposta'])) && (isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) && (isset($_SESSION['erabiltzaileMota']) && !empty($_SESSION['erabiltzaileMota']))) {
    		null;
 	} else {
-		$_SESSION['eposta'] = "guest";
+		$_SESSION['eposta'] = "Erabiltzaile Anonimoa";
 		$_SESSION['konexioid'] = -1;
 		$_SESSION['erabiltzaileMota'] = "GUEST";
 	}
@@ -35,7 +35,7 @@
 	?>
 	
 	<?php
-	if($_SESSION['eposta']=="guest") {
+	if($_SESSION['erabiltzaileMota']=="GUEST") {
       	echo'<a href="signUp.php"><div class="botoia-right">Sign Up</div></a><a href="SignIn.php"><div class="botoia-right">Sign In</div></a>';
 	} else {
 		echo '<a href="LogOut.php"><div class="botoia-right">Log Out</div></a>';
