@@ -22,12 +22,15 @@ b						{font: 16px Georgia, serif;}
 
 section > div				{padding: 20px;}
 header			{background: #E7E7E7; text-align: center;}
-nav				{background: #E7E7E7; text-align: center;}
+nav	{
+  background: #E7E7E7; 
+  text-align: center;
+}
 section 		{background: #FFF; text-align: center;}
 footer					{background: #E7E7E7; text-align: center;}
 nav span { 
 	margin: 0px 10px 0px 0px;
-	width: 98%;
+	width: 90%;
 	display: inline-block;
 	font-size:22px;
 }

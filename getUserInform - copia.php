@@ -1,8 +1,29 @@
 <?php
-	$_GET['orrialdea'] = "ikasleakIkusi";
-	include 'orrialdeGoiburua.php';
+
+	session_start();
+	//ikus ea sesio bat hasi den eta ez bada hala guest ezarri
+	if(isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) {
+   		null;
+	} else {
+		$_SESSION['eposta'] = "guest";
+		$_SESSION['konexioid'] = -1;
+	}
+
 ?>
-	<OBJECT id="datuak" data="xml/erabiltzaileak.xml" type="text/xml" style="display:none"></OBJECT>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
+	<title>Quizzes</title>
+    <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+		   href='stylesPWS/wide.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (max-width: 480px)'
+		   href='stylesPWS/smartphone.css' />
 	<script type="text/javascript">
 		function begiratu(){
 			
@@ -31,6 +52,39 @@
 
 		}
 	</script>
+  </head>
+  <body>
+  <div id='page-wrap'>
+	<header class='main' id='h1'>
+
+	<?php
+	echo '<div class="botoia-left"> Erabiltzailea: ' . $_SESSION['eposta'] . '</div>';
+	?>
+	
+	<?php
+	if($_SESSION['eposta']=="guest") {
+      	//echo'<span class="right"><a href="SignIn.php">Sign In</a> / <a href="signUp.html">Sign Up</a></span>';
+      	echo'<a href="SignIn.php"><div class="botoia-right">Sign In</div></a><a href="signUp.php"><div class="botoia-right">Sign Up</div></a>';
+	} else {
+		//echo '<span class="right"><a href="LogOut.php">Log Out</a> </span>';
+		echo '<a href="LogOut.php"><div class="botoia-right">Log Out</div></a>';
+	}
+    ?>
+      
+	<h2>Quiz: crazy questions</h2>
+	<OBJECT id="datuak" data="xml/erabiltzaileak.xml" type="text/xml" style="display:none"></OBJECT>
+    </header>
+	<nav class='main' id='n1' role='navigation'>
+		<a href='layout.php'><span >Hasiera</span></a>
+		<a href='Quizzes.php'><span>Galderak</span></a>
+	<?php
+	if($_SESSION['eposta'] != "guest")
+		echo'<a href="InsertQuestion.php"><span>Galdera Sortu</span></a>';
+	if($_SESSION['eposta'] == "rosa123@ikasle.ehu.eus")
+		echo'<a href="getUserInform.php"><span class="act-sel">Ikaslea begiratu</span></a>';
+	?>
+		<a href='credits.php'><span>Kredituak</span></a>
+	</nav>
     <section class="main" id="s1">
 		
 	<h1>Sartu ikaslearen e-maila</h1> <br/>
