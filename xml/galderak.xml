@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl href="seeQuestions.xsl" "?>
+<?xml-stylesheet type="text/xsl" href="seeQuestions.xsl"?>
 <!DOCTYPE assessmentItems SYSTEM "galderak.xsd">
 <assessmentItems>
 	<assessmentItem complexity="3" subject="mikologia">
