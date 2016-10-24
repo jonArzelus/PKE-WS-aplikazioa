@@ -77,6 +77,15 @@ if(empty($user)){
 	} else {
 		$row = $konarray->fetch_array(MYSQL_NUM);
 		$_SESSION['konexioid'] = $row[0];
+		//erabiltzaile mota lortu
+		$erabiltzailesql = "SELECT erabiltzaileMota FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
+		$erabiltzailearray = $db->query($erabiltzailesql);
+		if (!$erabiltzailearray) {
+    		echo 'Could not run query: ' . $db->error;
+    		exit;
+    	}
+		$row = $erabiltzailearray->fetch_array(MYSQL_NUM);
+		$_SESSION['erabiltzaileMota'] = $row[0];
 		echo "Konexioa ondo gordeta!";
 		header("Location:layout.php");
     	exit;

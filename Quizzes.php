@@ -2,11 +2,12 @@
 
 	session_start();
 	//ikus ea sesio bat hasi den eta ez bada hala guest ezarri
-	if(isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) {
+	if((isset($_SESSION['eposta']) && !empty($_SESSION['eposta'])) && (isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) && (isset($_SESSION['erabiltzaileMota']) && !empty($_SESSION['erabiltzaileMota']))) {
    		null;
 	} else {
 		$_SESSION['eposta'] = "guest";
 		$_SESSION['konexioid'] = -1;
+		$_SESSION['erabiltzaileMota'] = "GUEST";
 	}
 
 ?>
@@ -50,8 +51,8 @@
 	<?php
 	if($_SESSION['eposta'] != "guest")
 		echo'<a href="InsertQuestion.php"><span>Galdera Sortu</span></a>';
-	if($_SESSION['eposta'] == "rosa123@ikasle.ehu.eus")
-		echo'<a href="getUserInform.php"><span>Ikaslea begiratu</span></a>';
+	if($_SESSION['erabiltzaileMota'] == "IRAKASLEA")
+		echo'<a href="getUserInform.php"><span>Ikasleak begiratu</span></a>';
 	?>
 		<a href='credits.php'><span>Kredituak</span></a>
 	</nav>
