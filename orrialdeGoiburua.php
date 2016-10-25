@@ -64,8 +64,8 @@
 			echo'<a href="getUserInform.php"><span>Ikasleak begiratu</span></a>';
 	}
 	if($_GET['orrialdea']=="credits")
-		echo('<a href="Credits.php"><span class="act-sel">Kredituak</span></a>');
+		echo('<a href="credits.php"><span class="act-sel">Kredituak</span></a>');
 	else
-		echo('<a href="Credits.php"><span>Kredituak</span></a>');
+		echo('<a href="credits.php"><span>Kredituak</span></a>');
 	?>
 	</nav>
