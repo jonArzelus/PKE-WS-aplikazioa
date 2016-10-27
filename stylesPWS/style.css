@@ -219,3 +219,10 @@ footer img:hover {
 .botoia-right:hover {
   background-color: white; 
 }
+
+.try-again {
+  color:#f2f2f2;
+  text-decoration:underline;
+  cursor:pointer;
+	text-align:center;
+}

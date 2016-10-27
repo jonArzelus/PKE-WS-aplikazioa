@@ -55,7 +55,7 @@
 	else
 		echo('<a href="seeXMLQuestions.php"><span>Galderak</span></a>');
 	if($_SESSION['erabiltzaileMota'] != "GUEST") {
-		echo'<a href="InsertQuestion.php"><span>Galdera Sortu</span></a>';
+		echo'<a href="handlingQuizes.php"><span>Galdera Sortu</span></a>';
 	}
 	if($_SESSION['erabiltzaileMota'] == "IRAKASLEA") {
 		if($_GET['orrialdea']=="ikasleakIkusi")
