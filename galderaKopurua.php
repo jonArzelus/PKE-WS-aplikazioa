@@ -1,5 +1,6 @@
 <?php 
-	
+	session_start();
+	//ikus ea sesio bat hasi den eta ez bada hala guest ezarri
 	if((isset($_SESSION['eposta']) && !empty($_SESSION['eposta'])) && (isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) && (isset($_SESSION['erabiltzaileMota']) && !empty($_SESSION['erabiltzaileMota']))) {
    		null;
 	} else {
@@ -18,13 +19,14 @@
 	}
 
 	$query2="SELECT * FROM quiz";
-	$result = $db->query($query);
+	$result2 = $db->query($query2);
 	$guztira=0;
 	while($row2=$result2->fetch_assoc()){
 		$guztira=$guztira+1;
 	}
 
-	echo($nireak."/".$guztira);
+	echo("Nire galdera kopurua: ".$nireak."</br>");
+	echo("Galderak guztira: ".$guztira)."</br></br>";
 
 	include "dbkonexioak/dbClose.php";
 ?>

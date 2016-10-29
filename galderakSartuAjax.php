@@ -1,7 +1,6 @@
 <?php 
-
-	include 'dbkonexioak/dbOpen.php';
 	session_start();
+	include 'dbkonexioak/dbOpen.php';
 	if((isset($_SESSION['eposta']) && !empty($_SESSION['eposta'])) && (isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) && (isset($_SESSION['erabiltzaileMota']) && !empty($_SESSION['erabiltzaileMota']))) {
    		null;
 	} else {
@@ -9,29 +8,25 @@
 		$_SESSION['konexioid'] = -1;
 		$_SESSION['erabiltzaileMota'] = "GUEST";
 	}
-
-	$eposta=$_SESSION['eposta'];
-	$galdera = $_GET['galdera'];
-	$erantzuna = $_GET['erantzuna'];
-	$zailtasuna = $_GET['zailtasuna'];
-	$arloa = $_GET['arloa'];
-
+	echo("ona ailegatzen naiz");
 	$eposta=$_SESSION['eposta'];
 	$konexioid=$_SESSION['konexioid'];
 	$erabiltzailemota=$_SESSION['erabiltzaileMota'];
+	$galdera = $_POST['galdera'];
+	$erantzuna = $_POST['erantzuna'];
+	$zailtasuna = $_POST['zailtasuna'];
+	$arloa = $_POST['arloa'];
+	/*$galdera = $_GET['galdera'];
+	$erantzuna = $_GET['erantzuna'];
+	$zailtasuna = $_GET['zailtasuna'];
+	$arloa = $_GET['arloa'];*/
+	
 
 	if(($galdera=="")||($erantzuna=="")||($arloa=="")){
-		echo("<div class='error-page'>
-				<div class='try-again'>
-					Mesedez bete galderak modu egokian.</br>
-					Errorea: Saiatu berriro?
-				</div>
-		</div>
-		<script src='js/signIn.js'></script>");
+		echo("Mesedez bete galderak modu egokian");
 	}else{
 		$sartu = "INSERT INTO quiz (egilePosta, galderaTestua, erantzunTestua, zailtasuna, galderaArloa) VALUES ('{$eposta}', '{$galdera}', '{$erantzuna}', '{$zailtasuna}', '{$arloa}')";
 		$emaitza=$db->query($sartu);
-		echo("<div class='message'>");
 		if($emaitza){
 			
 			echo $eposta;
@@ -82,35 +77,23 @@
 			$root->appendChild($assessmentItem);
 			$xml->appendChild($root);
 		
-			echo("<div class='error-page'>
-					Zure eposta: ".$eposta."</br>
+			echo("Zure eposta: ".$eposta."</br>
 					Zure galdera: ".$galdera."</br>
 					Zure erantzuna: ".$erantzuna."</br>
 					Galdera arloa: ".$arloa."</br>
 					Zailtasun maila: ".$zailtasuna."</br>
 					Zure galdera egoki sartu da. Sartu beste bat nahi izanez gero. </br>"); 
 			echo("XML fitxategian gorde da: ".$xml->save('xml/galderak.xml')."</br>"); 
-			echo("XML fitxategia bistaratu nahi baduzu sakatu hurrengo esteka: <a href='seeXMLQuestions.php'> XML galderak ikusi </a></br>");	
-			echo("<div class='try-again'> Beste galdera bat sartu </div>");
-			echo("</div>");
-			//echo("<script src='js/signIn.js'></script>");
+			echo("XML fitxategia bistaratu nahi baduzu sakatu hurrengo esteka: <a href='seeXMLQuestions.php'> XML galderak ikusi </a></br>");
 				
 		}else{
-			echo("<div class='error-page'>
-					<div class='try-again'>
-					Errore bat egon da galdera gehitzean: ".$db->error."</br>
-					Errorea: Saiatu berriro?
-					</div>
-				</div>");
-			//	<script src='js/signIn.js'></script>");
+			echo("Errore bat egon da galdera gehitzean: ".$db->error."</br>
+					Errorea: Saiatu berriro?");
+			
 		}
-		echo("</div>");
 	}
 	
 	include 'dbkonexioak/dbClose.php';
 }
-
-
-
 ?>
 
