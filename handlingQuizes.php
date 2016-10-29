@@ -1,29 +1,141 @@
 <?php
-	$_GET['orrialdea'] = "layout";
-	include 'orrialdeGoiburua.php';
+	$_GET['orrialdea']="handlingQuizes";
+	session_start();
+	//ikus ea sesio bat hasi den eta ez bada hala guest ezarri
+	if((isset($_SESSION['eposta']) && !empty($_SESSION['eposta'])) && (isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) && (isset($_SESSION['erabiltzaileMota']) && !empty($_SESSION['erabiltzaileMota']))) {
+   		null;
+	} else {
+		$_SESSION['eposta'] = "Erabiltzaile Anonimoa";
+		$_SESSION['konexioid'] = -1;
+		$_SESSION['erabiltzaileMota'] = "GUEST";
+	}
 ?>
-	<script language = "javascript">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
+	<title>Quizzes</title>
+    <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+		   href='stylesPWS/wide.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (max-width: 480px)'
+		   href='stylesPWS/smartphone.css' />
+	  
+	 <script type="text/javascript" language="javascript">
+		
 		xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function(){
-			alert (xhttp.readyState);
-			if(xhttp.readyState==4){
-				var obj = document.getElementById('emaitza');
-				obj.innerHTMLxhttp.responseText;ç
+		
+		function galderakIkusi(){
+			alert("hello1");
+			xhttp.onreadystatechange = function(){
+				if((xhttp.readyState==4) && (xhttp.status==200)){
+					document.getElementById("erabiltzaile_galderak").innerHTML=xhttp.responseText;
+				}
 			}
-		function datuakEskatu(){
-			xhttp.open("GET",'datuak.txt');
-			xhttp.send(null);
+			xhttp.open("GET","galderakIkusi.php", true);
+			xhttp.send();
 		}
-	</script>
+		
+		function galderaBidali(galdera, erantzuna, zailtasuna, arloa){
+			alert("hello2");
+			if(/^\s*$/.test(galdera)||/^\s*$/.test(erantzuna)){
+				alert("Bete galdera eta erantzuna modu egokian");
+			}else{
+				xhttp.onreadystatechange = function(){
+					document.getElementById("mezuak").innerHTML="";
+					//alert("hona heldu naiz");
+					if((xhttp.readyState==4) && (xhttp.status==200)){
+						document.getElementById("mezuak").innerHTML=xhttp.responseText;
+					}
+					xhttp.open("GET","galderakSartuAjax.php?galdera="+galdera+"&erantzuna="+erantzuna+"&zailtasuna="+zailtasuna"&arloa"+arloa, true);
+					xhttp.send();
+				}	
+			}
+		}
+		 
+		function dbDatuakIkusi(){
+			alert("hello3");
+			xhttp.onreadystatechange=function(){
+			document.getElementById().innerHTML="";
+			if((xhttp.readyState==4) && (xhttp.status==200)){
+				document.getElementById("kopurua").innerHTML=xhttp.responseText;
+			}
+			}
+			xhttp.open("GET","galderaKopurua.php",true);
+			xhttp.send();
+		}
+		function freskatu(){
+			alert("hello4");
+			dbDatuakIkusi();
+			setInterval(dbDatuakIkusi,5000);
+		}
+		
+		</script>
+  </head>
+  <body onload="dbDatuakIkusi()">
+  <div id='page-wrap'>
+	<header class='main' id='h1'>
+
+	<?php
+	echo '<div class="botoia-left"> Erabiltzailea: ' . $_SESSION['eposta'] . ' - ' . $_SESSION['erabiltzaileMota'] . '</div>';
+	?>
+	
+	<?php
+	if($_SESSION['erabiltzaileMota']=="GUEST") {
+      	echo'<a href="signUp.php"><div class="botoia-right">Sign Up</div></a><a href="SignIn.php"><div class="botoia-right">Sign In</div></a>';
+	} else {
+		echo '<a href="LogOut.php"><div class="botoia-right">Log Out</div></a>';
+	}
+    ?>
+      
+	<h2>Quiz: crazy questions</h2>
+    </header>
+	<nav class='main' id='n1' role='navigation'>
+	<?php 
+	if($_GET['orrialdea']=="layout")
+		echo ('<a href="layout.php"><span class="act-sel">Hasiera</span></a>');
+	else
+		echo ('<a href="layout.php"><span>Hasiera</span></a>');
+	if($_GET['orrialdea']=="galderakIkusi")
+		echo('<a href="seeXMLQuestions.php"><span class="act-sel">Galderak</span></a>');
+	else
+		echo('<a href="seeXMLQuestions.php"><span>Galderak</span></a>');
+	if($_SESSION['erabiltzaileMota'] != "GUEST") {
+		if($_GET['orrialdea']=="handlingQuizes")
+		echo ('<a href="handlingQuizes.php"><span class="act-sel">Galderak sortu</span></a>');
+	else
+		echo ('<a href="handlingQuizes.php"><span>Galderak sortu</span></a>');
+	}
+	if($_SESSION['erabiltzaileMota'] == "IRAKASLEA") {
+		if($_GET['orrialdea']=="ikasleakIkusi")
+			echo'<a href="getUserInform.php"><span class="act-sel">Ikasleak begiratu</span></a>';
+		else
+			echo'<a href="getUserInform.php"><span>Ikasleak begiratu</span></a>';
+	}
+	if($_GET['orrialdea']=="credits")
+		echo('<a href="credits.php"><span class="act-sel">Kredituak</span></a>');
+	else
+		echo('<a href="credits.php"><span>Kredituak</span></a>');
+	?>
+	</nav>
+	
     <section class="main" id="s1">
 		
 	<div class='login'>
 		<div class="login-header2">
 			<h1>Sartu Galdera</h1>
 		</div>
-	
+		<div id="dbDatuakIkusi">
+			Nire galderak/Galderak guztira DB:
+		</div>
+		<div id="kopurua">
+		</div>
 
-		<form id="galdera_sartu" name="galdera_sartu" method="POST" action="handlingQuizes.php" enctype="multipart/form-data">
+		<form id="galdera_sartu" name="galdera_sartu" method="POST" enctype="multipart/form-data">
 			<div class="login-form">
 				<h3>Galdera:</h3> 
   				<input type="text" name="galdera" title="Sartu zure galdera." placeholder="Sartu zure galdera" required><br>
@@ -39,125 +151,20 @@
   					<option value="4">4 - Zaila</option>
 					<option value="5">5 - Oso zaila</option>
 				</select><br>
-				<input type="submit" name="button" value="Bidali" onclick="mezuaAzaldu()">
-				<a class="no-access" href="layout.php">Hasiera</a>
-				<input type="button" name="button" value="Zure galderak ikusi" onclick="">
+				<input type="button" name="galderakBidali" id="galderakBidali" value="Bidali" onclick="galderaBidali(galdera.value, erantzuna.value, zailtasuna.value, arloa.value)">
+				<input type="button" name="galderakIkusi" id="galderakIkusi" value="Zure galderak ikusi" onclick="galderakIkusi()">
 				
 				<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 				<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-				
-			</div>
+			</div>	
 		</form> 
+		
+		
+		<div id="erabiltzaile_galderak">
+		</div>
+		<div id="mezuak">
+		</div>
 	</div>
     </section>
 <?php include 'orrialdeOina.php'; ?>
 
-<?php 
-if(isset($_POST['galdera']) && isset($_POST['erantzuna'])){
-	include 'dbkonexioak/dbOpen.php';
-	session_start();
-	$eposta=$_SESSION['eposta'];
-	
-	if($_SERVER['REQUEST_METHOD'] == 'GET')  { //get eskaera landu
-		null;
-	} else { //post eskaera landu	
-		$galdera= $_POST['galdera'];
-		$erantzuna= $_POST['erantzuna'];
-		$arloa= $_POST['arloa'];
-		$zailtasuna= $_POST['zailtasuna'];
-	}
-	
-	
-	if(($galdera=="")||($erantzuna=="")||($arloa=="")){
-		echo("<div class='error-page'>
-				<div class='try-again'>
-					Mesedez bete galderak modu egokian.</br>
-					Errorea: Saiatu berriro?
-				</div>
-		</div>
-		<script src='js/signIn.js'></script>");
-	}else{
-		$sartu = "INSERT INTO quiz (egilePosta, galderaTestua, erantzunTestua, zailtasuna, galderaArloa) VALUES ('{$eposta}', '{$galdera}', '{$erantzuna}', '{$zailtasuna}', '{$arloa}')";
-		$emaitza=$db->query($sartu);
-		echo("<div class='message'>");
-		if($emaitza){
-			
-			echo $eposta;
-			$konexioid = $_SESSION['konexioid'];
-			//honekl ip-a bilatuko du toki egokienean nonbaiten ez badago
-			if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    			$ip = $_SERVER['HTTP_CLIENT_IP'];
-			} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-			} else {
-    			$ip = $_SERVER['REMOTE_ADDR'];
-			}
-			$ekintza = "galdera txertatu";
-			date_default_timezone_set('Europe/Madrid');
-			$data = date(DATE_RSS, time());
-			$sqlekintza="INSERT INTO ekintzak(konexioa, postaElektronikoa, ekintzaMota, ekintzaData, IP) VALUES ('$konexioid', '$eposta', '$ekintza', '$data', '$ip')";
-			$emaitza=$db->query($sqlekintza);
-			if(!$emaitza) {
-				echo("Errore bat egon da ekintza gehitzean: ".$db->error);
-			}
-
-			//sartu baita ere erantzuna xml fitxategian
-			$xml = new DOMDocument('1.0',"UTF-8");
-			$xml->load('xml/galderak.xml') or die("<div class='error-page'> <div class='try-again'> Ezin izan da xml-a kargatu </div> </div> <script src='js/signIn.js'></script>");
-			$root = $xml->documentElement;
-			$assessmentItem = $xml->createElement('assessmentItem');
-
-			$atrZailtasuna = $xml->createAttribute("complexity");
-			$atrZailtasuna->value=$zailtasuna;
-			$assessmentItem->appendChild($atrZailtasuna);
-
-			$atrArloa = $xml->createAttribute("subject");
-			$atrArloa->value=$arloa;
-			$assessmentItem->appendChild($atrArloa);
-			
-			$itemBody=$xml->createElement('itemBody');
-			$p=$xml->createElement('p',$galdera);
-			$itemBody->appendChild($p);
-			
-			$correctResponse=$xml->createElement('correctResponse');
-			$value=$xml->createElement('value',$erantzuna);
-			$correctResponse->appendChild($value);
-			
-				
-			$assessmentItem->appendChild($itemBody);
-			$assessmentItem->appendChild($correctResponse);
-
-			$root->appendChild($assessmentItem);
-			$xml->appendChild($root);
-		
-			/*echo("<div class='error-page'>
-					Zure eposta: ".$eposta."</br>
-					Zure galdera: ".$galdera."</br>
-					Zure erantzuna: ".$erantzuna."</br>
-					Galdera arloa: ".$arloa."</br>
-					Zailtasun maila: ".$zailtasuna."</br>
-					Zure galdera egoki sartu da. Sartu beste bat nahi izanez gero. </br>"); 
-			echo("XML fitxategian gorde da: ".$xml->save('xml/galderak.xml')."</br>"); 
-			echo("XML fitxategia bistaratu nahi baduzu sakatu hurrengo esteka: <a href='seeXMLQuestions.php'> XML galderak ikusi </a></br>");	
-			echo("<div class='try-again'> Beste galdera bat sartu </div>");
-			echo("</div>");
-			echo("<script src='js/signIn.js'></script>");*/
-				
-		}else{
-			/*echo("<div class='error-page'>
-					<div class='try-again'>
-					Errore bat egon da galdera gehitzean: ".$db->error."</br>
-					Errorea: Saiatu berriro?
-					</div>
-				</div>
-				<script src='js/signIn.js'></script>");*/
-		}
-		echo("</div>");
-	}
-	
-	include 'dbkonexioak/dbClose.php';
-}
-
-
-
-?>
