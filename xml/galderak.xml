@@ -41,4 +41,4 @@
 		<value>Zergatik ez?</value>
 	</correctResponse>
 	</assessmentItem>
-</assessmentItems>
+<assessmentItem complexity="1" subject="Edukazioa"><itemBody><p>Zer moduz?</p></itemBody><correctResponse><value>ondo</value></correctResponse></assessmentItem><assessmentItem complexity="1" subject="Edariak"><itemBody><p>Zein ordu da??</p></itemBody><correctResponse><value>Garagardo bat edateko ordua</value></correctResponse></assessmentItem><assessmentItem complexity="1" subject="Parrandak"><itemBody><p>Zein da parrandazale amorratua?</p></itemBody><correctResponse><value>Jon Arzelus</value></correctResponse></assessmentItem><assessmentItem complexity="1" subject="Web sistemak"><itemBody><p>Funtzionatzen al du??</p></itemBody><correctResponse><value>Noski baietz</value></correctResponse></assessmentItem><assessmentItem complexity="1" subject="Oporrak"><itemBody><p>Gaur zein egun da?</p></itemBody><correctResponse><value>Jai eguna</value></correctResponse></assessmentItem></assessmentItems>

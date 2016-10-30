@@ -64,14 +64,13 @@
 			xhttp.send();
 		}
 		function freskatu(){
-			alert("hello4");
 			dbDatuakIkusi();
 			setInterval(dbDatuakIkusi,5000);
 		}
 		
 	</script>
   </head>
-  <body onload="dbDatuakIkusi()">
+  <body onload="freskatu()">
   <div id='page-wrap'>
 	<header class='main' id='h1'>
 
