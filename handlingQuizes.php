@@ -40,18 +40,17 @@
 		}
 		
 		function galderaBidali(galdera, erantzuna, zailtasuna, arloa){
-			alert(galdera+" "+erantzuna+" "+zailtasuna+" "+arloa);
 			xhttp.onreadystatechange = function(){
-				alert(xttp.readyState);
 				if((xhttp.readyState==4) && (xhttp.status==200)){
-					alert("ona iritsi da");
 					document.getElementById("mezuak").innerHTML=xhttp.responseText;
 				}
-					/*xhttp.open("GET","galderakSartuAjax.php?galdera="+galdera+"&erantzuna="+erantzuna+"&zailtasuna="+zailtasuna+"&arloa="+arloa, true);
-					xhttp.send();*/
-					xhttp.open("POST","galderakSaruAjax.php", true);
-					xhttp.send('galdera="+galdera+"&erantzuna="+erantzuna+"&zailtasuna="+zailtasuna+"&arloa="+arloa');
+					
+					
 				}
+				xhttp.open("GET","galderakSartuAjax.php?galdera="+galdera+"&erantzuna="+erantzuna+"&zailtasuna="+zailtasuna+"&arloa="+arloa, true);
+				xhttp.send();
+				/*xhttp.open("POST","galderakSartuAjax.php", true);
+				xhttp.send("galdera="+galdera+"&erantzuna="+erantzuna+"&zailtasuna="+zailtasuna+"&arloa="+arloa);*/
 		}
 		
 		 

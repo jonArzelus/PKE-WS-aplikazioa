@@ -1,6 +1,5 @@
 <?php 
 	session_start();
-	include 'dbkonexioak/dbOpen.php';
 	if((isset($_SESSION['eposta']) && !empty($_SESSION['eposta'])) && (isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) && (isset($_SESSION['erabiltzaileMota']) && !empty($_SESSION['erabiltzaileMota']))) {
    		null;
 	} else {
@@ -8,18 +7,20 @@
 		$_SESSION['konexioid'] = -1;
 		$_SESSION['erabiltzaileMota'] = "GUEST";
 	}
-	echo("ona ailegatzen naiz");
+
+	include 'dbkonexioak/dbOpen.php';
+	
 	$eposta=$_SESSION['eposta'];
 	$konexioid=$_SESSION['konexioid'];
 	$erabiltzailemota=$_SESSION['erabiltzaileMota'];
-	$galdera = $_POST['galdera'];
+	/*$galdera = $_POST['galdera'];
 	$erantzuna = $_POST['erantzuna'];
 	$zailtasuna = $_POST['zailtasuna'];
-	$arloa = $_POST['arloa'];
-	/*$galdera = $_GET['galdera'];
+	$arloa = $_POST['arloa'];*/
+	$galdera = $_GET['galdera'];
 	$erantzuna = $_GET['erantzuna'];
 	$zailtasuna = $_GET['zailtasuna'];
-	$arloa = $_GET['arloa'];*/
+	$arloa = $_GET['arloa'];
 	
 
 	if(($galdera=="")||($erantzuna=="")||($arloa=="")){
@@ -94,6 +95,6 @@
 	}
 	
 	include 'dbkonexioak/dbClose.php';
-}
+
 ?>
 
