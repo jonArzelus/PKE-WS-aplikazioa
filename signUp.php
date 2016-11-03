@@ -3,6 +3,20 @@
 	include 'php/orrialdeGoiburua.php';
 ?>
 	<script type="text/javascript">
+	xhttp = new XMLHttpRequest();
+		
+	function emailaKonprobatu(eposta){
+		xhttp.onreadystatechange = function(){
+			if((xhttp.readyState==4) && (xhttp.status==200)){
+				document.getElementById("mezuak").innerHTML=xhttp.responseText;
+			}	
+		}
+		xhttp.open("GET","php/nuSOAPbez.php?eposta="+eposta, true);
+		xhttp.send();
+	}
+		
+	
+		
 	function aukeratuBesteak() {
 		if(document.getElementById("esp").value=="besterik") { //ikusi ea aukera bestelakoa den
 			
@@ -61,7 +75,7 @@
   			(*) Izen-Abizenak:
   			<input type="text" name="izen-abizenak" required pattern="([A-Z]{1}[a-z ]{1,})*" title="Izen-abizenak letra larriz hasita" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Posta Elektronikoa:
- 			<input type="email" name="eposta-helbidea" required pattern="^[a-z]+[0-9]{3}@ikasle\.ehu\.eu?s$" title="emailak unibertsitatekoa izan behar du." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
+ 			<input type="email" id="eposta-helbidea" name="eposta-helbidea" required pattern="^[a-z]+[0-9]{3}@ikasle\.ehu\.eu?s$" title="emailak unibertsitatekoa izan behar du." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="emailaKonprobatu(this.value)"><br>
 			(*) Pasahitza:
  			<input type="password" name="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Telefono zenbakia:
@@ -87,6 +101,8 @@
 		</form> 
 		
 		<p>(*) duten atalak bete beharrekoak dira, derrigor.</p>
+		</div>
+		<div id="mezuak">
 		</div>
     </section>
 <?php include 'php/orrialdeOina.php'; ?>
