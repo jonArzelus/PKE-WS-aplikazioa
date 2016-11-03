@@ -21,7 +21,9 @@ b						{font: 16px Georgia, serif;}
 /*inakik gehitutakoa*/
 
 section > div				{padding: 20px;}
-header			{background: #E7E7E7; text-align: center;}
+header			{
+  background: #E7E7E7; text-align: center;
+}
 nav	{
   background: #E7E7E7; 
   text-align: center;

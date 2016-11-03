@@ -15,8 +15,8 @@
 <html>
   <head>
     <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
-	<title>Quizzes</title>
-	<link rel="icon" type="image/png" href="http://www.filefacts.com/ico/f26639ac752e2efc016aa12788fd61cf.ico">
+	<title>Quizz</title>
+	<link rel="icon" type="image/png" href="irudiak/question-logo.png">
     <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
 	<link rel='stylesheet' 
 		   type='text/css' 
