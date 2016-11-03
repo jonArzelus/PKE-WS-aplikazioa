@@ -11,7 +11,17 @@
 				document.getElementById("mezuak").innerHTML=xhttp.responseText;
 			}	
 		}
-		xhttp.open("GET","php/nuSOAPbez.php?eposta="+eposta, true);
+		xhttp.open("GET","php/nuSOAPbezEmaila.php?eposta="+eposta, true);
+		xhttp.send();
+	}
+		
+	function pasahitzaKonprobatu(pasahitza){
+		xhttp.onreadystatechange = function(){
+			if((xhttp.readyState==4) && (xhttp.status==200)){
+				document.getElementById("mezuak2").innerHTML=xhttp.responseText;
+			}	
+		}
+		xhttp.open("GET","php/nuSOAPbezPasahitza.php?pasahitza="+pasahitza, true);
 		xhttp.send();
 	}
 		
@@ -77,7 +87,7 @@
 			(*) Posta Elektronikoa:
  			<input type="email" id="eposta-helbidea" name="eposta-helbidea" required pattern="^[a-z]+[0-9]{3}@ikasle\.ehu\.eu?s$" title="emailak unibertsitatekoa izan behar du." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="emailaKonprobatu(this.value)"><br>
 			(*) Pasahitza:
- 			<input type="password" name="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
+ 			<input type="password" name="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="pasahitzaKonprobatu(this.value)"><br>
 			(*) Telefono zenbakia:
  			<input type="text" name="telefono-zenbakia" required pattern="[0-9]{9}" title="9 zenbakiko telefono zenbakia idatzi mesedez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Espezialitatea:
@@ -103,6 +113,8 @@
 		<p>(*) duten atalak bete beharrekoak dira, derrigor.</p>
 		</div>
 		<div id="mezuak">
+		</div>
+		<div id="mezuak2">
 		</div>
     </section>
 <?php include 'php/orrialdeOina.php'; ?>
