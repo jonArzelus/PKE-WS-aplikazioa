@@ -37,13 +37,14 @@
 	
 	<?php
 	if($_SESSION['erabiltzaileMota']=="GUEST") {
-      	echo'<a href="signUp.php"><div class="botoia-right">Sign Up</div></a><a href="SignIn.php"><div class="botoia-right">Sign In</div></a>';
+      	echo'<!--<a href="signUp.php"><img class="botoia" style="width:3%" src="irudiak/login-icon.png"></a>-->
+      	<a href="SignIn.php"><img class="botoia" style="width:3%" src="irudiak/login-icon.png"></a>';
 	} else {
-		echo '<a href="LogOut.php"><div class="botoia-right">Log Out</div></a>';
+		echo '<a href="LogOut.php"><img class="botoia" style="width:3%" src="irudiak/logout-icon.png"></a>';
 	}
     ?>
       
-	<h2>Quiz: crazy questions</h2>
+	<img class="logo" src="irudiak/quiz-logo.png">
     </header>
 	<nav class='main' id='n1' role='navigation'>
 	<?php 

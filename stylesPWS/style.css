@@ -193,12 +193,28 @@ footer img:hover {
    opacity: 1.0;
 }
 
+header img.botoia {
+  float:right;
+  opacity:0.5;
+  width:3%;
+  float:right;
+}
+
+header img.botoia:hover {
+  opacity:1.0;
+}
+
+.logo { /*egiteko*/
+  left:40%;
+  size:80%;
+}
+
 footer b {
   margin:auto;
 }
 
 .botoia-left {
-  text-align: left;  
+  text-align: left; 
   float:left; 
   max-width: 45%; 
   border-style: none; 
