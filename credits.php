@@ -1,6 +1,6 @@
 <?php
 	$_GET['orrialdea'] = "credits";
-	include 'orrialdeGoiburua.php';
+	include 'php/orrialdeGoiburua.php';
 ?>
     <section class="main" id="s1">
 	<div>
@@ -10,4 +10,4 @@
 		Web Sistemak ikasgaieko lehen laborategiko lana da hau, pixkanaka osatzen joango gara
 	</div>
     </section>
-<?php include 'orrialdeOina.php'; ?>
+<?php include 'php/orrialdeOina.php'; ?>

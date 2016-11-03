@@ -1,6 +1,6 @@
 <?php
 	$_GET['orrialdea'] = "ikasleakIkusi";
-	include 'orrialdeGoiburua.php';
+	include 'php/orrialdeGoiburua.php';
 ?>
 	<OBJECT id="datuak" data="xml/erabiltzaileak.xml" type="text/xml" style="display:none"></OBJECT>
 	<script type="text/javascript">
@@ -51,10 +51,4 @@
 		
 		
     </section>
-	<footer class='main' id='f1'>
-		<p><a href="http://en.wikipedia.org/wiki/Quiz" target="_blank">What is a Quiz?</a></p>
-		<a href='https://github.com/berrio86/wsGit16'><img style="width:3%" src="irudiak/github-icon.png"></a>
-	</footer>
-</div>
-</body>
-</html>
+<?php include 'php/orrialdeOina.php'; ?>

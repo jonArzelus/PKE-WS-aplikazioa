@@ -157,5 +157,5 @@
 		</div>
 	</div>
     </section>
-<?php include 'orrialdeOina.php'; ?>
+<?php include 'php/orrialdeOina.php'; ?>
 

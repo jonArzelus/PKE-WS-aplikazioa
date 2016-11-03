@@ -1,6 +1,6 @@
 <?php
 	$_GET['orrialdea'] = "signUp";
-	include 'orrialdeGoiburua.php';
+	include 'php/orrialdeGoiburua.php';
 ?>
 	<script type="text/javascript">
 	function aukeratuBesteak() {
@@ -89,4 +89,4 @@
 		<p>(*) duten atalak bete beharrekoak dira, derrigor.</p>
 		</div>
     </section>
-<?php include 'orrialdeOina.php'; ?>
+<?php include 'php/orrialdeOina.php'; ?>

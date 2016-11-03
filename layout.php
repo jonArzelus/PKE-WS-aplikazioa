@@ -1,6 +1,6 @@
 ﻿<?php
 	$_GET['orrialdea'] = "layout";
-	include 'orrialdeGoiburua.php';
+	include 'php/orrialdeGoiburua.php';
 ?>
     <section class="main" id="s1">
 		
@@ -10,4 +10,4 @@
 	</div>
 		
     </section>
-<?php include 'orrialdeOina.php'; ?>
+<?php include 'php/orrialdeOina.php'; ?>
