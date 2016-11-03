@@ -38,7 +38,7 @@ nav span {
 	header			{background: #e2f; text-align: center;}
 	nav				{background: #aaa; text-align: center;}
 	section 		{background: #fff; text-align: center;}
-	footer					{background: #ef3; text-align: center;}
+	footer					{background: #ef3; text-align: center;} /*auskalo*/
 }
 
 #ErrorMsgs          		 { color: #f61; font-size: smaler}
@@ -186,10 +186,15 @@ nav span {
 footer img {
   opacity:0.5;
   width:3%;
+  float:right;
 }
 
 footer img:hover {
    opacity: 1.0;
+}
+
+footer b {
+  margin:auto;
 }
 
 .botoia-left {
