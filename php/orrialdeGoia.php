@@ -18,13 +18,8 @@
 	<title>Quizz</title>
 	<link rel="icon" type="image/png" href="irudiak/question-logo.png">
     <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
-	<link rel='stylesheet' 
-		   type='text/css' 
-		   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
-		   href='stylesPWS/wide.css' />
-	<link rel='stylesheet' 
-		   type='text/css' 
-		   media='only screen and (max-width: 480px)'
-		   href='stylesPWS/smartphone.css' />
+	<link rel='stylesheet' type='text/css' media='only screen and (min-width: 767px) and (min-device-width: 696px)' href='stylesPWS/wide.css' />
+	<!-- goiko erlazioa 1 = 1.101871101871102 -->
+	<link rel='stylesheet' type='text/css' media='only screen and (max-width: 766px)' href='stylesPWS/smartphone.css' />
 
   <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>

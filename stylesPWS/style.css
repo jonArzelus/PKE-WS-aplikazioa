@@ -209,11 +209,19 @@ footer img {
 footer img:hover {
    opacity: 1.0;
 }
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:766px) {
 	header img.botoia {
 		visibility: hidden;
 	}
 }
+
+@media only screen and (max-width:766px) {
+	.desktopSoilik {
+		visibility: hidden;
+		width:1px;
+	}
+}
+
 header img.botoia { /*kendu txikitzen den einean*/
   float:right;
   opacity:0.5;
