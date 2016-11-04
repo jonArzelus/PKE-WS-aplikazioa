@@ -1,6 +1,9 @@
 ﻿<?php
 	$_GET['orrialdea'] = "layout";
 	include 'php/orrialdeGoiburua.php';
+	echo('</header>
+		<body>');
+	include 'php/orrialdeNabigazioa.php';
 ?>
     <section class="main" id="s1">
 		

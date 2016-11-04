@@ -1,6 +1,9 @@
 <?php
 	$_GET['orrialdea'] = "ikasleakIkusi";
 	include 'php/orrialdeGoiburua.php';
+	echo('</header>
+		<body>');
+	include 'php/orrialdeNabigazioa.php';
 ?>
 	<OBJECT id="datuak" data="xml/erabiltzaileak.xml" type="text/xml" style="display:none"></OBJECT>
 	<script type="text/javascript">

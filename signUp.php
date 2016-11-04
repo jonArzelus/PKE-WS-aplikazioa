@@ -1,6 +1,7 @@
 <?php
 	$_GET['orrialdea'] = "signUp";
 	include 'php/orrialdeGoiburua.php';
+	echo('</header>');
 ?>
 	<script type="text/javascript">
 	xhttp = new XMLHttpRequest();
@@ -78,6 +79,10 @@
 		}
 	}	
 	</script>
+<?php
+	echo('<body>');
+	include 'php/orrialdeNabigazioa.php';
+?>
     <section class="main" id="s1">
 		
 		<div id="gorputza">
