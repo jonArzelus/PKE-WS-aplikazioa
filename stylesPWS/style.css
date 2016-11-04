@@ -240,6 +240,12 @@ footer img:hover {
 		padding-right:1px;
   		padding-top:1px;
 	}
+  header img.botoia2 {
+    display:none;
+    width:1px;
+    padding-right:1px;
+      padding-top:1px;
+  }
 	.desktopSoilik {
 		display: none;
 		max-width:1px;
@@ -257,6 +263,12 @@ footer img:hover {
 	  padding-right:16px;
 	  padding-top:8px;
 	}
+  header img.botoia2 {
+    width:56px;
+    height: 56px;
+    padding-right:16px;
+    padding-top:8px;
+  }
   table {
     width: 95%;
     margin:auto;
@@ -266,6 +278,10 @@ footer img:hover {
 header img.botoia { /*kendu txikitzen den einean*/
   float:right;
   opacity:0.5;
+  margin-top:22px;
+}
+header img.botoia2 { /*kendu txikitzen den einean*/
+  float:right;
   margin-top:22px;
 }
 
@@ -578,4 +594,35 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
-/* izarren puntuazioa amaiera */
+/* izarren puntuazioa amaiera */.
+
+/* tooltip hasiera */
+a.tooltip {outline:none; }
+a.tooltip strong {line-height:30px;}
+a.tooltip:hover {text-decoration:none;} 
+a.tooltip span {
+    z-index:10;
+    display:none; 
+    padding:14px 20px;
+    margin-top:30px; 
+    margin-left:28px;
+    width:300px; 
+    line-height:16px;
+}
+a.tooltip:hover span {
+    display:inline; 
+    position:absolute; 
+    right:120px;
+    color:#111;
+    border:1px solid #DCA; 
+    background:#fffAF0;
+}
+/* .callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;} */
+    
+/*CSS3 extras*/
+a.tooltip span
+{
+    border-radius:4px;
+    box-shadow: 5px 5px 8px #CCC;
+}
+/* tooltip amaiera */

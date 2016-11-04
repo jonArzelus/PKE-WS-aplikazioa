@@ -95,6 +95,16 @@ if(empty($user)){
     	}
 		$row = $erabiltzailearray->fetch_array(MYSQL_NUM);
 		$_SESSION['erabiltzaileIrudia'] = $row[0];
+		//konexio data lortu
+		$konId = $_SESSION['konexioid'];
+		$erabiltzailesql = "SELECT konexioData FROM konexioak WHERE ID='$konId'";
+		$erabiltzailearray = $db->query($erabiltzailesql);
+		if (!$erabiltzailearray) {
+    		echo 'Could not run query: ' . $db->error;
+    		exit;
+    	}
+		$row = $erabiltzailearray->fetch_array(MYSQL_NUM);
+		$_SESSION['konexioData'] = $row[0];
 		echo "Konexioa ondo gordeta!";
 		header("Location:layout.php");
     	exit;

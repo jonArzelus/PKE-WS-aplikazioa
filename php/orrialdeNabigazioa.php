@@ -61,9 +61,8 @@
       	<a href="SignIn.php"><img class="botoia"  src="irudiak/login-icon.png"></a>';
 	} else {
 		echo '<a href="LogOut.php"><img class="botoia"  src="irudiak/logout-icon.png"></a>
-		<img class="botoia" id="erabiltzaileai" title="';
-		echo $_SESSION['eposta'] . ' - ' . $_SESSION['erabiltzaileMota'];
-		echo '" style="opacity:1.0" src="'.$_SESSION['erabiltzaileIrudia'].'">'; //erabiltzailearen ikonoa hartzen du
+		<a href="#" class="tooltip"><span><strong>Erabiltzailearen datuak</strong><br/>emaila: '.$_SESSION['eposta'].'<br/>erabiltzaile mota: '.$_SESSION['erabiltzaileMota'].'<br/>konexio data: '.$_SESSION['konexioData'].'</span><img class="botoia2" title="' . $_SESSION['eposta'] . ' - ' . $_SESSION['erabiltzaileMota'] . '" src="'.$_SESSION['erabiltzaileIrudia'].'"></a>'; 
+		//erabiltzailearen ikonoa hartzen du
 	}
     ?>
       
