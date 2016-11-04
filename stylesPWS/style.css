@@ -7,7 +7,10 @@
   -ms-box-sizing: border-box;
   box-sizing: border-box;
 }
-body						{font: 16px Georgia, serif;}
+body {
+	font: 16px Georgia, serif;
+
+}
 b						{font: 16px Georgia, serif;}
 
 a { text-decoration: none; }
@@ -236,6 +239,8 @@ header img.botoia:hover {
 
 .logo { /*egiteko*/
   heigth:48px;
+  position:relative;
+  margin:auto;
 }
 
 footer b {

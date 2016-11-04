@@ -18,25 +18,21 @@
 	  <div class="container">
 	      <div class="navigation">
 	        <ul>
-	          <li><a href="">Hasiera</a></li>
-	          <li><a href="">Galderak</a></li>
-	          <li><a href="">Contact</a></li>
-	          <li><a href="#" tabindex="1">Services<span class="arrow-down"></span></a>
+	          <li><a href="layout.php">Hasiera</a></li>
+	          <li><a href="#" tabindex="1">Galderak ikusi<span class="arrow-down"></span></a>
 	            <ul class="dropdown">
-	              <li><a href="">Services - 1</a></li>
-	              <li><a href="">Services - 2</a></li>
-	              <li><a href="">Services - 3</a></li>
-	              <li><a href="">Services - 4</a></li>
-	              <li><a href="">Services - 5</a></li>
+	              <li><a href="seeXMLQuestions.php">Ikusi DB galderak</a></li>
+	              <li><a href="seeXMLQuestions.php">Ikusi XML galderak</a></li>
+	              <li><a href="seeXMLQuestions.php">Ikusi XSL galderak</a></li>
+	              <li><a href="seeXMLQuestions.php">Ikusi erabiltzailearen galderak</a></li>
 	            </ul>
 	          </li>
+	          <li><a href="handlingQuizes.php">Galderak txertatu</a></li>
 	          <li><a href="#" tabindex="1">Saioa<span class="arrow-down"></span></a>
 	            <ul class="dropdown">
-	              <li><a href="">Saioa hasi<img class="botoia"  src="irudiak/login-icon.png"></a></li>
-	              <li><a href="">Works - 2</a></li>
-	              <li><a href="">Works - 3</a></li>
-	              <li><a href="">Works - 4</a></li>
-	              <li><a href="">Works - 5</a></li>
+	              <li><a href="SignIn.php">Saioa hasi<img src="irudiak/login-icon.png"></a></li>
+	              <li><a href="LogOut.php">Saioa amaitu<img src="irudiak/logout-icon.png"></a></li>
+	              <li><a href="SignUp.php">Erregistratu<img src="irudiak/signup-icon.png"></a></li>
 	            </ul>
 	          </li>
 	        </ul>
@@ -56,10 +52,6 @@
 		});
 	</script>
 <!-- Mugikorretan soilik agertuko da goiko zatia (<div id="main" class="bakarrikMugikorra">) -->
-
-	<?php
-	echo '<div class="botoia-left"> Erabiltzailea: ' . $_SESSION['eposta'] . ' - ' . $_SESSION['erabiltzaileMota'] . '</div>';
-	?>
 	
 	<?php
 	if($_SESSION['erabiltzaileMota']=="GUEST") {
@@ -71,6 +63,15 @@
     ?>
       
 	<a href="layout.php"><img class="logo" src="irudiak/quiz-logo.png"></a>
+	<?php
+	//hurrengo kodeak ez du ezer erakusten, baina botoiak jartzen ditu baita ere ezkerraldean logoa zentratua egoteko
+	if($_SESSION['erabiltzaileMota']=="GUEST") {
+      	echo'<a href="signUp.php"><img style="float:left; visibility:hidden" class="botoia"  src="irudiak/signup-icon.png"></a>
+      	<a href="SignIn.php"><img style="float:left; visibility:hidden" class="botoia"  src="irudiak/login-icon.png"></a>';
+	} else {
+		echo '<a href="LogOut.php"><img style="float:left; visibility:hidden" class="botoia"  src="irudiak/logout-icon.png"></a>';
+	}
+    ?>
     </header>
 <nav class='main desktopSoilik' id='n1' role='navigation'>
 	<?php 
