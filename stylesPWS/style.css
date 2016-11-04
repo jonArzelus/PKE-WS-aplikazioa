@@ -38,15 +38,15 @@ a { text-decoration: none; }
 
 section > div				{padding: 20px;}
 header			{
-  background: #E7E7E7; text-align: center;
+  background: #dbedff; text-align: center;
 }
 nav	{
-  background: #E7E7E7; 
+  background: #c1e1ff; 
   text-align: center;
   overflow-x: hidden;
 }
 section 		{background: #FFF; text-align: center;}
-footer					{background: #E7E7E7; text-align: center;}
+footer					{background: #dbedff; text-align: center;}
 nav span { 
 	margin: 0px 10px 0px 0px;
 	width: 100%;
@@ -182,6 +182,15 @@ td.text-right {
 
 /* Jonek gehitutakoa */
 
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 14px solid black;
+  float:right;
+}
+
 nav span:hover {
     color: black;
     background-color: white;
@@ -198,7 +207,7 @@ nav span {
   color:black;
   border: none;
   border-width: 1px;
-  background: #CCCCCC;
+  background: #c1e1ff;
   padding:4px;
 }
 

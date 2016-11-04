@@ -77,27 +77,27 @@
 <nav class='main desktopSoilik' id='n1' role='navigation'>
 	<?php 
 	if($_GET['orrialdea']=="layout")
-		echo ('<a href="layout.php"><span class="act-sel">Hasiera</span></a>');
+		echo ('<a href="layout.php"><span class="act-sel">Hasiera<div class="arrow-right"></div></span></a>');
 	else
 		echo ('<a href="layout.php"><span>Hasiera</span></a>');
 	if($_GET['orrialdea']=="galderakIkusi")
-		echo('<a href="seeXMLQuestions.php"><span class="act-sel">Galderak</span></a>');
+		echo('<a href="seeXMLQuestions.php"><span class="act-sel">Galderak<div class="arrow-right"></div></span></a>');
 	else
 		echo('<a href="seeXMLQuestions.php"><span>Galderak</span></a>');
 	if($_SESSION['erabiltzaileMota'] != "GUEST") {
 		if($_GET['orrialdea']=="handlingQuizes")
-		echo ('<a href="handlingQuizes.php"><span class="act-sel">Galderak sortu</span></a>');
+		echo ('<a href="handlingQuizes.php"><span class="act-sel">Galderak sortu<div class="arrow-right"></div></span></a>');
 	else
 		echo ('<a href="handlingQuizes.php"><span>Galderak sortu</span></a>');
 	}
 	if($_SESSION['erabiltzaileMota'] == "IRAKASLEA") {
 		if($_GET['orrialdea']=="ikasleakIkusi")
-			echo'<a href="getUserInform.php"><span class="act-sel">Ikasleak begiratu</span></a>';
+			echo'<a href="getUserInform.php"><span class="act-sel">Ikasleak ikusi<div class="arrow-right"></div></span></a>';
 		else
 			echo'<a href="getUserInform.php"><span>Ikasleak begiratu</span></a>';
 	}
 	if($_GET['orrialdea']=="credits")
-		echo('<a href="credits.php"><span class="act-sel">Kredituak</span></a>');
+		echo('<a href="credits.php"><span class="act-sel">Kredituak<div class="arrow-right"></div></span></a>');
 	else
 		echo('<a href="credits.php"><span>Kredituak</span></a>');
 	?>

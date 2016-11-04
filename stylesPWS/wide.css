@@ -1,10 +1,10 @@
 body				{background: #999;}
 
-#page-wrap:after 	{content: "Wide Layout";}
+/*#page-wrap:after 	{content: "Wide Layout";}*/
 
-nav					{float: left; width: 16%; height: 740px;} 
+nav					{float: left; width: 16%; height: 767px;} 
 nav span				{margin: 0px 20px 0px 0px;}
-section				{float: right; width: 84%; height: 740px;}
+section				{float: right; width: 84%; height: 767px;}
 footer				{clear: both; display: block;}
 
 .try-again {
