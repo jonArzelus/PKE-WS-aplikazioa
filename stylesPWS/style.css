@@ -15,11 +15,11 @@ b						{font: 16px Georgia, serif;}
 
 a { text-decoration: none; }
 
-#page-wrap				{margin: 1px auto; color: white;}
+#page-wrap				{margin: 0 auto; color: white;}
 #page-wrap >.main 	{
-  border: 1px solid #999; 
-  padding: 1px;
-	margin-bottom: 1px; 
+  border: 1px solid black; 
+  padding: 0;
+	margin-bottom: 0; 
   color: black;
 	overflow-y: auto;
 }
