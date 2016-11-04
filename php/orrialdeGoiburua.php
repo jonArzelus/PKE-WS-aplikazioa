@@ -44,5 +44,5 @@
 	}
     ?>
       
-	<img class="logo" src="irudiak/quiz-logo.png">
+	<a href="layout.php"><img class="logo" src="irudiak/quiz-logo.png"></a>
     <!-- </header> -->
