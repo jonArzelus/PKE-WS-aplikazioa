@@ -57,11 +57,11 @@
 	
 	<?php
 	if($_SESSION['erabiltzaileMota']=="GUEST") {
-      	echo'<a href="signUp.php"><img class="botoia"  src="irudiak/signup-icon.png"></a>
-      	<a href="SignIn.php"><img class="botoia"  src="irudiak/login-icon.png"></a>';
+      	echo'<a href="signUp.php"><img class="botoia" title="Orrialdean erregistratu" src="irudiak/signup-icon.png"></a>
+      	<a href="SignIn.php"><img class="botoia" title="Saioa hasi" src="irudiak/login-icon.png"></a>';
 	} else {
-		echo '<a href="LogOut.php"><img class="botoia"  src="irudiak/logout-icon.png"></a>
-		<a href="#" class="tooltip"><span><strong>Erabiltzailearen datuak</strong><br/>emaila: '.$_SESSION['eposta'].'<br/>erabiltzaile mota: '.$_SESSION['erabiltzaileMota'].'<br/>konexio data: '.$_SESSION['konexioData'].'</span><img class="botoia2" title="' . $_SESSION['eposta'] . ' - ' . $_SESSION['erabiltzaileMota'] . '" src="'.$_SESSION['erabiltzaileIrudia'].'"></a>'; 
+		echo '<a href="LogOut.php"><img title="Saioa amaitu" class="botoia"  src="irudiak/logout-icon.png"></a>
+		<a href="#" class="tooltip"><span><strong>Erabiltzailearen datuak</strong><br/>emaila: '.$_SESSION['eposta'].'<br/>erabiltzaile mota: '.$_SESSION['erabiltzaileMota'].'<br/>konexio data: '.$_SESSION['konexioData'].'</span><img class="botoia2" src="'.$_SESSION['erabiltzaileIrudia'].'"></a>'; 
 		//erabiltzailearen ikonoa hartzen du
 	}
     ?>
