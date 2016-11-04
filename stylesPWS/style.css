@@ -199,16 +199,21 @@ nav span:hover {
 .act-sel {
   background-color: white;
   border:solid;
-  border-width: 1px;
+  border-width: 0;
 }
 
 nav span {
   text-decoration: none;
+  text-align:left;
   color:black;
   border: none;
   border-width: 1px;
   background: #c1e1ff;
   padding:4px;
+}
+
+footer b {
+	vertical-align: middle;
 }
 
 footer img {
@@ -223,26 +228,26 @@ footer img:hover {
 }
 @media only screen and (max-width:766px) {
 	header img.botoia {
-		visibility: hidden;
+		display:none;
 		width:1px;
 		padding-right:1px;
   		padding-top:1px;
+	}
+	.desktopSoilik {
+		display: none;
+		max-width:1px;
+		max-height:1px;
+	}
+	table {
+		width: 100%;
 	}
 }
 
 @media only screen and (min-width:767px) {
 	header img.botoia {
-		visibility: visible;
 		width:56px;
 	  padding-right:16px;
 	  padding-top:8px;
-	}
-}
-
-@media only screen and (max-width:766px) {
-	.desktopSoilik {
-		visibility: hidden;
-		width:1px;
 	}
 }
 

@@ -52,8 +52,7 @@
 			}
 		
 			echo("</table></br></br>");
-
-			
+			include 'seeXSLQuestionsNoSession.php';
 			include 'dbkonexioak/dbClose.php';
 		?>
 	</div>
