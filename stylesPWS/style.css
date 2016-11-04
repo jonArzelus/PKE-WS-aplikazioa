@@ -258,6 +258,7 @@ footer img:hover {
 header img.botoia { /*kendu txikitzen den einean*/
   float:right;
   opacity:0.5;
+  margin-top:22px;
 }
 
 header img.botoia:hover {

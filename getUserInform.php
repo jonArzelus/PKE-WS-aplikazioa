@@ -36,7 +36,7 @@
 	</script>
     <section class="main" id="s1">
 		
-	<h1>Sartu ikaslearen e-maila</h1> <br/>
+	<h1>Sartu ikaslearen datuak</h1> <br/>
 	<div>
 		<form id="ikasle_emaila" name="ikasle_emaila">
 			

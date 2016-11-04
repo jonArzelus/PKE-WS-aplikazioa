@@ -59,7 +59,10 @@
       	echo'<a href="signUp.php"><img class="botoia"  src="irudiak/signup-icon.png"></a>
       	<a href="SignIn.php"><img class="botoia"  src="irudiak/login-icon.png"></a>';
 	} else {
-		echo '<a href="LogOut.php"><img class="botoia"  src="irudiak/logout-icon.png"></a>';
+		echo '<a href="LogOut.php"><img class="botoia"  src="irudiak/logout-icon.png"></a>
+		<img class="botoia" id="erabiltzaileai" title="';
+		echo $_SESSION['eposta'] . ' - ' . $_SESSION['erabiltzaileMota'];
+		echo '" style="opacity:1.0" src="irudiak/user-icon.png">';
 	}
     ?>
       
