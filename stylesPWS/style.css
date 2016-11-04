@@ -12,10 +12,10 @@ b						{font: 16px Georgia, serif;}
 
 a { text-decoration: none; }
 
-#page-wrap				{margin: 2% auto; color: white;}
+#page-wrap				{margin: 1px auto; color: white;}
 #page-wrap >.main 	{
   border: 1px solid #999; 
-  padding: 1%;
+  padding: 1px;
 	margin-bottom: 1px; 
   color: black;
 	overflow-y: auto;
@@ -40,12 +40,13 @@ header			{
 nav	{
   background: #E7E7E7; 
   text-align: center;
+  overflow-x: hidden;
 }
 section 		{background: #FFF; text-align: center;}
 footer					{background: #E7E7E7; text-align: center;}
 nav span { 
 	margin: 0px 10px 0px 0px;
-	width: 90%;
+	width: 100%;
 	display: inline-block;
 	font-size:22px;
 }
@@ -195,7 +196,7 @@ nav span {
   border: none;
   border-width: 1px;
   background: #CCCCCC;
-  padding:3px;
+  padding:4px;
 }
 
 footer img {
@@ -208,8 +209,12 @@ footer img {
 footer img:hover {
    opacity: 1.0;
 }
-
-header img.botoia {
+@media only screen and (max-width:767px) {
+	header img.botoia {
+		visibility: hidden;
+	}
+}
+header img.botoia { /*kendu txikitzen den einean*/
   float:right;
   opacity:0.5;
   width:56px;
