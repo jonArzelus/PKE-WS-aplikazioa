@@ -7,6 +7,7 @@
 		$_SESSION['eposta'] = "Erabiltzaile Anonimoa";
 		$_SESSION['konexioid'] = -1;
 		$_SESSION['erabiltzaileMota'] = "GUEST";
+		$_SESSION['erabiltzaileIrudia'] = 'irudiak/user-icon.png';
 	}
 
 ?>
@@ -62,7 +63,7 @@
 		echo '<a href="LogOut.php"><img class="botoia"  src="irudiak/logout-icon.png"></a>
 		<img class="botoia" id="erabiltzaileai" title="';
 		echo $_SESSION['eposta'] . ' - ' . $_SESSION['erabiltzaileMota'];
-		echo '" style="opacity:1.0" src="irudiak/user-icon.png">';
+		echo '" style="opacity:1.0" src="'. $_SESSION['erabiltzaileIrudia'] . '">'; //erabiltzailearen ikonoa hartzen du
 	}
     ?>
       
