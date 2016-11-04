@@ -26,23 +26,5 @@
 		   type='text/css' 
 		   media='only screen and (max-width: 480px)'
 		   href='stylesPWS/smartphone.css' />
-  </head>
-  <body>
-  <div id='page-wrap'>
-	<header class='main' id='h1'>
 
-	<?php
-	echo '<div class="botoia-left"> Erabiltzailea: ' . $_SESSION['eposta'] . ' - ' . $_SESSION['erabiltzaileMota'] . '</div>';
-	?>
-	
-	<?php
-	if($_SESSION['erabiltzaileMota']=="GUEST") {
-      	echo'<a href="signUp.php"><img class="botoia"  src="irudiak/signup-icon.png"></a>
-      	<a href="SignIn.php"><img class="botoia"  src="irudiak/login-icon.png"></a>';
-	} else {
-		echo '<a href="LogOut.php"><img class="botoia"  src="irudiak/logout-icon.png"></a>';
-	}
-    ?>
-      
-	<a href="layout.php"><img class="logo" src="irudiak/quiz-logo.png"></a>
-    <!-- </header> -->
+  

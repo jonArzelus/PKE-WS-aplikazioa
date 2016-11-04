@@ -1,6 +1,6 @@
 <?php
 	$_GET['orrialdea']="handlingQuizes";
-	include 'php/orrialdeGoiburua.php';
+	include 'php/orrialdeGoia.php';
 ?>
 	  
 	 <script type="text/javascript" language="javascript">
@@ -48,7 +48,7 @@
 		
 	</script>
 <?php
-	echo('</header>
+	echo('</head>
 		<body onload="freskatu()">');
 	include 'php/orrialdeNabigazioa.php';
 ?>	

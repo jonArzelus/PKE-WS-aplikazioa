@@ -1,7 +1,7 @@
 <?php
 	$_GET['orrialdea'] = "galderakIkusi";
-	include 'php/orrialdeGoiburua.php';
-	echo('</header>
+	include 'php/orrialdeGoia.php';
+	echo('</head>
 		<body>');
 	include 'php/orrialdeNabigazioa.php';
 ?>

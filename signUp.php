@@ -1,7 +1,7 @@
 <?php
 	$_GET['orrialdea'] = "signUp";
-	include 'php/orrialdeGoiburua.php';
-	echo('</header>');
+	include 'php/orrialdeGoia.php';
+	echo('</head>');
 ?>
 	<script type="text/javascript">
 	xhttp = new XMLHttpRequest();
