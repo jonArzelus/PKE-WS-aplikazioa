@@ -215,6 +215,18 @@ footer img:hover {
 @media only screen and (max-width:766px) {
 	header img.botoia {
 		visibility: hidden;
+		width:1px;
+		padding-right:1px;
+  		padding-top:1px;
+	}
+}
+
+@media only screen and (min-width:767px) {
+	header img.botoia {
+		visibility: visible;
+		width:56px;
+	  padding-right:16px;
+	  padding-top:8px;
 	}
 }
 
@@ -228,9 +240,6 @@ footer img:hover {
 header img.botoia { /*kendu txikitzen den einean*/
   float:right;
   opacity:0.5;
-  width:56px;
-  padding-right:16px;
-  padding-top:8px;
 }
 
 header img.botoia:hover {

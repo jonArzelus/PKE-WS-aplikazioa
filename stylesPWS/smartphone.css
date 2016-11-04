@@ -3,6 +3,9 @@ body				{background: #333;}
 #page-wrap:after 	{content: "Smartphone Layout";}
 
 h2 span, section h3	{display: none;}
+section {
+	height: 600px;
+}
 body				{font-size: large;}
 footer, input		{font-size: large;}
 header {
