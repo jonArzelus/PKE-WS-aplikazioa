@@ -63,7 +63,7 @@
 		echo '<a href="LogOut.php"><img class="botoia"  src="irudiak/logout-icon.png"></a>
 		<img class="botoia" id="erabiltzaileai" title="';
 		echo $_SESSION['eposta'] . ' - ' . $_SESSION['erabiltzaileMota'];
-		echo '" style="opacity:1.0" src="'. $_SESSION['erabiltzaileIrudia'] . '">'; //erabiltzailearen ikonoa hartzen du
+		echo '" style="opacity:1.0" src="'.$_SESSION['erabiltzaileIrudia'].'">'; //erabiltzailearen ikonoa hartzen du
 	}
     ?>
       
