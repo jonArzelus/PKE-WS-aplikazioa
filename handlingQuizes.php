@@ -70,13 +70,27 @@
  				<h3>Arloa:</h3>
  				<input type="text" id="arloa" name="arloa" title="Sartu galderaren arloa." placeholder="Sartu galderaren arloa"><br>
 				<h3>Zailtasuna:</h3>
- 				<select id="zailtasuna" name="zailtasuna" >
+ 				<!--<select id="zailtasuna" name="zailtasuna" >
   					<option value="1">1 - Oso erraza</option>
   					<option value="2">2 - Erraza</option>
   					<option value="3">3 - Erdibidekoa</option>
   					<option value="4">4 - Zaila</option>
 					<option value="5">5 - Oso zaila</option>
-				</select><br>
+				</select><br>-->
+				<div style="max-width:200px; margin:auto">
+				<fieldset id="zailtasuna" class="rating">
+
+				<input type="radio" id="star5" name="zailtasuna" value="5" /><label class = "full" for="star5" title="5 - Oso zaila"></label>
+				<input type="radio" id="star4" name="zailtasuna" value="4" /><label class = "full" for="star4" title="4 - Zaila"></label>
+				<input type="radio" id="star3" name="zailtasuna" value="3" /><label class = "full" for="star3" title="3 - Erdibidekoa"></label>
+				<input type="radio" id="star2" name="zailtasuna" value="2" /><label class = "full" for="star2" title="2 - Erraza"></label>
+				    <input type="radio" id="star1" name="zailtasuna" value="1" /><label class = "full" for="star1" title="1 - Oso erraza"></label>
+				    
+				    
+				    
+				    
+				</fieldset>
+				</div>
 				<input type="button" name="galderakBidali" id="galderakBidali" value="Bidali" onclick="galderaBidali(galdera.value,erantzuna.value,zailtasuna.value,arloa.value)"\>
 				
 				
