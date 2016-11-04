@@ -94,8 +94,12 @@
 		if($_GET['orrialdea']=="ikasleakIkusi")
 			echo'<a href="getUserInform.php"><span class="act-sel">Ikasleak ikusi<div class="arrow-right"></div></span></a>';
 		else
-			echo'<a href="getUserInform.php"><span>Ikasleak begiratu</span></a>';
+			echo'<a href="getUserInform.php"><span>Ikasleak ikusi</span></a>';
 	}
+	if($_GET['orrialdea']=="erabiltzaileakIkusi")
+			echo'<a href="erabiltzaileakIkusi.php"><span class="act-sel">Erabiltzaileak ikusi<div class="arrow-right"></div></span></a>';
+		else
+			echo'<a href="erabiltzaileakIkusi.php"><span>Erabiltzaileak ikusi</span></a>';
 	if($_GET['orrialdea']=="credits")
 		echo('<a href="credits.php"><span class="act-sel">Kredituak<div class="arrow-right"></div></span></a>');
 	else

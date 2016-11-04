@@ -249,6 +249,10 @@ footer img:hover {
 	  padding-right:16px;
 	  padding-top:8px;
 	}
+  table {
+    width: 95%;
+    margin:auto;
+  }
 }
 
 header img.botoia { /*kendu txikitzen den einean*/
