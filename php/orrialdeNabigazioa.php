@@ -16,7 +16,7 @@
 
 	<div id="main" class="bakarrikMugikorra">
 	  <div class="container">
-	      <div class="navigation">
+	      <div class="navigation" style="position:absolute; z-index:10; margin-top:50px">
 	        <ul>
 	          <li><a href="layout.php">Hasiera</a></li>
 	          <li><a href="#" tabindex="1">Galderak ikusi<span class="arrow-down"></span></a>
