@@ -13,7 +13,9 @@ echo '<tr><td>'.$lerroa['IzenAbizena'].'</td><td>'.$lerroa['PostaElektronikoa'].
 }
 echo '</table>';
 
-echo "</br></br> Hasierara bueltatu nahi baduzu, klikatu hurrengo estekan: <a href='".HASIERA."'> Hasiera </a></br></br>";
+if($_GET['orrialdea']!="erabiltzaileakIkusi") {
+	echo "</br></br> Hasierara bueltatu nahi baduzu, klikatu hurrengo estekan: <a href='".HASIERA."'> Hasiera </a></br></br>";
+}
 
 
 include 'dbkonexioak/dbClose.php';

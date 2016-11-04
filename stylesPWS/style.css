@@ -188,7 +188,13 @@ td.text-right {
   border-top: 14px solid transparent;
   border-bottom: 14px solid transparent;
   border-left: 14px solid black;
-  float:right;
+  float:right; /*
+  width: 0;
+   height: 0;
+   border-left: 32px solid black;
+   border-top: 14px solid transparent;
+   border-bottom: 14px solid transparent;
+   float:right;*/
 }
 
 nav span:hover {
@@ -221,6 +227,7 @@ footer img {
   width:48px;
   padding-right:16px;
   float:right;
+  margin: 5px 5px 5px 5px;
 }
 
 footer img:hover {
@@ -246,14 +253,20 @@ footer img:hover {
 @media only screen and (min-width:767px) {
 	header img.botoia {
 		width:56px;
+    height: 56px;
 	  padding-right:16px;
 	  padding-top:8px;
 	}
+  table {
+    width: 95%;
+    margin:auto;
+  }
 }
 
 header img.botoia { /*kendu txikitzen den einean*/
   float:right;
   opacity:0.5;
+  margin-top:22px;
 }
 
 header img.botoia:hover {

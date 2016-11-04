@@ -56,7 +56,7 @@
 					$argazkia_helbidea = "erabiltzaileIrudiak/".$izenaPosta; //erabiltzaile argazkiei izen berri bat ezarri beren emailaren arabera
 					copy($argazkia_ruta,$argazkia_helbidea);
 				} else {
-					$argazkia_helbidea = "ARGAZKI_GABE";
+					$argazkia_helbidea = "irudiak/user-icon.png";
 					$argazkia_izena = null;
 				}
 

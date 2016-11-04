@@ -7,6 +7,7 @@
 		$_SESSION['eposta'] = "Erabiltzaile Anonimoa";
 		$_SESSION['konexioid'] = -1;
 		$_SESSION['erabiltzaileMota'] = "GUEST";
+		$_SESSION['erabiltzaileIrudia'] = 'irudiak/user-icon.png';
 	}
 
 ?>
@@ -59,7 +60,10 @@
       	echo'<a href="signUp.php"><img class="botoia"  src="irudiak/signup-icon.png"></a>
       	<a href="SignIn.php"><img class="botoia"  src="irudiak/login-icon.png"></a>';
 	} else {
-		echo '<a href="LogOut.php"><img class="botoia"  src="irudiak/logout-icon.png"></a>';
+		echo '<a href="LogOut.php"><img class="botoia"  src="irudiak/logout-icon.png"></a>
+		<img class="botoia" id="erabiltzaileai" title="';
+		echo $_SESSION['eposta'] . ' - ' . $_SESSION['erabiltzaileMota'];
+		echo '" style="opacity:1.0" src="'. $_SESSION['erabiltzaileIrudia'] . '">'; //erabiltzailearen ikonoa hartzen du
 	}
     ?>
       
@@ -94,8 +98,12 @@
 		if($_GET['orrialdea']=="ikasleakIkusi")
 			echo'<a href="getUserInform.php"><span class="act-sel">Ikasleak ikusi<div class="arrow-right"></div></span></a>';
 		else
-			echo'<a href="getUserInform.php"><span>Ikasleak begiratu</span></a>';
+			echo'<a href="getUserInform.php"><span>Ikasleak ikusi</span></a>';
 	}
+	if($_GET['orrialdea']=="erabiltzaileakIkusi")
+			echo'<a href="erabiltzaileakIkusi.php"><span class="act-sel">Erabiltzaileak ikusi<div class="arrow-right"></div></span></a>';
+		else
+			echo'<a href="erabiltzaileakIkusi.php"><span>Erabiltzaileak ikusi</span></a>';
 	if($_GET['orrialdea']=="credits")
 		echo('<a href="credits.php"><span class="act-sel">Kredituak<div class="arrow-right"></div></span></a>');
 	else
