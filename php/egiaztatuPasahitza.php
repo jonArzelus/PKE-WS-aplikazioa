@@ -6,33 +6,26 @@ require_once('lib/nusoap.php');
 require_once('lib/class.wsdlcache.php');
 
 //$URL       = "localhost";
-$ns = "http://localhost/myquizz/php/egiaztatuPasahitza.php?wsdl"; 
+$ns = "http://localhost/myquizz/php/egiaztatuPasahitza.php"; 
 
 //soap_server motako objektua sortzen dugu
 $server = new soap_server;
-$server->configureWSDL('pasahitzak', $ns);
+$server->configureWSDL('pasahitzaKonprobatu',$ns);
 $server->wsdl->schemaTargetNamespace=$ns;
+
 //inplementatu nahi dugun funtzioa erregistratzen dugu, funtzio bat baino gehiago erregistra liteke ...
-$server->register('pK',array('x'=>'xsd:string'),
+$server->register('pasahitzaKonprobatu',
+				  array('pass'=>'xsd:string'),
 				  array('z'=>'xsd:string'),
 				  $ns);
 
 //funtzioa inplementatzen da
-function pK($x){
-	$handle = fopen("toppasswords.txt", "r");
-	if ($handle) {
-    	while (($line = fgets($handle)) !== false) {
-			$line=rtrim($line,"\r\n");
-        	if(strcmp($line,$x)==0){
-				return 'BALIOGABEA';
-			} 
-   		 }
-		fclose($handle);
+function pasahitzaKonprobatu($pass){
+	if(strpos(file_get_contents("toppasswords.txt"),$pass)!==false){
+		return 'BALIOGABEA';
+	}else{
 		return 'BALIOZKOA';
-	} else {
-   
 	}
-		
 }
 
 //nusoap klaseko service metodoari dei egiten diogu
