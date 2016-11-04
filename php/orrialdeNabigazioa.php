@@ -23,8 +23,8 @@
 	            <ul class="dropdown">
 	              <li><a href="seeXMLQuestions.php">Ikusi DB galderak</a></li>
 	              <li><a href="seeXMLQuestions.php">Ikusi XML galderak</a></li>
-	              <li><a href="seeXMLQuestions.php">Ikusi XSL galderak</a></li>
-	              <li><a href="seeXMLQuestions.php">Ikusi erabiltzailearen galderak</a></li>
+	              <li><a href="seeXSLQuestions.php">Ikusi XSL galderak</a></li>
+	              <li><a href="galderakIkusi.php">Ikusi erabiltzailearen galderak</a></li>
 	            </ul>
 	          </li>
 	          <li><a href="handlingQuizes.php">Galderak txertatu</a></li>
@@ -35,6 +35,7 @@
 	              <li><a href="SignUp.php">Erregistratu<img src="irudiak/signup-icon.png"></a></li>
 	            </ul>
 	          </li>
+	          <li><a href="#">NABIGAZIOA BUKATU ETA HOBETU BEHAR DA</a></li>
 	        </ul>
 	      </div>
 	      <div class="nav_bg">
