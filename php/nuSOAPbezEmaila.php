@@ -8,7 +8,7 @@ require_once('lib/class.wsdlcache.php');
 $soapclient = new nusoap_client("http://wsjiparsar.esy.es/webZerbitzuak/egiaztatuMatrikula.php?wsdl", false);
 
 //Web-Service-n inplementatu dugun funtzioari dei egiten diogu eta itzultzen diguna inprimatzen dugu
-$emaitza= $soapclient->call('egiaztatuE',array( 'x'=>$_GET['eposta']));
+$emaitza= $soapclient->call('egiaztatuE',array( 'x'=>$_GET['eposta']));	
 	if($emaitza == 'BAI'){
 		echo "Erabiltzaile hori zuzena da";
 	}else{

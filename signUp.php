@@ -27,10 +27,16 @@
 		xhttp.send();
 	}
 		
-	function paspostaKonprobatu(){
+	function paspostaKonprobatu(x){
+		if(x==1){
+			alert("Beheko mezuan azalduko zaizu erabiltzailea egokia den");
+		}else{
+			alert("Beheko mezuan azalduko zaizu pasahitza egokia den");
+		}
 		if((document.getElementById("mezuak").innerHTML==="Erabiltzaile hori zuzena da")&&(document.getElementById("mezuak2").innerHTML==="Pasahitz hori egokia da")){
-			alert("hemen nago");
 			document.getElementById("botoia").disabled=false;
+		}else{
+			document.getElementById("botoia").disabled=true;
 		}
 	}
 		
@@ -98,9 +104,9 @@
   			(*) Izen-Abizenak:
   			<input type="text" name="izen-abizenak" required pattern="([A-Z]{1}[a-z ]{1,})*" title="Izen-abizenak letra larriz hasita" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Posta Elektronikoa:
- 			<input type="email" id="eposta-helbidea" name="eposta-helbidea" required pattern="^[a-z]+[0-9]{3}@ikasle\.ehu\.eu?s$" title="emailak unibertsitatekoa izan behar du." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="emailaKonprobatu(this.value); paspostaKonprobatu();"><br>
+ 			<input type="email" id="eposta-helbidea" name="eposta-helbidea" required pattern="^[a-z]+[0-9]{3}@ikasle\.ehu\.eu?s$" title="emailak unibertsitatekoa izan behar du." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="emailaKonprobatu(this.value); paspostaKonprobatu(1);"><br>
 			(*) Pasahitza:
- 			<input type="password" name="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="pasahitzaKonprobatu(this.value); paspostaKonprobatu();"><br>
+ 			<input type="password" name="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="pasahitzaKonprobatu(this.value); paspostaKonprobatu(2);"><br>
 			(*) Telefono zenbakia:
  			<input type="text" name="telefono-zenbakia" required pattern="[0-9]{9}" title="9 zenbakiko telefono zenbakia idatzi mesedez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Espezialitatea:
