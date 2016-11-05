@@ -20,10 +20,9 @@ if($err){
 $emaitza= $soapclient->call('pasahitzaKonprobatu',array('pass'=>$_GET['pasahitza']));
 echo $emaitza;
 	if(strcmp($emaitza,'BALIOZKOA')==0){
-		echo "Pasahitz hori egokia da  ".$emaitza."<br>";
+		echo "Pasahitz hori ohizkoa da, aldatu mezedez";
 	}else{
-		echo "Pasahitz hori ohizkoa da, aldatu mezedez  ".$emaitza."<br>";
-
+		echo "Pasahitz hori egokia da";
 	}
 }
 ?>

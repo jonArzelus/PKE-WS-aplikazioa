@@ -5,7 +5,6 @@
 require_once('lib/nusoap.php');
 require_once('lib/class.wsdlcache.php');
 
-//$URL       = "localhost";
 $ns = "http://localhost/myquizz/php/egiaztatuPasahitza.php"; 
 
 //soap_server motako objektua sortzen dugu
