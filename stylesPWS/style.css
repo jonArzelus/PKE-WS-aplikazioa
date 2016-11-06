@@ -38,7 +38,9 @@ a { text-decoration: none; }
 
 section > div				{padding: 20px;}
 header			{
-  background: #dbedff; text-align: center;
+  background: #dbedff; 
+  text-align: center;
+  vertical-align: middle;
 }
 nav	{
   background: #c1e1ff; 
@@ -258,10 +260,9 @@ footer img:hover {
 
 @media only screen and (min-width:767px) {
 	header img.botoia {
-		width:56px;
-    height: 56px;
+		width:76px;
+    height: 76px;
 	  padding-right:16px;
-	  padding-top:8px;
 	}
   header img.botoia2 {
     width:56px;
@@ -278,7 +279,7 @@ footer img:hover {
 header img.botoia { /*kendu txikitzen den einean*/
   float:right;
   opacity:0.5;
-  margin-top:22px;
+  margin-top:12px;
 }
 header img.botoia2 { /*kendu txikitzen den einean*/
   float:right;
