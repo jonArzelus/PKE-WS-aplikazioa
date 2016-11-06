@@ -77,7 +77,7 @@
   					<option value="4">4 - Zaila</option>
 					<option value="5">5 - Oso zaila</option>
 				</select><br>-->
-				<div style="max-width:140px; margin:auto">
+				<div style="max-width:160px; margin:auto">
 				<fieldset id="zailtasuna" class="rating">
 					<input type="radio" id="star5" name="zailtasuna" value="5" /><label class = "full" for="star5" title="5 - Oso zaila"></label>
 					<input type="radio" id="star4" name="zailtasuna" value="4" /><label class = "full" for="star4" title="4 - Zaila"></label>
