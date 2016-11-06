@@ -17,9 +17,29 @@
 							<xsl:value-of select="itemBody/p"/>
 						</FONT>
 					</TD>
-					<TD>
+					<TD style="text-align:center">
 						<FONT SIZE="2" COLOR="green" FACE="Verdana">
-							<xsl:value-of select="@complexity"/> <BR/>
+							<xsl:choose>
+								<xsl:when test="@complexity='1'">
+								✪
+								</xsl:when>
+								<xsl:when test="@complexity='2'">
+								✪✪
+								</xsl:when>
+								<xsl:when test="@complexity='3'">
+								✪✪✪
+								</xsl:when>
+								<xsl:when test="@complexity='4'">
+								✪✪✪✪
+								</xsl:when>
+								<xsl:when test="@complexity='5'">
+								✪✪✪✪✪
+								</xsl:when>
+								<xsl:otherwise> 
+                              	Low 
+                           		</xsl:otherwise> 
+							</xsl:choose>
+							<!--<xsl:value-of select="@complexity"/>--> <BR/>
 						</FONT>
 					</TD>
 					<TD>
