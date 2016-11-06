@@ -46,7 +46,25 @@
 			foreach($xml->assessmentItem as $assessmentItem){
 					echo ("<tr>");	
 						echo ("<td>".$assessmentItem->itemBody->p."</td>");
-						echo ("<td>".$assessmentItem['complexity']."</td>");
+						echo ('<td style="text-align:center">');
+							switch($assessmentItem['complexity']) {
+							case 1:
+							echo('✪');
+							break;
+							case 2:
+							echo('✪✪');
+							break;
+							case 3:
+							echo('✪✪✪');
+							break;
+							case 4:
+							echo('✪✪✪✪');
+							break;
+							case 5:
+							echo('✪✪✪✪✪');
+							break;
+						}
+						echo("</td>");
 						echo ("<td>".$assessmentItem['subject']."</td>");
 					echo("</tr>");
 			}
