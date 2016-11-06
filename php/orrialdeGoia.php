@@ -9,6 +9,12 @@
 		$_SESSION['konexioid'] = -1;
 		$_SESSION['erabiltzaileMota'] = "GUEST";
 	}
+	if($_GET['orrialdea'] == "ikasleakIkusi" && $_SESSION['erabiltzaileMota'] != "IRAKASLEA") { //irakasleek soilik dute sarrera honera
+		header("Location:layout.php");
+	}
+	if($_GET['orrialdea']=="handlingQuizes" && $_SESSION['erabiltzaileMota'] == "GUEST") { //erregistratuak soilik dute sarrera honera
+		header("Location:layout.php");
+	}
 
 ?>
 <!DOCTYPE html>
