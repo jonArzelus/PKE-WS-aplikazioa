@@ -18,22 +18,41 @@
 	}
 		
 	function pasahitzaKonprobatu(pasahitza){
+		var kodea = document.getElementById("kodea").value;
+		
 		xhttp.onreadystatechange = function(){
 			if((xhttp.readyState==4) && (xhttp.status==200)){
 				document.getElementById("mezuak2").innerHTML=xhttp.responseText;
 			}	
 		}
-		xhttp.open("GET","php/nuSOAPbezPasahitza.php?pasahitza="+pasahitza, true);
+		xhttp.open("GET","php/nuSOAPbezPasahitza.php?pasahitza="+pasahitza+"&kodea="+kodea, true);
 		xhttp.send();
 	}
 		
 	function paspostaKonprobatu(x){
+		var mezuak = document.getElementById("mezuak");
+		var mezuak2 = document.getElementById("mezuak2");
 		if(x==1){
 			alert("Beheko mezuan azalduko zaizu erabiltzailea egokia den");
+			if(mezuak.innerHTML==="Erabiltzaile hori zuzena da"){
+				mezuak.style.color="darkgreen";
+				mezuak.style.backgroundColor="chartreuse";
+			}else{
+				mezuak.style.color="darkred";
+				mezuak.style.backgroundColor="coral";
+			}
+			
 		}else{
 			alert("Beheko mezuan azalduko zaizu pasahitza egokia den");
+			if(mezuak2.innerHTML==="Pasahitz hori egokia da"){
+				mezuak2.style.color="darkgreen";
+				mezuak2.style.backgroundColor="chartreuse";
+			}else{
+				mezuak2.style.color="darkred";
+				mezuak2.style.backgroundColor="coral";
+			}
 		}
-		if((document.getElementById("mezuak").innerHTML==="Erabiltzaile hori zuzena da")&&(document.getElementById("mezuak2").innerHTML==="Pasahitz hori egokia da")){
+		if((mezuak.innerHTML==="Erabiltzaile hori zuzena da")&&(mezuak2.innerHTML==="Pasahitz hori egokia da")){
 			document.getElementById("botoia").disabled=false;
 		}else{
 			document.getElementById("botoia").disabled=true;
@@ -105,6 +124,8 @@
   			<input type="text" name="izen-abizenak" required pattern="([A-Z]{1}[a-z ]{1,})*" title="Izen-abizenak letra larriz hasita" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Posta Elektronikoa:
  			<input type="email" id="eposta-helbidea" name="eposta-helbidea" required pattern="^[a-z]+[0-9]{3}@ikasle\.ehu\.eu?s$" title="emailak unibertsitatekoa izan behar du." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="emailaKonprobatu(this.value); paspostaKonprobatu(1);"><br>
+			(*) Kodea:
+  			<input type="text" id="kodea" name="kodea" required pattern="[0-9]{4}" title="Sartu erositako kodea" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Pasahitza:
  			<input type="password" name="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="pasahitzaKonprobatu(this.value); paspostaKonprobatu(2);"><br>
 			(*) Telefono zenbakia:
