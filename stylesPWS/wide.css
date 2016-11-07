@@ -2,9 +2,22 @@ body				{background: #999;}
 
 /*#page-wrap:after 	{content: "Wide Layout";}*/
 
-nav					{float: left; width: 16%; height: 767px;} 
+nav	{
+	position:absolute;
+	float: left;
+	top:112px;
+	left:0px;
+	width: 16%; 
+	height: 767px;
+	z-index: 10;
+} 
 nav span				{margin: 0px 20px 0px 0px;}
-section				{float: right; width: 84%; height: 767px;}
+section	{
+	float: right; 
+	width: 84%; 
+	height: 767px;
+	z-index: 1;
+}
 footer				{clear: both; display: block;}
 
 .try-again {

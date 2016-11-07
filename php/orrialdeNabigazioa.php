@@ -93,31 +93,31 @@
 <nav class='main desktopSoilik' id='n1' role='navigation'>
 	<?php 
 	if($_GET['orrialdea']=="layout") //Hasiera
-		echo ('<a href="layout.php"><span class="act-sel">Hasiera<div class="arrow-right"></div></span></a>');
+		echo ('<a href="layout.php"><span id="act-sel" class="act-sel">Hasiera<div class="arrow-right"></div></span></a>');
 	else
 		echo ('<a href="layout.php"><span>Hasiera</span></a>');
 	if($_GET['orrialdea']=="galderakIkusi") //Galderak ikusi
-		echo('<a href="seeXMLQuestions.php"><span class="act-sel">Galderak ikusi<div class="arrow-right"></div></span></a>');
+		echo('<a href="seeXMLQuestions.php"><span id="act-sel" class="act-sel">Galderak ikusi<div class="arrow-right"></div></span></a>');
 	else
 		echo('<a href="seeXMLQuestions.php"><span>Galderak ikusi</span></a>');
 	if($_SESSION['erabiltzaileMota'] != "GUEST") {
 		if($_GET['orrialdea']=="handlingQuizes") //galderak sortu
-		echo ('<a href="handlingQuizes.php"><span class="act-sel">Galderak sortu<div class="arrow-right"></div></span></a>');
+		echo ('<a href="handlingQuizes.php"><span id="act-sel" class="act-sel">Galderak sortu<div class="arrow-right"></div></span></a>');
 	else
 		echo ('<a href="handlingQuizes.php"><span>Galderak sortu</span></a>');
 	}
 	if($_SESSION['erabiltzaileMota'] == "IRAKASLEA") {
 		if($_GET['orrialdea']=="ikasleakIkusi") //ikasleak ikusi
-			echo'<a href="getUserInform.php"><span class="act-sel">Ikasleak ikusi<div class="arrow-right"></div></span></a>';
+			echo'<a href="getUserInform.php"><span id="act-sel" class="act-sel">Ikasleak ikusi<div class="arrow-right"></div></span></a>';
 		else
 			echo'<a href="getUserInform.php"><span>Ikasleak ikusi</span></a>';
 	}
 	if($_GET['orrialdea']=="erabiltzaileakIkusi") //erabiltzaileak ikusi
-			echo'<a href="erabiltzaileakIkusi.php"><span class="act-sel">Erabiltzaileak ikusi<div class="arrow-right"></div></span></a>';
+			echo'<a href="erabiltzaileakIkusi.php"><span id="act-sel" class="act-sel">Erabiltzaileak ikusi<div class="arrow-right"></div></span></a>';
 		else
 			echo'<a href="erabiltzaileakIkusi.php"><span>Erabiltzaileak ikusi</span></a>';
 	if($_GET['orrialdea']=="credits") //kredituak
-		echo('<a href="credits.php"><span class="act-sel">Kredituak<div class="arrow-right"></div></span></a>');
+		echo('<a href="credits.php"><span id="act-sel" class="act-sel">Kredituak<div class="arrow-right"></div></span></a>');
 	else
 		echo('<a href="credits.php"><span>Kredituak</span></a>');
 	?>

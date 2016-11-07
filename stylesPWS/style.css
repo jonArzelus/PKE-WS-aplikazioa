@@ -17,7 +17,7 @@ a { text-decoration: none; }
 
 #page-wrap				{margin: 0 auto; color: white;}
 #page-wrap >.main 	{
-  border: 1px solid black; 
+  /*border: 0px solid black;*/ 
   padding: 0;
 	margin-bottom: 0; 
   color: black;
@@ -38,17 +38,32 @@ a { text-decoration: none; }
 
 section > div				{padding: 20px;}
 header			{
-  background: #dbedff; 
+  background: #dbffff; 
+  background: linear-gradient(#dbffff, #c1ccff); /* Standard syntax */
+  text-align: center;
+  vertical-align: middle;
+  height:112px;
+}
+nav	{
+  background: #c1ccff; 
+  text-align: center;
+  overflow-x: hidden;
+  border:solid;
+  border-width: 0px 1px 0px 0px;
+}
+section {
+  background: #FFF; 
+  text-align: center;
+  vertical-align: middle;
+  border: solid;
+  border-width: 1px 1px 1px 0px;
+}
+footer {
+  background: #dbffff; 
+  background: linear-gradient(#c1ccff, #dbffff);
   text-align: center;
   vertical-align: middle;
 }
-nav	{
-  background: #c1e1ff; 
-  text-align: center;
-  overflow-x: hidden;
-}
-section 		{background: #FFF; text-align: center;}
-footer					{background: #dbedff; text-align: center;}
 nav span { 
 	margin: 0px 10px 0px 0px;
 	width: 100%;
@@ -205,9 +220,10 @@ nav span:hover {
 }
 
 .act-sel {
+  width:100%;
   background-color: white;
   border:solid;
-  border-width: 0;
+  border-width: 1px 0px 1px 1px;
 }
 
 nav span {
@@ -216,7 +232,7 @@ nav span {
   color:black;
   border: none;
   border-width: 1px;
-  background: #c1e1ff;
+  //background: #c1e1ff;
   padding:4px;
 }
 
