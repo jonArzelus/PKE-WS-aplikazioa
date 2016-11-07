@@ -25,15 +25,28 @@
 	              <li><a href="seeXMLQuestions.php">Ikusi DB galderak</a></li>
 	              <li><a href="seeXMLQuestions.php">Ikusi XML galderak</a></li>
 	              <li><a href="seeXSLQuestions.php">Ikusi XSL galderak</a></li>
-	              <li><a href="galderakIkusi.php">Ikusi erabiltzailearen galderak</a></li>
+	              <?php
+	              if($_SESSION['erabiltzaileMota'] != "GUEST") {
+	              	echo '<li><a href="galderakIkusi.php">Ikusi erabiltzailearen galderak</a></li>';
+	              }
+	              ?>
 	            </ul>
 	          </li>
-	          <li><a href="handlingQuizes.php">Galderak txertatu</a></li>
+	          <?php
+	          if($_SESSION['erabiltzaileMota'] != "GUEST") {
+	          echo '<li><a href="handlingQuizes.php">Galderak txertatu</a></li>';
+	          }
+	          ?>
 	          <li><a href="#" tabindex="1">Saioa<span class="arrow-down"></span></a>
 	            <ul class="dropdown">
-	              <li><a href="SignIn.php">Saioa hasi<img src="irudiak/login-icon.png"></a></li>
-	              <li><a href="LogOut.php">Saioa amaitu<img src="irudiak/logout-icon.png"></a></li>
-	              <li><a href="SignUp.php">Erregistratu<img src="irudiak/signup-icon.png"></a></li>
+	            <?php
+	          	if($_SESSION['erabiltzaileMota'] == "GUEST") {
+	              echo '<li title="Saioa hasi"><a href="SignIn.php"><img src="irudiak/login-icon.png"></a></li>';
+	              echo '<li title="Orrialdean erregistratu"><a href="SignUp.php"><img src="irudiak/signup-icon.png"></a></li>';
+	          	} else {
+	              echo '<li title="Saioa amaitu"><a href="LogOut.php"><img src="irudiak/logout-icon.png"></a></li>';
+	          	}
+	          	?>
 	            </ul>
 	          </li>
 	          <li><a href="#">NABIGAZIOA BUKATU ETA HOBETU BEHAR DA</a></li>
@@ -80,31 +93,31 @@
 <nav class='main desktopSoilik' id='n1' role='navigation'>
 	<?php 
 	if($_GET['orrialdea']=="layout") //Hasiera
-		echo ('<a href="layout.php"><span class="act-sel">Hasiera<div class="arrow-right"></div></span></a>');
+		echo ('<a href="layout.php"><span id="act-sel" class="act-sel">Hasiera<div class="arrow-right"></div></span></a>');
 	else
 		echo ('<a href="layout.php"><span>Hasiera</span></a>');
 	if($_GET['orrialdea']=="galderakIkusi") //Galderak ikusi
-		echo('<a href="seeXMLQuestions.php"><span class="act-sel">Galderak ikusi<div class="arrow-right"></div></span></a>');
+		echo('<a href="seeXMLQuestions.php"><span id="act-sel" class="act-sel">Galderak ikusi<div class="arrow-right"></div></span></a>');
 	else
 		echo('<a href="seeXMLQuestions.php"><span>Galderak ikusi</span></a>');
 	if($_SESSION['erabiltzaileMota'] != "GUEST") {
 		if($_GET['orrialdea']=="handlingQuizes") //galderak sortu
-		echo ('<a href="handlingQuizes.php"><span class="act-sel">Galderak sortu<div class="arrow-right"></div></span></a>');
+		echo ('<a href="handlingQuizes.php"><span id="act-sel" class="act-sel">Galderak sortu<div class="arrow-right"></div></span></a>');
 	else
 		echo ('<a href="handlingQuizes.php"><span>Galderak sortu</span></a>');
 	}
 	if($_SESSION['erabiltzaileMota'] == "IRAKASLEA") {
 		if($_GET['orrialdea']=="ikasleakIkusi") //ikasleak ikusi
-			echo'<a href="getUserInform.php"><span class="act-sel">Ikasleak ikusi<div class="arrow-right"></div></span></a>';
+			echo'<a href="getUserInform.php"><span id="act-sel" class="act-sel">Ikasleak ikusi<div class="arrow-right"></div></span></a>';
 		else
 			echo'<a href="getUserInform.php"><span>Ikasleak ikusi</span></a>';
 	}
 	if($_GET['orrialdea']=="erabiltzaileakIkusi") //erabiltzaileak ikusi
-			echo'<a href="erabiltzaileakIkusi.php"><span class="act-sel">Erabiltzaileak ikusi<div class="arrow-right"></div></span></a>';
+			echo'<a href="erabiltzaileakIkusi.php"><span id="act-sel" class="act-sel">Erabiltzaileak ikusi<div class="arrow-right"></div></span></a>';
 		else
 			echo'<a href="erabiltzaileakIkusi.php"><span>Erabiltzaileak ikusi</span></a>';
 	if($_GET['orrialdea']=="credits") //kredituak
-		echo('<a href="credits.php"><span class="act-sel">Kredituak<div class="arrow-right"></div></span></a>');
+		echo('<a href="credits.php"><span id="act-sel" class="act-sel">Kredituak<div class="arrow-right"></div></span></a>');
 	else
 		echo('<a href="credits.php"><span>Kredituak</span></a>');
 	?>

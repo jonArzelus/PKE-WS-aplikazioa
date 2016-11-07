@@ -17,7 +17,7 @@ a { text-decoration: none; }
 
 #page-wrap				{margin: 0 auto; color: white;}
 #page-wrap >.main 	{
-  border: 1px solid black; 
+  /*border: 0px solid black;*/ 
   padding: 0;
 	margin-bottom: 0; 
   color: black;
@@ -38,15 +38,32 @@ a { text-decoration: none; }
 
 section > div				{padding: 20px;}
 header			{
-  background: #dbedff; text-align: center;
+  background: #dbffff; 
+  background: linear-gradient(#dbffff, #c1ccff); /* Standard syntax */
+  text-align: center;
+  vertical-align: middle;
+  height:112px;
 }
 nav	{
-  background: #c1e1ff; 
+  background: #c1ccff; 
   text-align: center;
   overflow-x: hidden;
+  border:solid;
+  border-width: 0px 1px 0px 0px;
 }
-section 		{background: #FFF; text-align: center;}
-footer					{background: #dbedff; text-align: center;}
+section {
+  background: #FFF; 
+  text-align: center;
+  vertical-align: middle;
+  border: solid;
+  border-width: 1px 1px 1px 0px;
+}
+footer {
+  background: #dbffff; 
+  background: linear-gradient(#c1ccff, #dbffff);
+  text-align: center;
+  vertical-align: middle;
+}
 nav span { 
 	margin: 0px 10px 0px 0px;
 	width: 100%;
@@ -203,9 +220,10 @@ nav span:hover {
 }
 
 .act-sel {
+  width:100%;
   background-color: white;
   border:solid;
-  border-width: 0;
+  border-width: 1px 0px 1px 1px;
 }
 
 nav span {
@@ -214,7 +232,7 @@ nav span {
   color:black;
   border: none;
   border-width: 1px;
-  background: #c1e1ff;
+  //background: #c1e1ff;
   padding:4px;
 }
 
@@ -258,10 +276,9 @@ footer img:hover {
 
 @media only screen and (min-width:767px) {
 	header img.botoia {
-		width:56px;
-    height: 56px;
+		width:76px;
+    height: 76px;
 	  padding-right:16px;
-	  padding-top:8px;
 	}
   header img.botoia2 {
     width:56px;
@@ -278,7 +295,7 @@ footer img:hover {
 header img.botoia { /*kendu txikitzen den einean*/
   float:right;
   opacity:0.5;
-  margin-top:22px;
+  margin-top:12px;
 }
 header img.botoia2 { /*kendu txikitzen den einean*/
   float:right;
@@ -390,6 +407,11 @@ footer b {
   background: #00695b;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   padding-top: 0;
+}
+
+.navigation li ul.dropdown img {
+  width:76px;
+  height:76px;
 }
 
 .navigation li ul.dropdown li {
