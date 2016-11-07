@@ -25,15 +25,28 @@
 	              <li><a href="seeXMLQuestions.php">Ikusi DB galderak</a></li>
 	              <li><a href="seeXMLQuestions.php">Ikusi XML galderak</a></li>
 	              <li><a href="seeXSLQuestions.php">Ikusi XSL galderak</a></li>
-	              <li><a href="galderakIkusi.php">Ikusi erabiltzailearen galderak</a></li>
+	              <?php
+	              if($_SESSION['erabiltzaileMota'] != "GUEST") {
+	              	echo '<li><a href="galderakIkusi.php">Ikusi erabiltzailearen galderak</a></li>';
+	              }
+	              ?>
 	            </ul>
 	          </li>
-	          <li><a href="handlingQuizes.php">Galderak txertatu</a></li>
+	          <?php
+	          if($_SESSION['erabiltzaileMota'] != "GUEST") {
+	          echo '<li><a href="handlingQuizes.php">Galderak txertatu</a></li>';
+	          }
+	          ?>
 	          <li><a href="#" tabindex="1">Saioa<span class="arrow-down"></span></a>
 	            <ul class="dropdown">
-	              <li><a href="SignIn.php">Saioa hasi<img src="irudiak/login-icon.png"></a></li>
-	              <li><a href="LogOut.php">Saioa amaitu<img src="irudiak/logout-icon.png"></a></li>
-	              <li><a href="SignUp.php">Erregistratu<img src="irudiak/signup-icon.png"></a></li>
+	            <?php
+	          	if($_SESSION['erabiltzaileMota'] == "GUEST") {
+	              echo '<li title="Saioa hasi"><a href="SignIn.php"><img src="irudiak/login-icon.png"></a></li>';
+	              echo '<li title="Orrialdean erregistratu"><a href="SignUp.php"><img src="irudiak/signup-icon.png"></a></li>';
+	          	} else {
+	              echo '<li title="Saioa amaitu"><a href="LogOut.php"><img src="irudiak/logout-icon.png"></a></li>';
+	          	}
+	          	?>
 	            </ul>
 	          </li>
 	          <li><a href="#">NABIGAZIOA BUKATU ETA HOBETU BEHAR DA</a></li>

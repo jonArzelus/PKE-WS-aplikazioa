@@ -393,6 +393,11 @@ footer b {
   padding-top: 0;
 }
 
+.navigation li ul.dropdown img {
+  width:76px;
+  height:76px;
+}
+
 .navigation li ul.dropdown li {
   display: block;
   list-style-type: none;
