@@ -5,6 +5,7 @@
 		<body>');
 	include 'php/orrialdeNabigazioa.php';
 ?>
+
     <section class="main" id="s1">
 	<div>
 		<h2><a style="text-decoration: none" href="https://www.linkedin.com/in/jon-arzelus-rodriguez-63306b128">Jon Arzelus</a> eta <a style="text-decoration: none" href='inaki.html'>Iñaki Berriotxoa</a></h2><br>
@@ -16,7 +17,7 @@
 		<h3>SOAP bezeroa erabiliz php-n</h3><br/>
 		<?php
 			$client = new SoapClient("http://www.webservicex.net/geoipservice.asmx?WSDL");
-			$params = new stdClass;
+			$params = new stdClass();
  
 			$params->IPAddress = $_SERVER['REMOTE_ADDR'];
 			echo "Bezeroaren IP helbidea: " .$params->IPAddress;
@@ -30,9 +31,9 @@
 	</div>
 		<h3>Google-n API-a erabiliz Javascripten</h3>
 		<h4>Fakultatea hemen dago</h4>
-		<div id="map" style="width:90%;height:500px;"></div><br>
+		<div id="map" style="width:90%;height:500px; margin:auto; border:solid; border-width:2px 2px 2px 2px; padding: 0px 0px 0px 0px;"></div><br>
 		<h4>Zu hemen zaude</h4>
-		<div id="map2" style="width:90%;height:500px;"></div><br>
+		<div id="map2" style="width:90%;height:500px; margin:auto; border:solid; border-width:2px 2px 2px 2px; padding: 0px 0px 0px 0px;"></div><br>
 		<script>
 		function myMap() {
 			//map 1 fakultatea
@@ -46,7 +47,7 @@
 			//map 2 fakultatea
 			var map2 = new google.maps.Map(document.getElementById('map2'), {
           	center: {lat: -34.397, lng: 150.644},
-          	zoom: 6
+          	zoom: 16
         	});
         	var infoWindow = new google.maps.InfoWindow({map: map2});
 
@@ -59,7 +60,7 @@
            		};
 
             	infoWindow.setPosition(pos);
-            	infoWindow.setContent('Location found.');
+            	infoWindow.setContent('Lokalizazioa aurkitua!');
             	map2.setCenter(pos);
           	}, function() {
             	handleLocationError(true, infoWindow, map2.getCenter());
