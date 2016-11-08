@@ -44,6 +44,7 @@
   			var mapCanvas = document.getElementById("map");
   			var mapOptions = {
     			center: new google.maps.LatLng(43.307178, -2.010857),
+    			mapTypeId: google.maps.MapTypeId.SATELLITE,
     			zoom: 18
  			}
   			var map = new google.maps.Map(mapCanvas, mapOptions);
@@ -51,8 +52,18 @@
 			//map 2 fakultatea
 			var map2 = new google.maps.Map(document.getElementById('map2'), {
           	center: {lat: -34.397, lng: 150.644},
+          	mapTypeId: google.maps.MapTypeId.SATELLITE,
           	zoom: 16
         	});
+
+        	var infoWindow1 = new google.maps.InfoWindow({map: map});
+        	var pos1 = {
+              		lat: 43.307178,
+              		lng: -2.010857
+           		};
+        	infoWindow1.setPosition(pos1);
+            infoWindow1.setContent('Informatika Fakultatea');
+
         	var infoWindow = new google.maps.InfoWindow({map: map2});
 
         	// Try HTML5 geolocation.
