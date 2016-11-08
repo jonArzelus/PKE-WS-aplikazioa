@@ -32,7 +32,7 @@
 	function paspostaKonprobatu(x){
 		var mezuak = document.getElementById("mezuak");
 		var mezuak2 = document.getElementById("mezuak2");
-		if(x==1){
+		if(x==0){
 			alert("Beheko mezuan azalduko zaizu erabiltzailea egokia den");
 			if(mezuak.innerHTML==="Erabiltzaile hori zuzena da"){
 				mezuak.style.color="darkgreen";
@@ -43,7 +43,7 @@
 			}
 			
 		}else{
-			alert("Beheko mezuan azalduko zaizu pasahitza egokia den");
+			alert("Beheko mezuan azalduko zaizu pasahitza eta kodea egokia diren");
 			if(mezuak2.innerHTML==="Pasahitz hori egokia da"){
 				mezuak2.style.color="darkgreen";
 				mezuak2.style.backgroundColor="chartreuse";
@@ -123,7 +123,7 @@
   			(*) Izen-Abizenak:
   			<input type="text" name="izen-abizenak" required pattern="([A-Z]{1}[a-z ]{1,})*" title="Izen-abizenak letra larriz hasita" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Posta Elektronikoa:
- 			<input type="email" id="eposta-helbidea" name="eposta-helbidea" required pattern="^[a-z]+[0-9]{3}@ikasle\.ehu\.eu?s$" title="emailak unibertsitatekoa izan behar du." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="emailaKonprobatu(this.value); paspostaKonprobatu(1);"><br>
+ 			<input type="email" id="eposta-helbidea" name="eposta-helbidea" required pattern="^[a-z]+[0-9]{3}@ikasle\.ehu\.eu?s$" title="emailak unibertsitatekoa izan behar du." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="emailaKonprobatu(this.value); paspostaKonprobatu(0);"><br>
 			(*) Kodea:
   			<input type="text" id="kodea" name="kodea" required pattern="[0-9]{4}" title="Sartu erositako kodea" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Pasahitza:
