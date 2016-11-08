@@ -31,9 +31,9 @@
 	</div>
 		<h3>Google-n API-a erabiliz Javascripten</h3>
 		<h4>Fakultatea hemen dago</h4>
-		<div id="map" style="width:90%;height:500px; margin:auto; border:solid; border-width:2px 2px 2px 2px; padding: 0px 0px 0px 0px;"></div><br>
+		<div id="map" class="mapa"></div><br>
 		<h4>Zu hemen zaude</h4>
-		<div id="map2" style="width:90%;height:500px; margin:auto; border:solid; border-width:2px 2px 2px 2px; padding: 0px 0px 0px 0px;"></div><br>
+		<div id="map2" class="mapa"></div><br>
 		<script>
 		function myMap() {
 			//map 1 fakultatea
