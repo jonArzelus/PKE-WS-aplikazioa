@@ -10,11 +10,11 @@
 		<h2><a style="text-decoration: none" href="https://www.linkedin.com/in/jon-arzelus-rodriguez-63306b128">Jon Arzelus</a> eta <a style="text-decoration: none" href='inaki.html'>Iñaki Berriotxoa</a></h2><br>
 		<h3>Software Ingeniaritza espezialitatea</h3><br>
 		<img src="irudiak/index.jpeg" alt="computer_software"><br>
-		Web Sistemak ikasgaieko lehen laborategiko lana da hau, pixkanaka osatzen joango gara
 	</div>
-	<div id="soap_geo">
-		<h3>SOAP bezeroa erabiliz php-n</h3><br/>
-		<?php
+	<div id="geolokalizaioa">
+		<div id="soap_geo">
+			<h3>SOAP bezeroa erabiliz php-n</h3><br/>
+			<?php
 			$client = new SoapClient("http://www.webservicex.net/geoipservice.asmx?WSDL");
 			$params = new stdClass;
  
@@ -26,13 +26,17 @@
 			$countryCode = $result->GetGeoIPResult->CountryCode;
  			echo "<br/>Bere herrialde izena: " . $countryName . "<br/>Herrialde kodea: " . $countryCode;
 
-		?>
-	</div>
+			?>
+		</div><br/>
 		<h3>Google-n API-a erabiliz Javascripten</h3>
-		<h4>Fakultatea hemen dago</h4>
-		<div id="map" style="width:90%;height:500px;"></div><br>
-		<h4>Zu hemen zaude</h4>
-		<div id="map2" style="width:90%;height:500px;"></div><br>
+		<div style="width:50%; float:left">
+			<h4>Fakultatea hemen dago</h4><br><br>
+		<div id="map" class="mapa"></div><br>
+		</div>
+		<div style="width:50%; float:right">
+			<h4>Zu hemen zaude</h4><br><br>
+			<div id="map2" class="mapa"></div><br>
+		</div>
 		<script>
 		function myMap() {
 			//map 1 fakultatea
@@ -43,12 +47,13 @@
  			}
   			var map = new google.maps.Map(mapCanvas, mapOptions);
 			
-			//map 2 fakultatea
+			//map 2 bezeroa adierazten du, ez bada aurkitzen urretxu erakutsiko du (Munduko hiriburua)
 			var map2 = new google.maps.Map(document.getElementById('map2'), {
-          	center: {lat: -34.397, lng: 150.644},
-          	zoom: 6
+          	center: {lat: 43.093274, lng: -2.314143}, 
+          	zoom: 15
         	});
         	var infoWindow = new google.maps.InfoWindow({map: map2});
+				infoWindow.setContent('Gora Iparragirre eta Urretxuarrak!!');
 
         	// Try HTML5 geolocation.
        		if (navigator.geolocation) {
@@ -59,8 +64,9 @@
            		};
 
             	infoWindow.setPosition(pos);
-            	infoWindow.setContent('Location found.');
+            	infoWindow.setContent('Zu hemen zaude!!');
             	map2.setCenter(pos);
+				//calculateDistance(pos);
           	}, function() {
             	handleLocationError(true, infoWindow, map2.getCenter());
           	});	
@@ -75,11 +81,16 @@
                				'Error: The Geolocation service failed.' :
                             'Error: Your browser doesn\'t support geolocation.');
       		}
-
-
 			
 		}
+			
+		/*function calculateDistance(position){
+			var distantzia = google.maps.geometry.spherical.computeDistanceBetween({lat: 43.093274, lng: -2.314143}, {lat: position.coords.latitude,lng: position.coords.longitude});
+			alert (distantzia);
+		}*/
 		</script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWdc1h_ayPsJYOdy7USRFMN1rmR5YwJcg&callback=myMap"></script>
+		</div>
     </section>
 <?php include 'php/orrialdeOina.php'; ?>
