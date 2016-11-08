@@ -31,24 +31,15 @@
 			?>
 		</div><br/>
 		<h3>Google-n API-a erabiliz Javascripten</h3>
-
-		<div style="width:50%; float:left">
+		<div class="mapadivl">
 			<h4>Fakultatea hemen dago</h4><br><br>
-		<div id="map" class="mapa"></div><br>
+			<div id="map" class="mapa"></div><br>
 		</div>
-		<div style="width:50%; float:right">
+		<div class="mapadivr">
 			<h4>Zu hemen zaude</h4><br><br>
 			<div id="map2" class="mapa"></div><br>
 		</div>
-
-	<div class="mapadivl">
-		<h4>Fakultatea hemen dago</h4><br><br>
-		<div id="map" class="mapa"></div><br>
-	</div>
-	<div class="mapadivr">
-		<h4>Zu hemen zaude</h4><br><br>
-		<div id="map2" class="mapa"></div><br>
-	</div>
+	
 
 		<script>
 		function myMap() {
@@ -63,9 +54,6 @@
 			
 			//map 2 bezeroa adierazten du, ez bada aurkitzen urretxu erakutsiko du (Munduko hiriburua)
 			var map2 = new google.maps.Map(document.getElementById('map2'), {
-
-          	center: {lat: 43.093274, lng: -2.314143}, 
-          	zoom: 15
 
           	center: {lat: -34.397, lng: 150.644},
           	mapTypeId: google.maps.MapTypeId.SATELLITE,
@@ -93,8 +81,6 @@
            		};
 
             	infoWindow.setPosition(pos);
-
-            	infoWindow.setContent('Zu hemen zaude!!');
 
             	infoWindow.setContent('Lokalizazioa aurkitua!');
 
