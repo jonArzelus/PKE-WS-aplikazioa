@@ -5,18 +5,20 @@
 		<body>');
 	include 'php/orrialdeNabigazioa.php';
 ?>
+
     <section class="main" id="s1">
 	<div>
 		<h2><a style="text-decoration: none" href="https://www.linkedin.com/in/jon-arzelus-rodriguez-63306b128">Jon Arzelus</a> eta <a style="text-decoration: none" href='inaki.html'>Iñaki Berriotxoa</a></h2><br>
 		<h3>Software Ingeniaritza espezialitatea</h3><br>
-		<img src="irudiak/index.jpeg" alt="computer_software"><br>
+		<img src="irudiak/index.gif" alt="computer_software"><br>
+		
 	</div>
 	<div id="geolokalizaioa">
 		<div id="soap_geo">
 			<h3>SOAP bezeroa erabiliz php-n</h3><br/>
 			<?php
 			$client = new SoapClient("http://www.webservicex.net/geoipservice.asmx?WSDL");
-			$params = new stdClass;
+			$params = new stdClass();
  
 			$params->IPAddress = $_SERVER['REMOTE_ADDR'];
 			echo "Bezeroaren IP helbidea: " .$params->IPAddress;
@@ -29,6 +31,7 @@
 			?>
 		</div><br/>
 		<h3>Google-n API-a erabiliz Javascripten</h3>
+
 		<div style="width:50%; float:left">
 			<h4>Fakultatea hemen dago</h4><br><br>
 		<div id="map" class="mapa"></div><br>
@@ -37,21 +40,47 @@
 			<h4>Zu hemen zaude</h4><br><br>
 			<div id="map2" class="mapa"></div><br>
 		</div>
+
+	<div class="mapadivl">
+		<h4>Fakultatea hemen dago</h4><br><br>
+		<div id="map" class="mapa"></div><br>
+	</div>
+	<div class="mapadivr">
+		<h4>Zu hemen zaude</h4><br><br>
+		<div id="map2" class="mapa"></div><br>
+	</div>
+
 		<script>
 		function myMap() {
 			//map 1 fakultatea
   			var mapCanvas = document.getElementById("map");
   			var mapOptions = {
     			center: new google.maps.LatLng(43.307178, -2.010857),
+    			mapTypeId: google.maps.MapTypeId.SATELLITE,
     			zoom: 18
  			}
   			var map = new google.maps.Map(mapCanvas, mapOptions);
 			
 			//map 2 bezeroa adierazten du, ez bada aurkitzen urretxu erakutsiko du (Munduko hiriburua)
 			var map2 = new google.maps.Map(document.getElementById('map2'), {
+
           	center: {lat: 43.093274, lng: -2.314143}, 
           	zoom: 15
+
+          	center: {lat: -34.397, lng: 150.644},
+          	mapTypeId: google.maps.MapTypeId.SATELLITE,
+          	zoom: 16
+
         	});
+
+        	var infoWindow1 = new google.maps.InfoWindow({map: map});
+        	var pos1 = {
+              		lat: 43.307178,
+              		lng: -2.010857
+           		};
+        	infoWindow1.setPosition(pos1);
+            infoWindow1.setContent('Informatika Fakultatea');
+
         	var infoWindow = new google.maps.InfoWindow({map: map2});
 				infoWindow.setContent('Gora Iparragirre eta Urretxuarrak!!');
 
@@ -64,7 +93,11 @@
            		};
 
             	infoWindow.setPosition(pos);
+
             	infoWindow.setContent('Zu hemen zaude!!');
+
+            	infoWindow.setContent('Lokalizazioa aurkitua!');
+
             	map2.setCenter(pos);
 				//calculateDistance(pos);
           	}, function() {
