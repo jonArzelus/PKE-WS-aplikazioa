@@ -30,10 +30,14 @@
 		?>
 	</div>
 		<h3>Google-n API-a erabiliz Javascripten</h3>
-		<h4>Fakultatea hemen dago</h4>
+	<div style="width:50%; float:left">
+		<h4>Fakultatea hemen dago</h4><br><br>
 		<div id="map" class="mapa"></div><br>
-		<h4>Zu hemen zaude</h4>
+	</div>
+	<div style="width:50%; float:right">
+		<h4>Zu hemen zaude</h4><br><br>
 		<div id="map2" class="mapa"></div><br>
+	</div>
 		<script>
 		function myMap() {
 			//map 1 fakultatea
