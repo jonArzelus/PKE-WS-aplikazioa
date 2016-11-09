@@ -42,7 +42,6 @@ header			{
   background: linear-gradient(#dbffff, #c1ccff); /* Standard syntax */
   text-align: center;
   vertical-align: middle;
-  height:112px;
 }
 nav	{
   background: #c1ccff; 
@@ -255,7 +254,6 @@ footer b {
 
 footer img {
   opacity:0.5;
-  width:48px;
   padding-right:16px;
   float:right;
   margin: 5px 5px 5px 5px;
@@ -297,8 +295,7 @@ footer img:hover {
 
 @media only screen and (min-width:767px) {
 	header img.botoia {
-		width:76px;
-    height: 76px;
+    height: 80%;
 	  padding-right:16px;
 	}
   header img.botoia2 {
@@ -336,7 +333,7 @@ header img.botoia:hover {
 }
 
 .logo { /*egiteko*/
-  heigth:48px;
+  height:90%;
   position:relative;
   margin:auto;
 }
