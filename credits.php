@@ -28,6 +28,15 @@
 			$countryCode = $result->GetGeoIPResult->CountryCode;
  			echo "<br/>Bere herrialde izena: " . $countryName . "<br/>Herrialde kodea: " . $countryCode;
 
+ 			/*//http://ipinfo.io/developers/getting-started
+ 			$ip = $_SERVER['REMOTE_ADDR'];
+ 			echo "Bezeroaren IP helbidea: " . $ip . "<br>";
+ 			$result = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
+ 			$countryName = $result->city;
+			$countryCode = $result->country;
+			$countryLocation = $result->loc;
+ 			echo "<br/>Bere herrialde izena: " . $countryName . "<br/>Herrialde kodea: " . $countryCode. "<br>Bezeroaren koordenatuak: ".$countryLocation;*/
+
 			?>
 		</div><br/>
 		<h3>Google-n API-a erabiliz Javascripten</h3>
