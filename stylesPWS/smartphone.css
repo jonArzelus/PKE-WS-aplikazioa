@@ -1,12 +1,14 @@
-body				{background: #333;}
-
-#page-wrap:after 	{content: "Smartphone Layout";}
+body {
+	background: #333;
+	overflow: auto;
+	font-size: large;
+}
 
 h2 span, section h3	{display: none;}
 section {
-	height: 600px;
+	height: 800px;
+	overflow-y: auto;
 }
-body				{font-size: large;}
 footer, input		{font-size: large;}
 header {
 	margin-top:50px;
@@ -19,4 +21,8 @@ header {
 
 footer img {
 	  width:48px;
+}
+
+footer {
+	height:56px;
 }
