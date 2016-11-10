@@ -6,7 +6,8 @@
 		if($_SERVER['REQUEST_METHOD'] == 'GET')  { //get eskaera
 			null;
 		} else { //post eskaera	
-			// captcha frogatu
+			
+			$eposta=$_POST['eposta'];
         	$captcha=$_POST['g-recaptcha-response'];
         	if(!$captcha){
         		echo '<h2>Mesedez klikatu ezazu captcha!!</h2>';
@@ -17,25 +18,46 @@
         	$ip = $_SERVER['REMOTE_ADDR'];
         	$response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
         	$responseKeys = json_decode($response,true);
-        	if(intval($responseKeys["success"]) !== 1) {
+        	/*if(intval($responseKeys["success"]) !== 1) {
           		echo '<h2>Madarikatua hi, spam zikina!!</h2>';
-        	} else {
-          		//emaila bidali
-				echo "dena ondo joan da, orain emaila bidaliko dizugu";
-				$eposta= $_POST['eposta'];
-				$to      = 'berriotxoa86@gmail.com';
+        	} else {*/
+				
+				//pasahitz aleatorioa sortu 8 karaktererekin
+    			$alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    			$pass = array(); //$pass array bat bezala deklaratu
+    			$alphaLength = strlen($alphabet) - 1; 
+    			for ($i = 0; $i < 8; $i++) {
+        			$n = rand(0, $alphaLength);
+        			$pass[] = $alphabet[$n];
+    			}
+    			$berria=implode($pass); //$pass array-a string bat bihurtu
+				
+				//emaila bidali
+				echo $eposta.'<br>';
+				echo $berria.'<br>';
+				
+				
+				$to      = $eposta;
 				$subject = 'Pasahitz aldaketa';
 				$message = 'Kaixo,
-				Zure emaila aldatzeko eskaera jaso dugu. Zure email berria honako hau da:
-								pasahitza=kakadebaka';
+				Zure emaila aldatzeko eskaera jaso dugu. Zure pasahitz berria honako hau da:
+								pasahitza='.$berria;
 				$headers = 'From: iberriochoa001@ikasle.ehu.eus' . "\r\n" .
 							'Reply-To: iberriochoa001@ikasle.ehu.eus' . "\r\n" .
     						'X-Mailer: PHP/' . phpversion();
-				mail($to, $subject, $message, $headers);
+				if(mail($to, $subject, $message, $headers)){
+					echo "Dena ondo joan da, orain emaila bidaliko dizugu.</br>
+					  Denbora gutxi barru emailik jasotzen ez baduzu, saiatu zaitez berriro.";
+				}else{
+					echo "Errore bat egon da emaila bidaltzean.";
+				}
+			
+				echo "</br> Hasierara bueltatu nahi baduzu, klikatu hurrengo estekan: <a href='".HASIERA."'> Hasiera </a>";
         	}
 		
 		
 		
-		}
+		//}
 	}
+	include 'dbkonexioak/dbClose.php';
 ?>
