@@ -34,6 +34,13 @@ a { text-decoration: none; }
 	right:10;
 }
 
+.g-recaptcha{
+	width: 30%;
+	margin: auto;
+	text-align:center;
+}
+
+
 /*inakik gehitutakoa*/
 
 section > div				{padding: 20px;}

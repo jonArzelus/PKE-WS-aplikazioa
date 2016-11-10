@@ -5,8 +5,6 @@
 ?>
 	<script type="text/javascript">
 	xhttp = new XMLHttpRequest();
-	
-		
 	function emailaKonprobatu(eposta){
 		xhttp.onreadystatechange = function(){
 			if((xhttp.readyState==4) && (xhttp.status==200)){
