@@ -23,7 +23,6 @@
 	          <li><a href="#" tabindex="1">Galderak ikusi<span class="arrow-down"></span></a>
 	            <ul class="dropdown">
 	              <li><a href="seeXMLQuestions.php">Ikusi DB galderak</a></li>
-	              <li><a href="seeXMLQuestions.php">Ikusi XML galderak</a></li>
 	              <li><a href="seeXSLQuestions.php">Ikusi XSL galderak</a></li>
 	              <?php
 	              if($_SESSION['erabiltzaileMota'] != "GUEST") {
@@ -105,6 +104,12 @@
 		echo ('<a href="handlingQuizes.php"><span id="act-sel" class="act-sel">Galderak sortu<div class="arrow-right"></div></span></a>');
 	else
 		echo ('<a href="handlingQuizes.php"><span>Galderak sortu</span></a>');
+	}
+	if($_SESSION['erabiltzaileMota'] == "IRAKASLEA") {
+		if($_GET['orrialdea']=="reviewingQuizes") //galderak kudeatu
+		echo ('<a href="reviewingQuizes.php"><span id="act-sel" class="act-sel">Galderak kudeatu<div class="arrow-right"></div></span></a>');
+	else
+		echo ('<a href="reviewingQuizes.php"><span>Galderak kudeatu</span></a>');
 	}
 	if($_SESSION['erabiltzaileMota'] == "IRAKASLEA") {
 		if($_GET['orrialdea']=="ikasleakIkusi") //ikasleak ikusi

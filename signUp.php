@@ -52,7 +52,7 @@
 				mezuak2.style.backgroundColor="coral";
 			}
 		}
-		if((mezuak.innerHTML==="Erabiltzaile hori zuzena da")&&(mezuak2.innerHTML==="Pasahitz hori egokia da")){
+		if((mezuak.innerHTML==="Erabiltzaile hori zuzena da")&&(mezuak2.innerHTML==="Pasahitz hori egokia da")&&(document.getElementById('pasahitza').value==document.getElementById('pasahitza2').value)){
 			document.getElementById("botoia").disabled=false;
 		}else{
 			document.getElementById("botoia").disabled=true;
@@ -99,6 +99,12 @@
 			preview.src="";
 		}
 	}
+	//bi pasahitzak berdinak izatea bermatzen du
+	function pasahitzaBerdinak() {
+		if(document.getElementById('pasahitza').value!=document.getElementById('pasahitza2').value) {
+			alert("sartutako bi pasahitzak ezberdinak dira");
+		}
+	}
 	//funtzio hau hobetu egin behar da	
 	function tamainaAldatu(){
 		var irudia = document.getElementById("argazkia");
@@ -127,7 +133,9 @@
 			(*) Kodea:
   			<input type="text" id="kodea" name="kodea" required pattern="[0-9]{4}" title="Sartu erositako kodea" oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Pasahitza:
- 			<input type="password" name="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="pasahitzaKonprobatu(this.value); paspostaKonprobatu(2);"><br>
+ 			<input type="password" name="pasahitza" id="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="pasahitzaKonprobatu(this.value); paspostaKonprobatu(2);"><br>
+ 			(*) Pasahitza errepikatu:
+ 			<input type="password" name="pasahitza2" id="pasahitza2" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="pasahitzaBerdinak();"><br>
 			(*) Telefono zenbakia:
  			<input type="text" name="telefono-zenbakia" required pattern="[0-9]{9}" title="9 zenbakiko telefono zenbakia idatzi mesedez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Espezialitatea:

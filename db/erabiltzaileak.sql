@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2016 a las 00:07:20
+-- Tiempo de generación: 10-11-2016 a las 09:42:35
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -207,7 +207,46 @@ INSERT INTO `ekintzak` (`ID`, `konexioa`, `postaElektronikoa`, `ekintzaMota`, `e
 (258, 36, 'rosa123@ikasle.ehu.eus', 'xml galderak ikusi', 'Fri, 04 Nov 2016 23:22:47 +0100', '::1'),
 (259, 36, 'rosa123@ikasle.ehu.eus', 'xml galderak ikusi', 'Fri, 04 Nov 2016 23:24:06 +0100', '::1'),
 (260, 39, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Fri, 04 Nov 2016 23:59:22 +0100', '::1'),
-(261, 39, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sat, 05 Nov 2016 00:02:48 +0100', '::1');
+(261, 39, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sat, 05 Nov 2016 00:02:48 +0100', '::1'),
+(262, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:22:14 +0100', '::1'),
+(263, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:24:53 +0100', '::1'),
+(264, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:28:19 +0100', '::1'),
+(265, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:36:12 +0100', '::1'),
+(266, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:38:27 +0100', '::1'),
+(267, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:38:57 +0100', '::1'),
+(268, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:40:17 +0100', '::1'),
+(269, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:40:20 +0100', '::1'),
+(270, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:40:24 +0100', '::1'),
+(271, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:40:59 +0100', '::1'),
+(272, 41, 'a000@ikasle.ehu.eus', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:44:25 +0100', '::1'),
+(273, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 01:49:15 +0100', '::1'),
+(274, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:19:01 +0100', '::1'),
+(275, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:31:32 +0100', '::1'),
+(276, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:33:12 +0100', '::1'),
+(277, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:34:45 +0100', '::1'),
+(278, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:38:55 +0100', '::1'),
+(279, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:40:30 +0100', '::1'),
+(280, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:40:31 +0100', '::1'),
+(281, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:40:33 +0100', '::1'),
+(282, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:41:05 +0100', '::1'),
+(283, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:41:08 +0100', '::1'),
+(284, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:41:11 +0100', '::1'),
+(285, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:41:12 +0100', '::1'),
+(286, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:41:12 +0100', '::1'),
+(287, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:42:43 +0100', '::1'),
+(288, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 02:43:01 +0100', '::1'),
+(289, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:16:35 +0100', '::1'),
+(290, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:16:40 +0100', '::1'),
+(291, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:16:44 +0100', '::1'),
+(292, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:16:51 +0100', '::1'),
+(293, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:17:00 +0100', '::1'),
+(294, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:17:03 +0100', '::1'),
+(295, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:17:03 +0100', '::1'),
+(296, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:17:03 +0100', '::1'),
+(297, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:17:04 +0100', '::1'),
+(298, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:17:05 +0100', '::1'),
+(299, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Mon, 07 Nov 2016 00:34:04 +0100', '::1'),
+(300, 42, 'rosa123@ikasle.ehu.eus', 'xml galderak ikusi', 'Thu, 10 Nov 2016 09:09:56 +0100', '::1');
 
 -- --------------------------------------------------------
 
@@ -236,7 +275,8 @@ INSERT INTO `erabiltzaileak` (`IzenAbizena`, `erabiltzaileMota`, `PostaElektroni
 ('Rosa Arruabarrena Santos', 'IRAKASLEA', 'rosa123@ikasle.ehu.eus', '123456', 123456789, 'LSI', 'Web sistemak', 'irudiak/user-icon.png'),
 ('Jon Arzelus', 'USER', 'jon123@ikasle.ehu.es', '123456', 987654321, 'software', 'Robotak', 'erabiltzaileIrudiak/jon123ikasleehues'),
 ('Inaki Berriotxoa Gabiria', 'USER', 'inaki123@ikasle.ehu.es', '123456', 987654321, 'software', 'Droneak', 'erabiltzaileIrudiak/inaki123ikasleehues'),
-('Aitor Mendilikueta', 'USER', 'aitor123@ikasle.ehu.es', '123456', 123456789, 'software', '', 'irudiak/user-icon.png');
+('Aitor Mendilikueta', 'USER', 'aitor123@ikasle.ehu.es', '123456', 123456789, 'software', '', 'irudiak/user-icon.png'),
+('Web Master', 'IRAKASLEA', 'web000@ehu.es', 'web000', 666666666, 'Software', 'Softwarea', 'erabiltzaileIrudiak/rosa');
 
 -- --------------------------------------------------------
 
@@ -269,7 +309,12 @@ INSERT INTO `konexioak` (`ID`, `postaElektronikoa`, `konexioData`) VALUES
 (36, 'rosa123@ikasle.ehu.eus', 'Fri, 04 Nov 2016 22:15:16 +0100'),
 (37, 'a000@ikasle.ehu.eus', 'Fri, 04 Nov 2016 23:30:39 +0100'),
 (38, 'a000@ikasle.ehu.eus', 'Fri, 04 Nov 2016 23:39:24 +0100'),
-(39, 'a000@ikasle.ehu.eus', 'Fri, 04 Nov 2016 23:40:25 +0100');
+(39, 'a000@ikasle.ehu.eus', 'Fri, 04 Nov 2016 23:40:25 +0100'),
+(40, 'a000@ikasle.ehu.eus', 'Sat, 05 Nov 2016 01:14:38 +0100'),
+(41, 'a000@ikasle.ehu.eus', 'Sun, 06 Nov 2016 01:19:51 +0100'),
+(42, 'rosa123@ikasle.ehu.eus', 'Thu, 10 Nov 2016 09:09:51 +0100'),
+(43, 'rosa123@ikasle.ehu.eus', 'Thu, 10 Nov 2016 09:35:16 +0100'),
+(44, 'web000@ehu.es', 'Thu, 10 Nov 2016 09:41:38 +0100');
 
 -- --------------------------------------------------------
 
@@ -338,12 +383,12 @@ ALTER TABLE `quiz`
 -- AUTO_INCREMENT de la tabla `ekintzak`
 --
 ALTER TABLE `ekintzak`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 --
 -- AUTO_INCREMENT de la tabla `konexioak`
 --
 ALTER TABLE `konexioak`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT de la tabla `quiz`
 --
