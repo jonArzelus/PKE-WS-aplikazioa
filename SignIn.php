@@ -40,7 +40,7 @@ if (isset($_POST['eposta'])){
 	}
 	//guest izeneko erabiltzailea jarri
 	$_SESSION['eposta']= $eposta;
-	$erabiltzaileak = "SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta' AND Pasahitza='$pass'";
+	$erabiltzaileak = "SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta' AND Pasahitza=SHA('$pass')";
 	$emaitza = $db->query($erabiltzaileak); 
 	$user = $emaitza->fetch_array(MYSQLI_BOTH);
 if(empty($user)){
