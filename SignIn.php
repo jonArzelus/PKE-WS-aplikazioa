@@ -45,7 +45,30 @@ if (isset($_POST['eposta'])){
 	$emaitza = $db->query($erabiltzaileak); 
 	$user = $emaitza->fetch_array(MYSQLI_BOTH);
 if(empty($user)){
-
+	//kontagailua eguneratu
+	mysqli_query($db,"UPDATE erabiltzaileak SET kontagailua=kontagailua+1 WHERE PostaElektronikoa='$eposta'"); 
+	
+	//kontagailua 3 bada, erabiltzailea blokeatuko da.
+	$query = "SELECT kontagailua FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
+	$result = $db->query($query); 
+	$lerroa = $result->fetch_array(MYSQLI_BOTH);
+	if(empty($lerroa)){
+		echo "Erabitlzaile hori ez dago datu basean.";
+	}
+	$kontagailua=$lerroa['kontagailua'];
+	//echo $kontagailua;
+	if($kontagailua>=3){
+		//erabiltzailea blokeatu
+		echo "erabiltzailea blokeatu zaizu";
+	}else{
+		echo 3-$kontagailua." aukera gehiago dituzu blokeatu aurretik";
+	}
+	
+	
+	//$user = $emaitza->fetch_array(MYSQLI_BOTH);
+	
+	
+	//Errore mezuak pantailaratu eta guest ezarri erabiltzaile modura
 	$_SESSION['eposta']= "guest";
 	$_SESSION['konexioid'] = -1;
 	echo("<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

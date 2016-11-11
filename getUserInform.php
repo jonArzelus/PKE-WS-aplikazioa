@@ -43,9 +43,9 @@
   				<h3>Posta-elektronikoa:</h3> 
   				<input type="text" id="emaila" name="emaila" required  title="Sartu ikasle emaila" placeholder="E-mail" oninvalid="this.setCustomValidity('Sartu ikasle baten e-posta')"><br><br>
 				<h3>Ikaslearen izena:</h3>
- 				<input type="text" id="izena" name="ikasle_izena" title="Hau da ikaslearen izena." placeholder="Ikasle izena"><br><br>
+ 				<input type="text" id="izena" name="ikasle_izena" title="Hau da ikaslearen izena." placeholder="Ikasle izena" readonly><br><br>
 				<h3>Telefono zenbakia:</h3>
- 				<input type="text" id="tfonoa" name="telefono_zenbakia" title="Hau da ikaslearen telefono zenbakia." placeholder="Telfono zenbakia"><br><br>
+ 				<input type="text" id="tfonoa" name="telefono_zenbakia" title="Hau da ikaslearen telefono zenbakia." placeholder="Telfono zenbakia" readonly><br><br>
 				<br><br>
 				<input type="button" class="ikasle-botoia" name="button" value="Begiratu" onClick="begiratu()">
 			
