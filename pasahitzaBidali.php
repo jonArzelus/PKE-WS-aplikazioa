@@ -46,6 +46,14 @@
 							'Reply-To: iberriochoa001@ikasle.ehu.eus' . "\r\n" .
     						'X-Mailer: PHP/' . phpversion();
 				if(mail($to, $subject, $message, $headers)){
+					//aldaketak datu basean sartu
+					if (!$db) {
+						echo "Hutxegitea MySQLra konektatzerakoan. "."</br>";
+						echo "errno depurazio akatsa: ".mysqli_connect_errno()."</br>";
+						echo "error depurazio akatsa: ".mysqli_connect_error()."</br>";
+						
+					}
+					$emaitza = mysqli_query($db,"UPDATE erabiltzaileak SET Pasahitza=SHA('$berria') WHERE PostaElektronikoa='$eposta'"); 
 					echo "Dena ondo joan da, orain emaila bidaliko dizugu.</br>
 					  Denbora gutxi barru emailik jasotzen ez baduzu, saiatu zaitez berriro.";
 				}else{
