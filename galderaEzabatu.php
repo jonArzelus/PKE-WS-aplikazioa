@@ -1,36 +1,8 @@
 <?php
 	$_GET['orrialdea']="reviewingQuizes";
+	echo $_GET['ezabatzekoGalderaId'];
 	include 'php/orrialdeGoia.php';
 ?>
-<script type="text/javascript" language="javascript">
-
-function akzioa(x) {
-
-var xhttp = new XMLHttpRequest();
-
-	//galderak ezabatu
-	if(document.getElementById(x).checked==true) {
-		alert(x);
-		//Galderak ezabatu ajax PHP erabiliz
-		//$_GET['ezabatzekoGalderaId'] = x;
-		xhttp.open('GET', 'galderaEzabatuDeia.php?ezabatzekoGalderaId='+x, true);
-    	xhttp.send();
-	    if ((xhttp.readyState==4) && (request.status === 200)) {
-	    	alert("Eragiketa ondo burutua, orrialdea birkargatzen...");
-	    	alert(request.responseText);
-	    }
-	} else {
-		//Galderak ezabatu ajax PHP erabiliz
-		//$_GET['aldatzekoGalderaId'] = x;
-		xhttp.open('GET', 'galderaEzabatu.php?aldatzekoGalderaId='+x, true);
-    	xhttp.send();
-	    if (request.status === 200) {
-	    	alert(request.responseText);
-	    }
-	}
-}
-
-</script>
 <?php
 	echo('</head>');
 	echo('<body>');
@@ -41,10 +13,10 @@ var xhttp = new XMLHttpRequest();
 	<div>
 		<?php
 			include 'dbkonexioak/dbOpen.php';
-			
+			$gzbkia = $_GET['ezabatzekoGalderaId'];
 			//Galderak ikusi PHP erabiliz
 			echo("<h1>DBko galderak kudeatzeko administratzailea</h1></br></br>");
-			$sqlekintza="SELECT galderaZenbakia, egilePosta, galderaTestua, erantzunTestua, zailtasuna, galderaArloa FROM quiz";
+			$sqlekintza="SELECT galderaZenbakia, egilePosta, galderaTestua, erantzunTestua, zailtasuna, galderaArloa FROM quiz WHERE galderaZenbakia=".$gzbkia."";
 			$emaitza=$db->query($sqlekintza);
 			if(!$emaitza) {
 				echo("Errore bat egon da ekintza gehitzean: ".$db->error);
