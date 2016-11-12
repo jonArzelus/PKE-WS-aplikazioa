@@ -7,19 +7,25 @@
 	xhttp = new XMLHttpRequest();
 	
 	function ezabatu(x){
-		alert(x);
-		xhttp.onreadystatechange = function(){
-			if((xhttp.readyState==4) && (xhttp.status==200)){		
-				document.getElementById("taula").innerHTML=xhttp.responseText;
-			}	
-		}
+		if(confirm("Ziur al zaude galdera hau ezabatu nahi duzula?")){
+			xhttp.onreadystatechange = function(){
+				if((xhttp.readyState==4) && (xhttp.status==200)){		
+					document.getElementById("taula").innerHTML=xhttp.responseText;
+				}	
+			}
 		xhttp.open("GET","galderaEzabatu.php?galderaZenb="+x, true);
 		xhttp.send();
+		}else{
+			alert("Galdera ez da ezabatua izango.");
+		}
+	}
+	
+	function editatu(y){
+		if(confirm("Ziur al zaude "+y+".galdera editatu nahi duzula?")){
+			window.location.href= ("galderaEditatu.php?zenbakia="+y);
+		}
 	}
 
-	function akzioa(y){
-		alert(y);
-	}
 	
 
 	
@@ -67,6 +73,7 @@ var xhttp = new XMLHttpRequest();
 			if(!$emaitza) {
 				echo("Errore bat egon da ekintza gehitzean: ".$db->error);
 			}
+			
 			echo ('<table border="1">
 					<tr>
 						<th style="text-align:center"> Egilea </th>
@@ -79,6 +86,7 @@ var xhttp = new XMLHttpRequest();
 					</tr> ');
 		
 			while($lerroa = $emaitza->fetch_array(MYSQLI_BOTH)) {
+					//$zenbakia=$lerroa['galderaZenbakia'];
 					echo ("<tr>");	
 						echo ("<td>".$lerroa['egilePosta']."</td>");
 						echo ("<td>".$lerroa['galderaTestua']."</td>");
@@ -104,7 +112,8 @@ var xhttp = new XMLHttpRequest();
 						echo("</td>");
 						echo ("<td>".$lerroa['galderaArloa']."</td>");
 						echo ("<td style='text-align:center'><input type='button' style='width:100%;' value='Ezabatu' onclick='ezabatu(".$lerroa['galderaZenbakia'].")'></td>");
-						echo ("<td style='text-align:center'> <input type='button' style='width:100%;' value='Aldatu' onclick='akzioa(".$lerroa['galderaZenbakia'].")' > </td>");
+						echo ("<td style='text-align:center'> <input name='editatu' type='button' style='width:100%;' value='Editatu' onclick='editatu(".$lerroa['galderaZenbakia'].")'> </td>");
+						//echo ("<td style='text-align:center'> <form action='galderaEditatu.php?zenbakia=$zenbakia' method='POST'><input name='editatu' type='submit' style='width:100%;' value='Editatu' onclick=""> </form></td>");
 					echo("</tr>");
 			}
 		

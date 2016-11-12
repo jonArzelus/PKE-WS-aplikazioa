@@ -86,8 +86,8 @@
 					<input type="radio" id="star1" name="zailtasuna" value="1" /><label class = "full" for="star1" title="1 - Oso erraza"></label>  
 				</fieldset>
 				</div>
-				</br>
-				</br>
+				<br/>
+				<br/>
 				<input type="button" name="galderakBidali" id="galderakBidali" value="Bidali" onclick="galderaBidali(galdera.value,erantzuna.value,zailtasuna.value,arloa.value)"\>
 				
 				
