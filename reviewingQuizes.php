@@ -4,7 +4,26 @@
 ?>
 <script type="text/javascript" language="javascript">
 
-function akzioa(x) {
+	xhttp = new XMLHttpRequest();
+	
+	function ezabatu(x){
+		alert(x);
+		xhttp.onreadystatechange = function(){
+			if((xhttp.readyState==4) && (xhttp.status==200)){		
+				document.getElementById("taula").innerHTML=xhttp.responseText;
+			}	
+		}
+		xhttp.open("GET","galderaEzabatu.php?galderaZenb="+x, true);
+		xhttp.send();
+	}
+
+	function akzioa(y){
+		alert(y);
+	}
+	
+
+	
+/*function akzioa(x) {
 
 var xhttp = new XMLHttpRequest();
 
@@ -28,7 +47,7 @@ var xhttp = new XMLHttpRequest();
 	    	alert(request.responseText);
 	    }
 	}
-}
+}*/
 
 </script>
 <?php
@@ -37,13 +56,12 @@ var xhttp = new XMLHttpRequest();
 	include 'php/orrialdeNabigazioa.php';
 ?>	
     <section class="main" id="s1">
-		
-	<div>
+		<br/><h1>DBko galderak kudeatzeko administratzailea</h1>
+	<div id="taula">
 		<?php
 			include 'dbkonexioak/dbOpen.php';
 			
 			//Galderak ikusi PHP erabiliz
-			echo("<h1>DBko galderak kudeatzeko administratzailea</h1></br></br>");
 			$sqlekintza="SELECT galderaZenbakia, egilePosta, galderaTestua, erantzunTestua, zailtasuna, galderaArloa FROM quiz";
 			$emaitza=$db->query($sqlekintza);
 			if(!$emaitza) {
@@ -85,8 +103,8 @@ var xhttp = new XMLHttpRequest();
 						}
 						echo("</td>");
 						echo ("<td>".$lerroa['galderaArloa']."</td>");
-						echo ("<td style='text-align:center'><input id='".$lerroa['galderaZenbakia']."' type='checkbox' name='ezabatu' value=".$lerroa['galderaZenbakia']."></td>");
-						echo ("<td> <button style='width:100%;' type='button' onclick='akzioa(".$lerroa['galderaZenbakia'].")'>aldatu</button> </td>");
+						echo ("<td style='text-align:center'><input type='button' style='width:100%;' value='Ezabatu' onclick='ezabatu(".$lerroa['galderaZenbakia'].")'></td>");
+						echo ("<td style='text-align:center'> <input type='button' style='width:100%;' value='Aldatu' onclick='akzioa(".$lerroa['galderaZenbakia'].")' > </td>");
 					echo("</tr>");
 			}
 		

@@ -1,26 +1,18 @@
 <?php
-	$_GET['orrialdea']="reviewingQuizes";
-	echo $_GET['ezabatzekoGalderaId'];
-	include 'php/orrialdeGoia.php';
-?>
-<?php
-	echo('</head>');
-	echo('<body>');
-	include 'php/orrialdeNabigazioa.php';
-?>	
-    <section class="main" id="s1">
-		
-	<div>
-		<?php
-			include 'dbkonexioak/dbOpen.php';
-			$gzbkia = $_GET['ezabatzekoGalderaId'];
-			//Galderak ikusi PHP erabiliz
-			echo("<h1>DBko galderak kudeatzeko administratzailea</h1></br></br>");
-			$sqlekintza="SELECT galderaZenbakia, egilePosta, galderaTestua, erantzunTestua, zailtasuna, galderaArloa FROM quiz WHERE galderaZenbakia=".$gzbkia."";
-			$emaitza=$db->query($sqlekintza);
-			if(!$emaitza) {
-				echo("Errore bat egon da ekintza gehitzean: ".$db->error);
-			}
+if (isset($_GET['galderaZenb'])){
+	include 'dbkonexioak/dbOpen.php';
+	$gzbkia = $_GET['galderaZenb'];
+	
+	//galdera ezabatu
+	$sqlEzabatu="DELETE FROM quiz WHERE galderaZenbakia='$gzbkia'";
+	mysqli_query($db,$sqlEzabatu);
+	
+	//Taula berria erakutsi PHP erabiliz
+	$sqlekintza="SELECT galderaZenbakia, egilePosta, galderaTestua, erantzunTestua, zailtasuna, galderaArloa FROM quiz";
+	$emaitza=$db->query($sqlekintza);
+	if(!$emaitza) {
+		echo("Errore bat egon da ekintza gehitzean: ".$db->error);
+	}
 			echo ('<table border="1">
 					<tr>
 						<th style="text-align:center"> Egilea </th>
@@ -61,11 +53,8 @@
 						echo ("<td> <button style='width:100%;' type='button' onclick='akzioa(".$lerroa['galderaZenbakia'].")'>aldatu</button> </td>");
 					echo("</tr>");
 			}
-		
 			echo("</table></br></br>");
-			include 'dbkonexioak/dbClose.php';
-		?>
-	</div>
-
-    </section>
-<?php include 'php/orrialdeOina.php'; ?>
+		include 'dbkonexioak/dbClose.php';
+}
+?>
+	
