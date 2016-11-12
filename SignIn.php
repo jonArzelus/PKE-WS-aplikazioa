@@ -39,7 +39,19 @@ if (isset($_POST['eposta'])){
 			$eposta= $_POST['eposta'];
 			$pass= $_POST['pasahitza'];
 	}
-	//guest izeneko erabiltzailea jarri
+	//errore mezuak sortu
+	$hasiera="<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+				<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+			<div class='error-page'>
+				<div class='try-again'>";
+	
+	$bukaera="Errorea: Saiatu berriro?
+				</div>
+			</div>
+			<script src='js/signIn.js'></script>";
+	
+	
+	//eposta eguneratu sesioan
 	$_SESSION['eposta']= $eposta;
 	
 	//begiratu eposta hori datu basean dagoen ala ez
@@ -47,7 +59,10 @@ if (isset($_POST['eposta'])){
 	$result = $db->query($query); 
 	$lerroa = $result->fetch_array(MYSQLI_BOTH);
 	if(empty($lerroa)){
-		exit ("Erabitlzaile hori ez dago datu basean.");
+		//guest ezarri erabiltzaile bezala
+		$_SESSION['eposta']= "guest";
+		$_SESSION['konexioid'] = -1;
+		exit($hasiera."Erabiltzaile hori ez dago datu basean, saiatu zaitez berriro.</br>".$bukaera);
 	}
 	
 	//begiratu pasahitza bat datorren ala ez
@@ -56,6 +71,9 @@ if (isset($_POST['eposta'])){
 	$user = $emaitza->fetch_array(MYSQLI_BOTH);
 	
 	if(empty($user)){
+		//guest ezarri erabiltzaile bezala
+		$_SESSION['eposta']= "guest";
+		$_SESSION['konexioid'] = -1;
 		//Pasahitza bat ez badator, kontagailua eguneratu
 		mysqli_query($db,"UPDATE erabiltzaileak SET kontagailua=kontagailua+1 WHERE PostaElektronikoa='$eposta'"); 
 	
@@ -66,23 +84,11 @@ if (isset($_POST['eposta'])){
 		$kontagailua=$lerroa['kontagailua'];
 		if($kontagailua>=3){
 			//erabiltzailea blokeatu
-			exit("Erabiltzailea blokeatu zaizu. Bidali email bat web-masterrari zure kontua berrezartzeko.");
+			echo($hasiera."Erabiltzailea blokeatu zaizu. Bidali email bat web-masterrari zure kontua berrezartzeko.</br>".$bukaera);		
 		}else{
-			echo 3-$kontagailua." aukera gehiago dituzu erabiltzailea blokeatu aurretik";
+			$aukerak=3-$kontagailua;
+			echo($hasiera."  ".$aukerak." aukera gehiago dituzu erabiltzailea blokeatu aurretik</br>".$bukaera);
 		}
-	
-		//Errore mezuak pantailaratu eta guest ezarri erabiltzaile modura
-		$_SESSION['eposta']= "guest";
-		$_SESSION['konexioid'] = -1;
-		echo("<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-			<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-			<div class='error-page'>
-				<div class='try-again'>
-					Eragiketa ez da ongi burutu, saiatu zaitez berriro.</br>
-					Errorea: Saiatu berriro?
-				</div>
-			</div>
-			<script src='js/signIn.js'></script>");
 	}else{
 		//logeatu baina lehen kontagailua nola dagoen begiratzen da.
 		$query = "SELECT kontagailua FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
@@ -90,8 +96,10 @@ if (isset($_POST['eposta'])){
 		$lerroa = $result->fetch_array(MYSQLI_BOTH);
 		$kontagailua=$lerroa['kontagailua'];
 		if($kontagailua>=3){
-			//erabiltzailea blokeatu
-			exit("Erabiltzailea blokeatuta dago. Bidali email bat web-masterrari zure kontua berrezartzeko.");
+			//erabiltzailea guest bezala ezarri eta bestea blokeatu
+			$_SESSION['eposta']= "guest";
+			$_SESSION['konexioid'] = -1;
+			exit($hasiera."Erabiltzailea blokeatuta dago. Bidali email bat web-masterrari zure kontua berrezartzeko.</br>".$bukaera);
 		}else{
 			//kontagailua 0-ra berrezarri
 			mysqli_query($db,"UPDATE erabiltzaileak SET kontagailua=0 WHERE PostaElektronikoa='$eposta'"); 
