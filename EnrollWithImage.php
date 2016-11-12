@@ -82,7 +82,7 @@
 				echo "</br> Hasierara bueltatu nahi baduzu, klikatu hurrengo estekan: <a href='".HASIERA."'> Hasiera </a></br></br>";
 				
 				//tauletan datuak gordetzea
-				mysqli_query($db,"INSERT INTO erabiltzaileak (IzenAbizena, erabiltzaileMota, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia) VALUES ('$izena', '$mota', '$eposta', '$pass', '$tel', '$esp', '$interesak', '$argazkia_helbidea')");
+				mysqli_query($db,"INSERT INTO erabiltzaileak (IzenAbizena, erabiltzaileMota, PostaElektronikoa, Pasahitza, TelefonoZenbakia, Espezialitatea, Interesak, Argazkia, kontagailua) VALUES ('$izena', '$mota', '$eposta',SHA('$pass'), '$tel', '$esp', '$interesak', '$argazkia_helbidea',0)");
 			} else {
 				echo "Datuak jasotzean errorea(k):</br>";
 				if($esp_izena==false)

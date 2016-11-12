@@ -5,8 +5,6 @@
 ?>
 	<script type="text/javascript">
 	xhttp = new XMLHttpRequest();
-	
-		
 	function emailaKonprobatu(eposta){
 		xhttp.onreadystatechange = function(){
 			if((xhttp.readyState==4) && (xhttp.status==200)){
@@ -135,7 +133,7 @@
 			(*) Pasahitza:
  			<input type="password" name="pasahitza" id="pasahitza" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="pasahitzaKonprobatu(this.value); paspostaKonprobatu(2);"><br>
  			(*) Pasahitza errepikatu:
- 			<input type="password" name="pasahitza2" id="pasahitza2" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="pasahitzaBerdinak();"><br>
+ 			<input type="password" name="pasahitza2" id="pasahitza2" required pattern=".{6,}$" title="6 karaktereko luzeera izan behar du gutxienez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')" onchange="pasahitzaBerdinak();paspostaKonprobatu(3);"><br>
 			(*) Telefono zenbakia:
  			<input type="text" name="telefono-zenbakia" required pattern="[0-9]{9}" title="9 zenbakiko telefono zenbakia idatzi mesedez." oninvalid="this.setCustomValidity('Atal hau ezin da hutsik utzi')"><br>
 			(*) Espezialitatea:

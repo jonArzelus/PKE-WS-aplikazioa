@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-11-2016 a las 09:42:35
+-- Tiempo de generación: 11-11-2016 a las 16:59:12
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -262,21 +262,19 @@ CREATE TABLE `erabiltzaileak` (
   `TelefonoZenbakia` int(9) NOT NULL,
   `Espezialitatea` varchar(255) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `Interesak` text CHARACTER SET latin1 COLLATE latin1_spanish_ci,
-  `Argazkia` varchar(255) NOT NULL DEFAULT 'irudiak/user-icon.png'
+  `Argazkia` varchar(255) DEFAULT NULL,
+  `kontagailua` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `erabiltzaileak`
 --
 
-INSERT INTO `erabiltzaileak` (`IzenAbizena`, `erabiltzaileMota`, `PostaElektronikoa`, `Pasahitza`, `TelefonoZenbakia`, `Espezialitatea`, `Interesak`, `Argazkia`) VALUES
-('Peñi Elaska', 'USER', 'a000@ikasle.ehu.eus', 'asdfasdfasdf', 666666666, 'software', 'INTERESIK_GABE', 'irudiak/user-icon.png'),
-('Guest Guest', 'GUEST', 'guest001@ikasle.ehu.eus', 'guestguest', 666666666, 'Software', 'INTERESIK_GABE', 'irudiak/user-icon.png'),
-('Rosa Arruabarrena Santos', 'IRAKASLEA', 'rosa123@ikasle.ehu.eus', '123456', 123456789, 'LSI', 'Web sistemak', 'irudiak/user-icon.png'),
-('Jon Arzelus', 'USER', 'jon123@ikasle.ehu.es', '123456', 987654321, 'software', 'Robotak', 'erabiltzaileIrudiak/jon123ikasleehues'),
-('Inaki Berriotxoa Gabiria', 'USER', 'inaki123@ikasle.ehu.es', '123456', 987654321, 'software', 'Droneak', 'erabiltzaileIrudiak/inaki123ikasleehues'),
-('Aitor Mendilikueta', 'USER', 'aitor123@ikasle.ehu.es', '123456', 123456789, 'software', '', 'irudiak/user-icon.png'),
-('Web Master', 'IRAKASLEA', 'web000@ehu.es', 'web000', 666666666, 'Software', 'Softwarea', 'erabiltzaileIrudiak/rosa');
+INSERT INTO `erabiltzaileak` (`IzenAbizena`, `erabiltzaileMota`, `PostaElektronikoa`, `Pasahitza`, `TelefonoZenbakia`, `Espezialitatea`, `Interesak`, `Argazkia`, `kontagailua`) VALUES
+('Guest Guest', 'GUEST', 'guest001@ikasle.ehu.eus', '44ab1ddff4c9d0245c1386688dbc7a8be736c03e', 666666666, 'Software', 'INTERESIK_GABE', 'ARGAZKI_GABE', 0),
+('Rosa Arruabarrena Santos', 'IRAKASLEA', 'rosa123@ikasle.ehu.eus', '7c4a8d09ca3762af61e59520943dc26494f8941b', 123456789, 'LSI', 'Web sistemak', 'null', 0),
+('Inaki Berriotxoa Gabiria', 'USER', 'iberriochoa001@ikasle.ehu.eus', '79437f5edda13f9c0669b978dd7a9066dd2059f1', 123456789, 'software', 'Dronak', 'erabiltzaileIrudiak/iberriochoa001ikasleehueus', 0),
+('Web Master', 'IRAKASLEA', 'web000@ehu.es', '9dfab044e4cfcdea8048af43640b6d2f832707bc', 0, 'Softwarea', NULL, 'erabiltzaileIrudiak/web000@ehu.es', 0);
 
 -- --------------------------------------------------------
 
