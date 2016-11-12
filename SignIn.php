@@ -41,100 +41,116 @@ if (isset($_POST['eposta'])){
 	}
 	//guest izeneko erabiltzailea jarri
 	$_SESSION['eposta']= $eposta;
-	$erabiltzaileak = "SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta' AND Pasahitza=SHA('$pass')";
-	$emaitza = $db->query($erabiltzaileak); 
-	$user = $emaitza->fetch_array(MYSQLI_BOTH);
-if(empty($user)){
-	//kontagailua eguneratu
-	mysqli_query($db,"UPDATE erabiltzaileak SET kontagailua=kontagailua+1 WHERE PostaElektronikoa='$eposta'"); 
 	
-	//kontagailua 3 bada, erabiltzailea blokeatuko da.
-	$query = "SELECT kontagailua FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
+	//begiratu eposta hori datu basean dagoen ala ez
+	$query = "SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
 	$result = $db->query($query); 
 	$lerroa = $result->fetch_array(MYSQLI_BOTH);
 	if(empty($lerroa)){
-		echo "Erabitlzaile hori ez dago datu basean.";
-	}
-	$kontagailua=$lerroa['kontagailua'];
-	//echo $kontagailua;
-	if($kontagailua>=3){
-		//erabiltzailea blokeatu
-		echo "erabiltzailea blokeatu zaizu";
-	}else{
-		echo 3-$kontagailua." aukera gehiago dituzu blokeatu aurretik";
+		exit ("Erabitlzaile hori ez dago datu basean.");
 	}
 	
+	//begiratu pasahitza bat datorren ala ez
+	$erabiltzaileak = "SELECT * FROM erabiltzaileak WHERE PostaElektronikoa='$eposta' AND Pasahitza=SHA('$pass')";
+	$emaitza = $db->query($erabiltzaileak); 
+	$user = $emaitza->fetch_array(MYSQLI_BOTH);
 	
-	//$user = $emaitza->fetch_array(MYSQLI_BOTH);
+	if(empty($user)){
+		//Pasahitza bat ez badator, kontagailua eguneratu
+		mysqli_query($db,"UPDATE erabiltzaileak SET kontagailua=kontagailua+1 WHERE PostaElektronikoa='$eposta'"); 
 	
+		//kontagailua 3 edo handiagoa bada, erabiltzailea blokeatuko da.
+		$query = "SELECT kontagailua FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
+		$result = $db->query($query); 
+		$lerroa = $result->fetch_array(MYSQLI_BOTH);
+		$kontagailua=$lerroa['kontagailua'];
+		if($kontagailua>=3){
+			//erabiltzailea blokeatu
+			exit("Erabiltzailea blokeatu zaizu. Bidali email bat web-masterrari zure kontua berrezartzeko.");
+		}else{
+			echo 3-$kontagailua." aukera gehiago dituzu erabiltzailea blokeatu aurretik";
+		}
 	
-	//Errore mezuak pantailaratu eta guest ezarri erabiltzaile modura
-	$_SESSION['eposta']= "guest";
-	$_SESSION['konexioid'] = -1;
-	echo("<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-		<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-		<div class='error-page'>
+		//Errore mezuak pantailaratu eta guest ezarri erabiltzaile modura
+		$_SESSION['eposta']= "guest";
+		$_SESSION['konexioid'] = -1;
+		echo("<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+			<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+			<div class='error-page'>
 				<div class='try-again'>
 					Eragiketa ez da ongi burutu, saiatu zaitez berriro.</br>
 					Errorea: Saiatu berriro?
 				</div>
-		</div>
-		<script src='js/signIn.js'></script>");
-}else{
-	//konexio zuzena datubasean gorde
-	date_default_timezone_set('Europe/Madrid');
-	$data = date(DATE_RSS, time());
-	$konexiolog = "INSERT INTO konexioak (postaElektronikoa, konexioData) VALUES('$eposta', '$data')"; //date(DATE_RSS, time()
-	//$db->query($erabiltzaileak); 
-	if ($db->query($konexiolog) === TRUE) {
-    echo "New record created successfully";
-	} else {
-	    echo "Error: " . $konexiolog . "<br>" . $db->error;
+			</div>
+			<script src='js/signIn.js'></script>");
+	}else{
+		//logeatu baina lehen kontagailua nola dagoen begiratzen da.
+		$query = "SELECT kontagailua FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
+		$result = $db->query($query); 
+		$lerroa = $result->fetch_array(MYSQLI_BOTH);
+		$kontagailua=$lerroa['kontagailua'];
+		if($kontagailua>=3){
+			//erabiltzailea blokeatu
+			exit("Erabiltzailea blokeatuta dago. Bidali email bat web-masterrari zure kontua berrezartzeko.");
+		}else{
+			//kontagailua 0-ra berrezarri
+			mysqli_query($db,"UPDATE erabiltzaileak SET kontagailua=0 WHERE PostaElektronikoa='$eposta'"); 
+			
+			//konexio zuzena datubasean gorde
+			date_default_timezone_set('Europe/Madrid');
+			$data = date(DATE_RSS, time());
+			$konexiolog = "INSERT INTO konexioak (postaElektronikoa, konexioData) VALUES('$eposta', '$data')"; //date(DATE_RSS, time()
+			//$db->query($erabiltzaileak); 
+			if ($db->query($konexiolog) === TRUE) {
+    		echo "New record created successfully";
+			} else {
+	    		echo "Error: " . $konexiolog . "<br>" . $db->error;
+			}
+			//konexioaren emaila ezarri
+			$_SESSION['eposta']= $eposta;
+			$konexiosql = "SELECT ID FROM konexioak WHERE PostaElektronikoa='$eposta' AND konexioData='$data'";
+			$konarray = $db->query($konexiosql);
+			if (!$konarray) {
+    			echo 'Could not run query: ' . $db->error;
+    			exit;
+			} else {
+				$row = $konarray->fetch_array(MYSQL_NUM);
+				$_SESSION['konexioid'] = $row[0];
+				//erabiltzaile mota lortu
+				$erabiltzailesql = "SELECT erabiltzaileMota FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
+				$erabiltzailearray = $db->query($erabiltzailesql);
+				if (!$erabiltzailearray) {
+    				echo 'Could not run query: ' . $db->error;
+    				exit;
+    			}
+				$row = $erabiltzailearray->fetch_array(MYSQL_NUM);
+				$_SESSION['erabiltzaileMota'] = $row[0];
+				//erabiltzaile irudia lortu
+				$erabiltzailesql = "SELECT Argazkia FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
+				$erabiltzailearray = $db->query($erabiltzailesql);
+				if (!$erabiltzailearray) {
+    				echo 'Could not run query: ' . $db->error;
+    				exit;
+    			}
+				$row = $erabiltzailearray->fetch_array(MYSQL_NUM);
+				$_SESSION['erabiltzaileIrudia'] = $row[0];
+				//konexio data lortu
+				$konId = $_SESSION['konexioid'];
+				$erabiltzailesql = "SELECT konexioData FROM konexioak WHERE ID='$konId'";
+				$erabiltzailearray = $db->query($erabiltzailesql);
+				if (!$erabiltzailearray) {
+    				echo 'Could not run query: ' . $db->error;
+    				exit;
+    			}
+				$row = $erabiltzailearray->fetch_array(MYSQL_NUM);
+				$_SESSION['konexioData'] = $row[0];
+				echo "Konexioa ondo gordeta!";
+				header("Location:layout.php");
+    			exit;
+			}
+		}	
 	}
-	//konexioaren emaila ezarri
-	$_SESSION['eposta']= $eposta;
-	$konexiosql = "SELECT ID FROM konexioak WHERE PostaElektronikoa='$eposta' AND konexioData='$data'";
-	$konarray = $db->query($konexiosql);
-	if (!$konarray) {
-    	echo 'Could not run query: ' . $db->error;
-    	exit;
-	} else {
-		$row = $konarray->fetch_array(MYSQL_NUM);
-		$_SESSION['konexioid'] = $row[0];
-		//erabiltzaile mota lortu
-		$erabiltzailesql = "SELECT erabiltzaileMota FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
-		$erabiltzailearray = $db->query($erabiltzailesql);
-		if (!$erabiltzailearray) {
-    		echo 'Could not run query: ' . $db->error;
-    		exit;
-    	}
-		$row = $erabiltzailearray->fetch_array(MYSQL_NUM);
-		$_SESSION['erabiltzaileMota'] = $row[0];
-		//erabiltzaile irudia lortu
-		$erabiltzailesql = "SELECT Argazkia FROM erabiltzaileak WHERE PostaElektronikoa='$eposta'";
-		$erabiltzailearray = $db->query($erabiltzailesql);
-		if (!$erabiltzailearray) {
-    		echo 'Could not run query: ' . $db->error;
-    		exit;
-    	}
-		$row = $erabiltzailearray->fetch_array(MYSQL_NUM);
-		$_SESSION['erabiltzaileIrudia'] = $row[0];
-		//konexio data lortu
-		$konId = $_SESSION['konexioid'];
-		$erabiltzailesql = "SELECT konexioData FROM konexioak WHERE ID='$konId'";
-		$erabiltzailearray = $db->query($erabiltzailesql);
-		if (!$erabiltzailearray) {
-    		echo 'Could not run query: ' . $db->error;
-    		exit;
-    	}
-		$row = $erabiltzailearray->fetch_array(MYSQL_NUM);
-		$_SESSION['konexioData'] = $row[0];
-		echo "Konexioa ondo gordeta!";
-		header("Location:layout.php");
-    	exit;
-	}	
-}
-include 'dbkonexioak/dbClose.php';
+	include 'dbkonexioak/dbClose.php';
 }
 
 ?>  
