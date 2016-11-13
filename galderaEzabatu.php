@@ -6,6 +6,17 @@ if (isset($_GET['galderaZenb'])){
 	//galdera ezabatu
 	$sqlEzabatu="DELETE FROM quiz WHERE galderaZenbakia='$gzbkia'";
 	mysqli_query($db,$sqlEzabatu);
+
+	//galdera ezabatu xml-tikan
+	$doc=new SimpleXMLElement("xml/galderak.xml",null,true);
+	$assessmentItems=$doc->xpath('//assessmentItem[@questionId='.$gzbkia.']');
+	if (count($assessmentItems)>=1) {
+    	$assessmentItem=$assessmentItems[0];
+	}
+	$dom=dom_import_simplexml($assessmentItem);
+    $dom->parentNode->removeChild($dom);
+    $doc->asXml("xml/galderak.xml");
+    echo $doc->asXml();
 	
 	//Taula berria erakutsi PHP erabiliz
 	$sqlekintza="SELECT galderaZenbakia, egilePosta, galderaTestua, erantzunTestua, zailtasuna, galderaArloa FROM quiz";
