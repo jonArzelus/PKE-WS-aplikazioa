@@ -50,7 +50,7 @@ if (isset($_GET['galderaZenb'])){
 			echo("</td>");
 			echo ("<td>".$lerroa['galderaArloa']."</td>");
 			echo ("<td style='text-align:center'><input type='button' style='width:100%;' value='Ezabatu' onclick='ezabatu(".$lerroa['galderaZenbakia'].")'></td>");
-			echo ("<td> <button style='width:100%;' type='button' onclick='akzioa(".$lerroa['galderaZenbakia'].")'>aldatu</button> </td>");
+			echo ("<td style='text-align:center'> <input name='editatu' type='button' style='width:100%;' value='Editatu' onclick='editatu(".$lerroa['galderaZenbakia'].")'> </td>");
 			echo("</tr>");
 			}
 		echo("</table></br></br>");
