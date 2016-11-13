@@ -67,38 +67,6 @@ function editatu(){
 	</div>
 
 </section>
-<?php 
-if (isset($_POST['emaila'])){
-	include 'dbkonexioak/dbOpen.php';
-	if($_SERVER['REQUEST_METHOD'] == 'GET')  { //get eskaera landu
-			null;
-		} else { //post eskaera landu
-			$gzenbakia= $_POST['gzenbakia'];
-			$eposta= $_POST['emaila'];
-			$galdera= $_POST['galdera'];
-			$erantzuna= $_POST['erantzuna'];
-			$zailtasuna= $_POST['zailtasuna'];
-	}
-	//errore mezuak sortu
-	/*$hasiera="<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-				<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-			<div class='error-page'>
-				<div class='try-again'>";
-	
-	$bukaera="Errorea: Saiatu berriro?
-				</div>
-			</div>
-			<script src='js/signIn.js'></script>";
-	echo $gzenbakia;
-	echo $eposta;
-	echo $galdera;
-	echo $erantzuna;
-	echo $zailtasuna;
 
-	echo $hasiera."Emaitzak honakoak dira".$bukaera;*/
-	
-	include 'dbkonexioak/dbClose.php';
-}
-?>
 <?php include 'php/orrialdeOina.php'; ?>
 
