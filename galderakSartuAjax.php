@@ -38,7 +38,7 @@
 				$lerroa = $emaitza->fetch_array(MYSQLI_BOTH);
 				$galderaid = $lerroa['galderaZenbakia'];
 
-				echo(">>>>>>>>>>>>>>>>>>>>>>>>> ".$galderaid);
+				//echo(">>>>>>>>>>>>>>>>>>>>>>>>> ".$galderaid);
 				
 				echo $eposta;
 				$konexioid = $_SESSION['konexioid'];

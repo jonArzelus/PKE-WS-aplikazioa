@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="seeQuestions.xsl"?>
 <assessmentItems>
-	<assessmentItem questionId="30" complexity="3" subject="mikologia">
-		<itemBody> 
-			<p>Amanita muskaria zer da?</p>
-		</itemBody>
-		<correctResponse>
-			<value>Perretxikoa</value>
-		</correctResponse>
-	</assessmentItem>
-</assessmentItems>
+	
+<assessmentItem questionId="30" complexity="1" subject="mikologia"><itemBody><p>Amanita muskaria zer da?</p></itemBody><correctResponse><value>Setatxo bat</value></correctResponse></assessmentItem></assessmentItems>

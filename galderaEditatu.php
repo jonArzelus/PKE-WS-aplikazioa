@@ -5,7 +5,7 @@
 <script type="text/javascript" language="javascript">
 function editatu(){
 		if(confirm("Ziur al zaude "+document.getElementById("gzenbakia").value+".galdera editatu nahi duzula?")){
-			window.location.href= ("galderaEdizioaGorde.php?zenbakia="+document.getElementById('gzenbakia').value+"&emaila="+document.getElementById('emaila').value+"&galdera="+document.getElementById('galdera').value+"&erantzuna="+document.getElementById('erantzuna').value+"&zailtasuna="+document.getElementById('zailtasuna').value);
+			window.location.href= ("galderaEdizioaGorde.php?zenbakia="+document.getElementById('gzenbakia').value+"&emaila="+document.getElementById('emaila').value+"&galdera="+document.getElementById('galdera').value+"&erantzuna="+document.getElementById('erantzuna').value+"&zailtasuna="+document.getElementById('zailtasuna').value+"&arloa="+document.getElementById('arloa').value);
 		} else {
 			alert("aldaketak ez dira gordeko");
 		}
@@ -48,6 +48,10 @@ function editatu(){
 		<h3>Editatu erantzuna:</h3>
 		<?php
 			echo'<input type="text" id="erantzuna" name="erantzuna" title="Editatu erantzuna" value="'.$lerroa['erantzunTestua'].'"><br><br>';	
+		?>
+		<h3>Editatu arloa:</h3>
+		<?php
+			echo'<input type="text" id="arloa" name="arloa" title="Editatu galdera arloa" value="'.$lerroa['galderaArloa'].'"><br><br>';	
 		?>
 		<h3>Aukeratu zailtasuna:</h3>
 		<select id="zailtasuna">

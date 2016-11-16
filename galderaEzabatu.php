@@ -12,11 +12,11 @@ if (isset($_GET['galderaZenb'])){
 	$assessmentItems=$doc->xpath('//assessmentItem[@questionId='.$gzbkia.']');
 	if (count($assessmentItems)>=1) {
     	$assessmentItem=$assessmentItems[0];
+    	$dom=dom_import_simplexml($assessmentItem);
+    	$dom->parentNode->removeChild($dom);
 	}
-	$dom=dom_import_simplexml($assessmentItem);
-    $dom->parentNode->removeChild($dom);
     $doc->asXml("xml/galderak.xml");
-    echo $doc->asXml();
+    //echo $doc->asXml();
 	
 	//Taula berria erakutsi PHP erabiliz
 	$sqlekintza="SELECT galderaZenbakia, egilePosta, galderaTestua, erantzunTestua, zailtasuna, galderaArloa FROM quiz";

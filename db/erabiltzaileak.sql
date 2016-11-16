@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2016 a las 16:59:12
+-- Tiempo de generación: 16-11-2016 a las 12:15:24
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 5.6.24
 
@@ -246,7 +246,52 @@ INSERT INTO `ekintzak` (`ID`, `konexioa`, `postaElektronikoa`, `ekintzaMota`, `e
 (297, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:17:04 +0100', '::1'),
 (298, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Sun, 06 Nov 2016 23:17:05 +0100', '::1'),
 (299, -1, 'Erabiltzaile Anonimoa', 'xml galderak ikusi', 'Mon, 07 Nov 2016 00:34:04 +0100', '::1'),
-(300, 42, 'rosa123@ikasle.ehu.eus', 'xml galderak ikusi', 'Thu, 10 Nov 2016 09:09:56 +0100', '::1');
+(300, 42, 'rosa123@ikasle.ehu.eus', 'xml galderak ikusi', 'Thu, 10 Nov 2016 09:09:56 +0100', '::1'),
+(301, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 22:42:35 +0100', '::1'),
+(302, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 22:42:47 +0100', '::1'),
+(303, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 22:47:33 +0100', '::1'),
+(304, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 22:47:41 +0100', '::1'),
+(305, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:05:49 +0100', '::1'),
+(306, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:30:31 +0100', '::1'),
+(307, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:30:42 +0100', '::1'),
+(308, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:30:55 +0100', '::1'),
+(309, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:31:06 +0100', '::1'),
+(310, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:31:29 +0100', '::1'),
+(311, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:31:35 +0100', '::1'),
+(312, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:32:11 +0100', '::1'),
+(313, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:32:26 +0100', '::1'),
+(314, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:32:27 +0100', '::1'),
+(315, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:37:38 +0100', '::1'),
+(316, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:37:44 +0100', '::1'),
+(317, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:38:50 +0100', '::1'),
+(318, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:39:22 +0100', '::1'),
+(319, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:41:10 +0100', '::1'),
+(320, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:41:14 +0100', '::1'),
+(321, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:41:36 +0100', '::1'),
+(322, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:41:43 +0100', '::1'),
+(323, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:41:47 +0100', '::1'),
+(324, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:42:06 +0100', '::1'),
+(325, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:42:12 +0100', '::1'),
+(326, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:42:18 +0100', '::1'),
+(327, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:43:57 +0100', '::1'),
+(328, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:44:02 +0100', '::1'),
+(329, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:44:12 +0100', '::1'),
+(330, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:44:27 +0100', '::1'),
+(331, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:44:41 +0100', '::1'),
+(332, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:44:52 +0100', '::1'),
+(333, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:44:58 +0100', '::1'),
+(334, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:45:00 +0100', '::1'),
+(335, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:47:04 +0100', '::1'),
+(336, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:47:14 +0100', '::1'),
+(337, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:47:22 +0100', '::1'),
+(338, 45, 'web000@ehu.es', 'galdera txertatu', 'Sun, 13 Nov 2016 23:47:26 +0100', '::1'),
+(339, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:47:27 +0100', '::1'),
+(340, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Sun, 13 Nov 2016 23:47:32 +0100', '::1'),
+(341, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Wed, 16 Nov 2016 12:09:39 +0100', '::1'),
+(342, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Wed, 16 Nov 2016 12:10:24 +0100', '::1'),
+(343, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Wed, 16 Nov 2016 12:12:41 +0100', '::1'),
+(344, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Wed, 16 Nov 2016 12:14:03 +0100', '::1'),
+(345, 45, 'web000@ehu.es', 'xml galderak ikusi', 'Wed, 16 Nov 2016 12:14:29 +0100', '::1');
 
 -- --------------------------------------------------------
 
@@ -312,7 +357,8 @@ INSERT INTO `konexioak` (`ID`, `postaElektronikoa`, `konexioData`) VALUES
 (41, 'a000@ikasle.ehu.eus', 'Sun, 06 Nov 2016 01:19:51 +0100'),
 (42, 'rosa123@ikasle.ehu.eus', 'Thu, 10 Nov 2016 09:09:51 +0100'),
 (43, 'rosa123@ikasle.ehu.eus', 'Thu, 10 Nov 2016 09:35:16 +0100'),
-(44, 'web000@ehu.es', 'Thu, 10 Nov 2016 09:41:38 +0100');
+(44, 'web000@ehu.es', 'Thu, 10 Nov 2016 09:41:38 +0100'),
+(45, 'web000@ehu.es', 'Sun, 13 Nov 2016 22:37:14 +0100');
 
 -- --------------------------------------------------------
 
@@ -334,14 +380,7 @@ CREATE TABLE `quiz` (
 --
 
 INSERT INTO `quiz` (`galderaZenbakia`, `egilePosta`, `galderaTestua`, `erantzunTestua`, `zailtasuna`, `galderaArloa`) VALUES
-(1, 'a000@ikasle.ehu.eus', 'Zein da munduko hiriburua?', 'Urretxu', '1', 'Geografia'),
-(2, 'a000@ikasle.ehu.eus', 'Goxoa al dago txokolatea?', 'Bai', '1', 'Gastronomia'),
-(3, 'a000@ikasle.ehu.eus', 'Zein egun da gaur?', 'Mozkortzeko eguna', '1', 'Edariak'),
-(4, 'a000@ikasle.ehu.eus', 'Zein da munduko hiriburua?', 'Urretxu', '1', 'Geografia'),
-(5, 'a000@ikasle.ehu.eus', 'Donostia nun dago?', 'Gipuzkoan', '1', 'Geografia'),
-(27, 'inaki123@ikasle.ehu.es', 'Non dago Wally?', 'San mamesen', '3', 'Humorea'),
-(28, 'inaki123@ikasle.ehu.es', 'Zergatik bai?', 'Zergatik ez?', '1', 'filosofia'),
-(29, 'a000@ikasle.ehu.eus', 'Kaixo?', 'EZ', '5', 'random');
+(30, 'web000@ehu.es', 'Amanita muskaria zer da?', 'Setatxo bat', '1', 'mikologia');
 
 --
 -- Índices para tablas volcadas
@@ -381,17 +420,17 @@ ALTER TABLE `quiz`
 -- AUTO_INCREMENT de la tabla `ekintzak`
 --
 ALTER TABLE `ekintzak`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=346;
 --
 -- AUTO_INCREMENT de la tabla `konexioak`
 --
 ALTER TABLE `konexioak`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT de la tabla `quiz`
 --
 ALTER TABLE `quiz`
-  MODIFY `galderaZenbakia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `galderaZenbakia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
