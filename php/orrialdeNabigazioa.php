@@ -11,11 +11,19 @@
 	}
 
 ?>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="margin-bottom:0px;">
   <div class="container-fluid">
     <ul class="nav navbar-nav navbar-right">
-      <li><a onmouseover="this.style.color='blue';" onmouseleave="this.style.color='#777';" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a style=":hover {color: green}" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    <?php if($_SESSION['erabiltzaileMota']=="GUEST") { ?>
+      <?php if($_GET['orrialdea']=="signUp") { ?>
+        <li class="active"><a onmouseover="this.style.color='#00f';" onmouseleave="this.style.color='#777';" href="signUp.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <?php } else { ?>
+        <li><a onmouseover="this.style.color='#00f';" onmouseleave="this.style.color='#777';" href="signUp.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <?php } ?>
+      <li><a onmouseover="this.style.color='#0f0';" onmouseleave="this.style.color='#777';" href="SignIn.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <?php } else { ?>
+      <li><a onmouseover="this.style.color='#f00';" onmouseleave="this.style.color='#777';" href="LogOut.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+      <?php } ?>
     </ul>
   </div>
 </nav>
@@ -31,21 +39,63 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav">
+      <?php if($_GET['orrialdea']=="layout") { //Hasiera ?>
         <li class="active"><a href="layout.php">Hasiera<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+      <?php } else { ?>
+        <li><a href="layout.php">Hasiera<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+      <?php } ?>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galderak <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Galderak <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a>
           <ul class="dropdown-menu forAnimate" role="menu">
-            <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
-            <li><a href="#">Modificar</a></li>
-            <li><a href="#">Reportar</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Informes</a></li>
+          <?php if($_GET['orrialdea']=="galderakIkusi") { //Galderak ikusi ?>
+            <li class="active"><a href="seeXMLQuestions.php">Galderak ikusi</a></li>
+          <?php } else { ?>
+            <li><a href="seeXMLQuestions.php">Galderak ikusi</a></li>
+          <?php } ?>
+          <?php if($_SESSION['erabiltzaileMota'] != "GUEST") {
+          if($_GET['orrialdea']=="handlingQuizes") { //galderak sortu ?>
+            <li class="active"><a href="handlingQuizes.php">Galderak sortu</a></li>
+          <?php } else { ?>
+            <li><a href="handlingQuizes.php">Galderak sortu</a></li>
+          <?php }} ?>
+            <?php if($_SESSION['erabiltzaileMota'] == "IRAKASLEA") {
+            if($_GET['orrialdea']=="reviewingQuizes") { //galderak kudeatu ?>
+              <li class="divider"></li>
+              <li class="active"><a href="reviewingQuizes.php">Galderak kudeatu</a></li>
+            <?php } else { ?>
+              <li class="divider"></li>
+              <li><a href="reviewingQuizes.php">Galderak kudeatu</a></li>
+            <?php }} ?>
           </ul>
-        </li>          
-        <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
-        <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+        </li>
+        <?php if($_SESSION['erabiltzaileMota'] == "IRAKASLEA") { //irakaslea da ?>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">IErabiltzaileak <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+          <ul class="dropdown-menu forAnimate" role="menu">
+          <?php if($_GET['orrialdea']=="erabiltzaileakIkusi") { //erabiltzaileak ikusi ?>    
+            <li class="active"><a href="erabiltzaileakIkusi.php">Erabiltzaileak ikusi</a></li>  
+          <?php } else { ?>
+            <li><a href="erabiltzaileakIkusi.php">Erabiltzaileak ikusi</a></li> 
+          <?php } ?>
+          <?php if($_GET['orrialdea']=="ikasleakIkusi") { ?>
+            <li class="active"><a href="getUserInform.php">Ikasleak ikusi</a></li>
+          <? } else { ?>
+            <li><a href="getUserInform.php">Ikasleak ikusi</a></li>
+          <?php } ?>
+          </ul>
+        </li>
+        <?php } else { ?>
+          <?php if($_GET['orrialdea']=="erabiltzaileakIkusi") { //erabiltzaileak ikusi ?>    
+            <li class="active"><a href="erabiltzaileakIkusi.php">Erabiltzaileak ikusi<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>  
+          <?php } else { ?>
+            <li><a href="erabiltzaileakIkusi.php">Erabiltzaileak ikusi<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li> 
+          <?php } ?>
+        <?php } ?>          
+        <?php if($_GET['orrialdea']=="credits") { //kredituak ?>      
+          <li class="active"><a href="credits.php">Kredituak<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-info-sign"></span></a></li>
+        <?php } else { ?>
+          <li><a href="credits.php#">Kredituak<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-info-sign"></span></a></li>
+        <?php } ?>
       </ul>
     </div>
   </div>
