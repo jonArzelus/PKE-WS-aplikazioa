@@ -70,14 +70,15 @@
         </li>
         <?php if($_SESSION['erabiltzaileMota'] == "IRAKASLEA") { //irakaslea da ?>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">IErabiltzaileak <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Erabiltzaileak <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
           <ul class="dropdown-menu forAnimate" role="menu">
           <?php if($_GET['orrialdea']=="erabiltzaileakIkusi") { //erabiltzaileak ikusi ?>    
             <li class="active"><a href="erabiltzaileakIkusi.php">Erabiltzaileak ikusi</a></li>  
           <?php } else { ?>
             <li><a href="erabiltzaileakIkusi.php">Erabiltzaileak ikusi</a></li> 
           <?php } ?>
-          <?php if($_GET['orrialdea']=="ikasleakIkusi") { ?>
+          <li class="divider"></li>
+          <?php if($_GET['orrialdea']=="ikasleakIkusi") { //erabiltzaileak ikusi 2 ?>
             <li class="active"><a href="getUserInform.php">Ikasleak ikusi</a></li>
           <? } else { ?>
             <li><a href="getUserInform.php">Ikasleak ikusi</a></li>

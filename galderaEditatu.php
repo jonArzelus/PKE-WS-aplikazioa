@@ -17,7 +17,7 @@ function editatu(){
 	include 'php/orrialdeNabigazioa.php';
 ?>	
 
-<section class="main" id="s1">
+<section class="container">
 	
 	<br/><h1>DBko galderak editatzeko administratzailea</h1>
 	<div id="edizioa">

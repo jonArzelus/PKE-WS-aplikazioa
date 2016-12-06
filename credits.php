@@ -6,7 +6,7 @@
 	include 'php/orrialdeNabigazioa.php';
 ?>
 
-    <section class="main" id="s1">
+    <section class="container">
 	<div>
 		<h2><a style="text-decoration: none" href="https://www.linkedin.com/in/jon-arzelus-rodriguez-63306b128">Jon Arzelus</a> eta <a style="text-decoration: none" href='inaki.html'>Iñaki Berriotxoa</a></h2><br>
 		<h3>Software Ingeniaritza espezialitatea</h3><br>

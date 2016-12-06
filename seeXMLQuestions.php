@@ -5,7 +5,7 @@
 		<body>');
 	include 'php/orrialdeNabigazioa.php';
 ?>
-    <section class="main" id="s1">
+    <section class="container">
 		
 	
 	<div>
@@ -36,7 +36,7 @@
 			$xml = new DOMDocument();
 			$xml = simplexml_load_file('xml/galderak.xml') or die('Errore bat egon da xml fitxategia kargatzean.');
 			//$root = $xml->documentElement;
-			echo ('<table border="1">
+			echo ('<table class="table table-striped">
 					<tr>
 						<th style="text-align:center"> Galdera </th>
 						<th style="text-align:center"> Zailtasuna </th>

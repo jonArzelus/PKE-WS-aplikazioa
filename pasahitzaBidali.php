@@ -1,4 +1,3 @@
-
 <?php
 	if (isset($_POST['eposta']) && isset($_POST['g-recaptcha-response'])){
 	

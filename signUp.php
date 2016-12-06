@@ -120,7 +120,7 @@
 	echo('<body>');
 	include 'php/orrialdeNabigazioa.php';
 ?>
-    <section class="main" id="s1">
+    <section class="container">
 		
 		<div id="gorputza">
 		 <form id="erregistro" name="erregistro" method="POST" action="EnrollWithImage.php" enctype="multipart/form-data">

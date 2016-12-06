@@ -18,7 +18,7 @@
 	
 	$galdera = "SELECT * FROM quiz WHERE egilePosta='{$eposta}'";
 	$emaitza = $db->query($galdera); 
-	echo "<table><tr><th> Galdera </th><th> Erantzuna </th><th> Zailtasuna </th><th> Arloa </th></tr>";
+	echo ('<table class="table table-striped"><tr><th> Galdera </th><th> Erantzuna </th><th> Zailtasuna </th><th> Arloa </th></tr>');
 	while ($lerroa = $emaitza->fetch_assoc()){
 		echo ("<tr><td>".$lerroa['galderaTestua']."</td><td>".$lerroa['erantzunTestua']."</td><td>".$lerroa['zailtasuna']."</td><td>".$lerroa['galderaArloa']."</td></td	>");
 	}

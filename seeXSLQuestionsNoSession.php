@@ -1,7 +1,6 @@
 <?php
 
 			//Galderak ikusi XSL erabiliz
-			echo('<div class="desktopSoilik">');
 			echo("<h1>XML fitxategiko galderak XSL erabiliz</h1></br></br>");
 			
 			$xml2 = new DOMDocument();
@@ -11,7 +10,4 @@
 			$proc = new XSLTProcessor();
 			$proc-> importStyleSheet($xsl);
 			echo ($proc->transformToXML($xml2));
-
-			echo('</div>');
-
 ?>

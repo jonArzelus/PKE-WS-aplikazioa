@@ -24,7 +24,7 @@ if (isset($_GET['galderaZenb'])){
 	if(!$emaitza) {
 		echo("Errore bat egon da ekintza gehitzean: ".$db->error);
 	}
-	echo ('<table border="1">
+	echo ('<table class="table table-striped">
 			<tr>
 				<th style="text-align:center"> Egilea </th>
 				<th style="text-align:center"> Galdera </th>

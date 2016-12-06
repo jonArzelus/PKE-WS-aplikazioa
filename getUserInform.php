@@ -34,7 +34,7 @@
 
 		}
 	</script>
-    <section class="main" id="s1">
+    <section class="container">
 		
 	<h1>Sartu ikaslearen datuak</h1> <br/>
 	<div>

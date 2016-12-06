@@ -61,7 +61,7 @@ var xhttp = new XMLHttpRequest();
 	echo('<body>');
 	include 'php/orrialdeNabigazioa.php';
 ?>	
-    <section class="main" id="s1">
+    <section class="container">
 		<br/><h1>DBko galderak kudeatzeko administratzailea</h1>
 	<div id="taula">
 		<?php
@@ -74,7 +74,7 @@ var xhttp = new XMLHttpRequest();
 				echo("Errore bat egon da ekintza gehitzean: ".$db->error);
 			}
 			
-			echo ('<table border="1">
+			echo ('<table class="table table-striped">
 					<tr>
 						<th style="text-align:center"> Egilea </th>
 						<th style="text-align:center"> Galdera </th>

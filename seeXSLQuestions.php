@@ -5,7 +5,7 @@
 		<body>');
 	include 'php/orrialdeNabigazioa.php';
 ?>
-    <section class="main" id="s1">
+    <section class="container">
 		
 	
 	<div>

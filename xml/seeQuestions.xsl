@@ -3,7 +3,7 @@
 <xsl:template match="/">
 <HTML>
 	<BODY>
-		<TABLE border="1">
+		<TABLE class="table table-striped">
 			
 			<tr>
 				<th style="text-align:center"> Galdera </th>

@@ -52,7 +52,7 @@
 		<body onload="freskatu()">');
 	include 'php/orrialdeNabigazioa.php';
 ?>	
-    <section class="main" id="s1">
+    <section class="container">
 		
 	<div class='login'>
 		<div class="login-header2">
