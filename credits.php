@@ -6,16 +6,29 @@
 	include 'php/orrialdeNabigazioa.php';
 ?>
 
-    <section class="container">
-	<div>
+    <div class="container">
+	<div class="panel panel-default col-md-12 text-center">
+			  
 		<h2><a style="text-decoration: none" href="https://www.linkedin.com/in/jon-arzelus-rodriguez-63306b128">Jon Arzelus</a> eta <a style="text-decoration: none" href='inaki.html'>Iñaki Berriotxoa</a></h2><br>
-		<h3>Software Ingeniaritza espezialitatea</h3><br>
-		<img src="irudiak/index.gif" alt="computer_software"><br>
+
+			  <div class="panel-body">
+			  <div class="col-md-4 col-md-push-4">
+			    <div class="thumbnail">
+			      <img src="irudiak/index.gif" alt="computer_software">
+			      <div class="caption">
+			        <h3>Software ingeniaritza</h3>
+			        <p>PKE proiektua bootstrap erabiliz</p>
+			      </div>
+			    </div>
+			  </div>
+		
 		
 	</div>
+	<div class="panel panel-default col-md-12">
+			  <div class="panel-heading"><h3>SOAP bezeroa erabiliz php-n</h3></div>
+			  <div class="panel-body">
 	<div id="geolokalizaioa">
 		<div id="soap_geo">
-			<h3>SOAP bezeroa erabiliz php-n</h3><br/>
 			<?php
 			$client = new SoapClient("http://www.webservicex.net/geoipservice.asmx?WSDL");
 			$params = new stdClass();
@@ -38,8 +51,8 @@
  			echo "<br/>Bere herrialde izena: " . $countryName . "<br/>Herrialde kodea: " . $countryCode. "<br>Bezeroaren koordenatuak: ".$countryLocation;*/
 
 			?>
-		</div><br/>
-		<h3>Google-n API-a erabiliz Javascripten</h3>
+		</div></div></div><br/>
+	<!--	<h3>Google-n API-a erabiliz Javascripten</h3>
 		<div class="mapadivl">
 			<h4>Fakultatea hemen dago</h4><br><br>
 			<div id="map" class="mapa"></div><br>
@@ -111,14 +124,15 @@
       		}
 			
 		}
+
 			
 		/*function calculateDistance(position){
 			var distantzia = google.maps.geometry.spherical.computeDistanceBetween({lat: 43.093274, lng: -2.314143}, {lat: position.coords.latitude,lng: position.coords.longitude});
 			alert (distantzia);
 		}*/
-		</script>
+		</script> -->
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWdc1h_ayPsJYOdy7USRFMN1rmR5YwJcg&callback=myMap"></script>
 		</div>
-    </section>
+    </div>
 <?php include 'php/orrialdeOina.php'; ?>

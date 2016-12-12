@@ -18,12 +18,12 @@ if ($host=="localhost"){
 }else{
 	//hostingerren atzitzeko
 	define("HOST","mysql.hostinger.es");
-	define("USER", "u880556081_weba");
-	define("PASS", "pertsona1");
-	define("DATABASE", "u880556081_perts");
-	define("ESTEKA","http://berriogit.hol.es/ShowUsersWithImage.php");
-	define("HASIERA","http://berriogit.hol.es/layout.php");
-	define("SIGNUP","http://berriogit.hol.es/signUp.php");
+	define("USER", "u418151680_ab");
+	define("PASS", "123456");
+	define("DATABASE", "u418151680_ab");
+	define("ESTEKA","http://artzeberri.16mb.com/ShowUsersWithImage.php");
+	define("HASIERA","http://artzeberri.16mb.com/layout.php");
+	define("SIGNUP","http://artzeberri.16mb.com/signUp.php");
 }
 
 ?>

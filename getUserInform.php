@@ -35,22 +35,22 @@
 		}
 	</script>
     <section class="container">
-		
-	<h1>Sartu ikaslearen datuak</h1> <br/>
-	<div>
+		<div class="panel panel-default col-md-12">
+			  <div class="panel-heading"><h1>Sartu ikaslearen datuak</h1></div>
+			  <div class="panel-body">
 		<form id="ikasle_emaila" name="ikasle_emaila">
 			
   				<h3>Posta-elektronikoa:</h3> 
-  				<input type="text" id="emaila" name="emaila" required  title="Sartu ikasle emaila" placeholder="E-mail" oninvalid="this.setCustomValidity('Sartu ikasle baten e-posta')"><br><br>
+  				<input class="form-control" type="text" id="emaila" name="emaila" required  title="Sartu ikasle emaila" placeholder="E-mail" oninvalid="this.setCustomValidity('Sartu ikasle baten e-posta')"><br><br>
 				<h3>Ikaslearen izena:</h3>
- 				<input type="text" id="izena" name="ikasle_izena" title="Hau da ikaslearen izena." placeholder="Ikasle izena" readonly><br><br>
+ 				<input class="form-control" type="text" id="izena" name="ikasle_izena" title="Hau da ikaslearen izena." placeholder="Ikasle izena" readonly><br><br>
 				<h3>Telefono zenbakia:</h3>
- 				<input type="text" id="tfonoa" name="telefono_zenbakia" title="Hau da ikaslearen telefono zenbakia." placeholder="Telfono zenbakia" readonly><br><br>
+ 				<input class="form-control" type="text" id="tfonoa" name="telefono_zenbakia" title="Hau da ikaslearen telefono zenbakia." placeholder="Telfono zenbakia" readonly><br><br>
 				<br><br>
-				<input type="button" class="ikasle-botoia" name="button" value="Begiratu" onClick="begiratu()">
+				<input class="btn btn-primary" type="button" class="ikasle-botoia" name="button" value="Begiratu" onClick="begiratu()">
 			
 		</form>
-	</div>
+	</div></div>
 		
 		
     </section>
