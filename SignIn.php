@@ -153,6 +153,9 @@ if (isset($_POST['eposta'])){
 				$row = $erabiltzailearray->fetch_array(MYSQL_NUM);
 				$_SESSION['konexioData'] = $row[0];
 				echo "Konexioa ondo gordeta!";
+				//$_SESSION['eposta'] = "asdf@asdf.com";
+				//$_SESSION['konexioid'] = "12";
+				//$_SESSION['erabiltzaileMota'] = "IRAKASLEA";
 				header("Location:layout.php");
     			exit;
 			}

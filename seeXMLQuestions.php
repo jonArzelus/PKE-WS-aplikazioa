@@ -29,7 +29,7 @@
 			if(!$emaitza) {
 				echo("Errore bat egon da ekintza gehitzean: ".$db->error);
 			}
-			?><div class="panel panel-default">
+			?><div class="panel panel-default col-md-12">
 			  <div class="panel-heading"><h1>Datu Baseko Galderak</h1></div>
 			  <div class="panel-body">
 			  <?php

@@ -170,10 +170,11 @@
 		</form> 
 		
 		<p>(*) duten atalak bete beharrekoak dira, derrigor.</p>
-		</div>
-		</div>
-		</div>
+		</div><br>
 		<div id="mezuak">		</div>
 		<div id="mezuak2">		</div>
+		</div>
+		</div>
+		
     </div>
 <?php include 'php/orrialdeOina.php'; ?>
