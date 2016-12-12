@@ -5,10 +5,9 @@
 		<body>');
 	include 'php/orrialdeNabigazioa.php';
 ?>
-    <section class="container">
+    <div class="container">
 		
 	
-	<div>
 		<?php
 			include 'dbkonexioak/dbOpen.php';
 
@@ -30,9 +29,12 @@
 			if(!$emaitza) {
 				echo("Errore bat egon da ekintza gehitzean: ".$db->error);
 			}
-			
+			?><div class="panel panel-default">
+			  <div class="panel-heading"><h1>Datu Baseko Galderak</h1></div>
+			  <div class="panel-body">
+			  <?php
 			//Galderak ikusi PHP erabiliz
-			echo("<h1>XML fitxategiko galderak PHP erabiliz</h1></br></br>");
+			//echo("<h1>XML fitxategiko galderak PHP erabiliz</h1></br></br>");
 			$xml = new DOMDocument();
 			$xml = simplexml_load_file('xml/galderak.xml') or die('Errore bat egon da xml fitxategia kargatzean.');
 			//$root = $xml->documentElement;
@@ -69,11 +71,12 @@
 					echo("</tr>");
 			}
 		
-			echo("</table></br></br>");
-			include 'seeXSLQuestionsNoSession.php';
+			echo("</table>");
+			?></div>
+			</div><?php
+			//include 'seeXSLQuestionsNoSession.php';
 			include 'dbkonexioak/dbClose.php';
 		?>
-	</div>
 		
-    </section>
+    </div>
 <?php include 'php/orrialdeOina.php'; ?>

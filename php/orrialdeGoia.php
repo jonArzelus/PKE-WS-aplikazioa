@@ -5,9 +5,11 @@
 	if((isset($_SESSION['eposta']) && !empty($_SESSION['eposta'])) && (isset($_SESSION['konexioid']) && !empty($_SESSION['konexioid'])) && (isset($_SESSION['erabiltzaileMota']) && !empty($_SESSION['erabiltzaileMota']))) {
    		null;
 	} else {
-		$_SESSION['eposta'] = "Erabiltzaile Anonimoa";
-		$_SESSION['konexioid'] = -1;
-		$_SESSION['erabiltzaileMota'] = "GUEST";
+		//$_SESSION['eposta'] = "Erabiltzaile Anonimoa";
+		//$_SESSION['konexioid'] = -1;
+		//$_SESSION['erabiltzaileMota'] = "GUEST";
+		//$_SESSION['erabiltzaileIrudia'] = 'irudiak/user-icon.png';
+    null;
 	}
 	if($_GET['orrialdea'] == "ikasleakIkusi" && $_SESSION['erabiltzaileMota'] != "IRAKASLEA") { //irakasleek soilik dute sarrera honera
 		header("Location:layout.php");
